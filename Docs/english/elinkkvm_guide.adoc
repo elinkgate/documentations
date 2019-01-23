@@ -12,6 +12,7 @@ multiple computers from one or more sets of keyboards, video monitors,
 and mice.  For example, in the following diagram, the computer on the
 right is currently being controlled by the peripherals.
 
+****
 .KVM SWitch interworking
 image::../../Resource/Kvm-switch-diagram.svg[]
 
@@ -24,6 +25,7 @@ switch through very long cables and are usually limited in a room, a
 floor or a building, the controlling devices can be anywhere in the
 world that can connect to a KVM over-IP switch and control the connected
 computers with a normal Internet connection.
+****
 
 Another approach for remote controlling is using pure software. However,
 as a pure software solution is usually limited only in an operating
