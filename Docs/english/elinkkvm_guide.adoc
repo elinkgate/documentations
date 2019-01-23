@@ -87,7 +87,7 @@ devices, while delivering higher performance.
 The following diagram shows the scope covered by Booster:
 
 .Booster operating scope
-image::../../Resource/BoosterModeDiagramFlow.svg[image].
+image::../../Resource/BoosterModeDiagramFlow.svg[image]
 
 === Features
 
@@ -96,75 +96,75 @@ Server in most responsive and efficient way. The device is not only
 allowing remotely access at Bios Level which is similar traditional KVM
 over IP but also adding more features:
 
-* Full Bios-level control over an IP Network*
+Full Bios-level control over an IP Network::
 The video capture hardware (Hardware mode) is designed to decode the
 video signal up to 1920x1080 that help to monitor the screen in any
 situation.
 
-* Patented Booster technology
+Patented Booster technology::
 Faster and higher resolution with Booster technology, a patent
 technology allows monitor the screen with faster transfer, any video
 resolution with just a USB connection for almost any situation. See the
 `*Booster*` chapter for more information.
 
-* Featureful native client software
+Featureful native client software::
 Client software is bundled with many unique features: scripting and
 image recognition, to automate manual operations. See the eLinkViewer
 chapter for more information.
 
-* Virtual Media support with 8GB Internal Flash or 64GB with SD Card
+Virtual Media support with 8GB Internal Flash or 64GB with SD Card::
 
 Instead of using a separate computer as a share network storage to
 emulate the Virtual Media, eLinkKVM itself is a high performance shared
 network storage device.
 
-* USB-Powered Design
+USB-Powered Design::
 
 The power is getting from USB port of Server, no external power supply
 required
 
-* RS232 Serial Port
+RS232 Serial Port::
 
 For Serial Console, Remote Dial In or control external PDU
 
-* Built-in IPMI (Intelligent Platform Management Interface) utility
+Built-in IPMI (Intelligent Platform Management Interface) utility::
 
 eLinkKVM understands IPMI and allows control the server that support
 IPMI interface. The user may power on/off/reset server without using an
 external PDU
 
-* Support USB Host Interface
+Support USB Host Interface::
 
 The USB Host port allow eLinkKVM control the USB 3G/4G, external USB
 storage or USB security device to add more functionality.
 
-* Flexible Two Ethernet Ports
+Flexible Two Ethernet Ports::
 
 The Ethernet ports can be configured to work independently to connect 2
 different networks with the master port can be configured as a DHCP
 server. Or 2 ports can be used to connect a server to a router, using a
 single server Ethernet port.
 
-* Built-In USB Hub
+Built-In USB Hub::
 
 Physically emulate all USB device (Mouse, Keyboard, Storage) with just
 one USB cables
 
-* Scalability
+Scalability::
 
 eLinkKVM can scale to control more than one computers by connecting the
 computers to eLinkSwitch.
 
-* Compact form factor
+Compact form factor::
 
 Small footprint of eLinkKVM making it easy to attach to existing servers
 
-* Low cost
+Low cost::
 
 Ideal for distributed IT system environments such as small branch
 offices, campuses, test labs, and server hosting environments.
 
-* Remote firmware upgrade
+Remote firmware upgrade::
 Firmware can be easily upgraded remotely with a few mouse clicks.
 
 === eLinkKVM Phyical Connections
