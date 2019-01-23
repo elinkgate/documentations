@@ -169,7 +169,7 @@ offices, campuses, test labs, and server hosting environments.
 Remote firmware upgrade::
 Firmware can be easily upgraded remotely with a few mouse clicks.
 
-=== eLinkKVM Phyical Connections
+=== eLinkKVM Physical Connections
 
 eLinKVM can be flexibly setup to connect between a remote terminal and a
 remote host with many options.
