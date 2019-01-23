@@ -2,8 +2,8 @@
 v0.1
 :toc:
 
+<<<
 == Chapter {counter:chapter}: Introduction
-
 === Overview
 
 A KVM switch (an abbreviation stands for **K**eyboard, **V**ideo and
@@ -394,7 +394,7 @@ the internet.
 connected to the server serial port.
 |===
 
-
+<<<
 == Chapter {counter:chapter}: Installing eLinkKVM
 
 This chapter describes how to install the eLinkKVM device and necessary
@@ -556,6 +556,7 @@ following the instructions.
 
 Go to chapter 3 (Basic usage) to see how to run and using eLinkViewer.
 
+<<<
 == Chapter {counter:chapter}: Remote management software for eLinkKVM with eLinkViewer
 
 eLinkViewer is a specialized software for remote control and management
@@ -882,6 +883,8 @@ region.
 
 TODO: Add a screenshot
 
+
+<<<
 == Chapter {counter:chapter}: eLinkKVM Configuration
 
 === User Management
@@ -968,6 +971,7 @@ TODO: Add a static version
 
 TODO Factory Reset
 
+<<<
 == Chapter {counter:chapter}: Booster Mode
 
 Booster is a patented technology for eLinkKVM and related ElinkGate
@@ -1159,6 +1163,7 @@ To show the current setuptool version, run the following command:
 [listing]
 vfimg /version
 
+<<<
 == Chapter {counter:chapter}: Multi user manager
 
 === Multiple User
