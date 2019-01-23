@@ -16,6 +16,11 @@ font:
       bold: Inconsolata-Bold.ttf
       italic: Inconsolata-Regular.ttf
       bold_italic: Inconsolata-Bold.ttf
+    IBMPlexMono:
+      normal: IBMPlexMono-Regular.ttf
+      bold: IBMPlexMono-Bold.ttf
+      italic: IBMPlexMono-Italic.ttf
+      bold_italic: IBMPlexMono-BoldItalic.ttf
 
     VT323:
       normal: VT323-Regular.ttf
@@ -38,7 +43,7 @@ font:
     #   italic: mplus1p-regular-fallback.ttf
     #   bold_italic: mplus1p-regular-fallback.ttf
   fallbacks:
-    VT323
+    IBMPlexMono
     # - M+ 1p Fallback
 page:
   background_color: ffffff
@@ -91,8 +96,8 @@ link:
 # literal is currently used for inline monospaced in prose and table cells
 literal:
   font_color: b12146
-  font_family: VT323
-  font_size: $base_font_size * 1.5
+  font_family: IBMPlexMono
+  font_size: $base_font_size
 menu_caret_content: " <font size=\"1.15em\"><color rgb=\"b12146\">\u203a</color></font> "
 heading:
   align: left
@@ -183,8 +188,8 @@ blockquote:
 code:
   font_color: $base_font_color
   font_family: $literal_font_family
-  font_size: $base_font_size * 1.5
-  padding: $base_font_size * 1.5
+  font_size: $base_font_size
+  padding: $base_font_size
   line_height: 1.25
   # line_gap is an experimental property to control how a background color is applied to an inline block element
   line_gap: 3.8
