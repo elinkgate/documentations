@@ -445,20 +445,16 @@ When a connection is established, its network interface must be configured in th
 
 1. Open `Control Panel` -> `All Control Panel Items` -> `Network Connections`.
 
-##### [TODO] Add an demo picture`
-
 2. Right click on Ethernet Device of the eLinkKVM connection, select `Properties.
 
-###### [TODO] Add an demo picture
-
 3. Double click `Internet Protocol version 4 (TCP/IPv4)`
-
-##### [TODO] Add an demo picture
 
 4. Check the following options:
 
 - Ontain an IP Address automatically
 - Obtain DNS server address automatically
+
+![](../../Resource/Elink_network_config.png)
 
 5. Verify the Setting
 
@@ -468,7 +464,7 @@ The default address for Ethernet Master port is `10.0.0.1`. To check if the hard
 
 2. Type the following command:
 
-`ping 10.0.0.1`
+   `ping 10.0.0.1`
 
 If `ping** receives response packets, this means eLinkKVM is connected. To actually use eLinkKVM, the software eLinkViewer is required. The basic usage is described in the next chapter.
 
@@ -486,13 +482,11 @@ eLinkViewer is a specialized software for remote control and management of an eL
 
 ### a. Login ####
 
-##### TODO need to disable Local Account/Online Account 
-
 To connect to an eLinkKVM device, fill the configured IP address in the textbox next to the **Server** field and click `Connect` to connect eLinkViewer to the eLinkKVM at the configured IP address:
 
-|![Elink viewer login Quick Connect](https://drive.google.com/a/elinkgate.com/uc?id=1XmJUH4yOOTuo_9ddt71yyWvzMEC1m-85)|
+| ![Elink viewer login Quick Connect](../../Resource/EV_login_ui.png) |
 | :----------------------------------------------------------: |
-|          *Figure 5: Account login UI*           |
+|                 *Figure 5: Account login UI*                 |
 
 `Options`: configure eLinkKVM-VNC connection
 
@@ -503,7 +497,7 @@ To connect to an eLinkKVM device, fill the configured IP address in the textbox 
 
 **Scan**: Scan for all eLinkKVM devices in the current local area network (LAN)
 
-|![ScaneLinkKVM](https://drive.google.com/a/elinkgate.com/uc?id=1JCnvvzjPa8L-eCFzl6kNBceS22OjBTGq)|
+|![ScaneLinkKVM](../../Resource/EV_scan_dialog.gif)|
 | :----------------------------------------------------------: |
 |          *Figure 5: Account login UI*           |
 
@@ -553,6 +547,22 @@ from the remote remote host.
 
 ### c. Dummy Screen
 
+The screen will display all configure of eLinkKVM device. The content of the screen will be displayed based on level of user login. There has three user level, including: 
+
+- `Admin`: Full control the eLinkKVM device. Top level priority. The account should be belong Vendor/Data center. They used the account to manage the eLinkKVM. The Admin account can create a kind of lower account as Manager for End User who rent their server and is allocated a deliciated eLinkKVM device 
+- `Manager`: Manager account of eLinkKVM. There also has full control eLinkKVM like admin account. Like configure IPMI, serial port, network ... the account is created by Admin account and allocated to End User. With kind of the account, End User can create one or more another `Operator` account 
+- `Operator` The lowest level account. Only has permission to connect to eLinkKVM. 
+
+**NOTE** the lower level account connection could be interrupted by higher level account connect. For example: You are connecting to a eLinkKVM device with `Manager` level, your connection will be interrupt by a new Admin connection. Another connection in level `Manager` (the same level) or `Operator` (Lower level) can not establish when you are on session. 
+
+**Dummy screen of Admin/Manager account** 
+
+![](../../Resource/EV_dummy_admin.png)
+
+**Dummy screen of Operator account **
+
+![](../../Resource/EV_dummy_operator.png)
+
 #### i. Device Status
 
 The default screen when successfully connected to an ElinkKVM device.
@@ -589,29 +599,27 @@ allows changes accordingly:
 
 ### TODO need to add comport here 
 
-|![DummyInfoStatus](../../Resource/DummyCOMPort.png)|
-| :----------------------------------------------------------: |
-|          *Figure 5: Account login UI*           |
+| ![DummyInfoStatus](../../Resource/EV_dummy_comport.png) |
+| :-----------------------------------------------------: |
+|              *Figure 5: Account login UI*               |
 
 #### v. DHCP 
 
 Display all IP address already allocated by DHCP server of eLinkKVM
 
-|![](../../Resource/elinkviewer_dummy_DHCP_Client.png)|
-| :----------------------------------------------------------: |
-|          *Figure 5: Account login UI*           |
+| ![](../../Resource/EV_dummy_DHCP.png) |
+| :-----------------------------------: |
+|     *Figure 5: Account login UI*      |
 
 #### vi. IPMI
 
-Display the current IPMI configuration of an eLinkKVM device and
-allows changes accordingly:
+Support a virtual IPMI device. 
+
+Display the current IPMI configuration of an eLinkKVM device and allows changes accordingly:
 
 |![DummyInfoStatus](../../Resource/elinkview_dummy_IPMI.png)|
 | :----------------------------------------------------------: |
 |          *Figure 5: Account login UI*           |
-
-
-#### vii. Admin
 
 #### viii. Upgrade
 
@@ -628,16 +636,16 @@ onto the device using `File Transfer` feature of eLinkViewer.
 
 Connection user interface:
 
-|![eLinkKVMToolBar](https://drive.google.com/a/elinkgate.com/uc?id=1z8x6QtmbukgJQwigmqJuqkVsrzErp6cY)|
+| ![eLinkKVMToolBar](../../Resource/EV_toolbar.png) |
+| :-----------------------------------------------: |
+|           *Figure 5: Account login UI*            |
+
+1. Create an another new connect to an eLinkKVM device
+
+
+| ![ToolbarNewConnection](../../Resource/EV_newconnection.gif) |
 | :----------------------------------------------------------: |
-|          *Figure 5: Account login UI*           |
-
-1. Create a new connect to an eLinkKVM device
-
-
-|![ToolbarNewConnection](../../Resource/ToolbarNewConnection.png)|
-| :----------------------------------------------------------: |
-|          *Figure 5: Account login UI*           |
+|                 *Figure 5: Account login UI*                 |
 
 2. Store current vnc session as a `.vnc` file
 
@@ -831,7 +839,7 @@ Steps to configure static IP for an eLinkKVM device:
 
 1. Power up an eLinkKVM device and wait for the device to start up completely (all LED1 , LED2, LED 3 light up).
 
-2. Use a Ethernet (RJ45) cable to connect a PC to the Ethernet Master port. The default IP is `10.0.0.1`.
+2. Use a Ethernet (RJ45) cable to connect a PC to the Ethernet Master port. The default IP is *`10.0.0.1`*
 
 4. Open eLinkViewer, enter `*10.0.0.1*` and click `Connect` to connect to the eLinkKVM device:
 
@@ -1003,13 +1011,13 @@ Steps to configure Booster mode:
     - On the remote terminal, connect the remmote host with `eLinkViewer`.
     - Click `Elink Configuration` -> `Browse` then select  `A:\floppy.hdd2`.
     - Clicking `Booster` to activate remote with Booster.
-    
+
 ### e. Booster for UEFI
     By default, when installing the setup packages for an appropriate
     operating system, Booster is also installed for UEFI
     boltloader. Whenever an operating system enters a non-graphical
     environment in UEFI, Booster can be used without any restriction.
-    
+
 ### f. Embbed Booster into operating system setup images with eLinkSetupTool
     `Booster` can run in a setup environment of an operating system
     when it is being installed on a computer. To use this feature, the
@@ -1017,7 +1025,7 @@ Steps to configure Booster mode:
     agent embedded, using `eLinkSetupTool`, a disk creation image
     tool. `Booster` is enabled as soon as the setup image is loaded by
     the remote host computer.
-    
+
 #### eLinkSetupTool instalation
     On Windows:
     
@@ -1042,7 +1050,7 @@ Steps to configure Booster mode:
     ```
     
     After the installation, `vfimg` command should be available globally to be used in a terminal program, e.g. `cmd.exe` on Windows.
-    
+
 ##### TODO: the setup files is above, e.g. `setuptool.exe` should be clickable to download
 
 #### eLinkSetupTool usage
@@ -1066,7 +1074,7 @@ Steps to configure Booster mode:
     Installing vfservice to boot.wim...Done.
     Installing vfservice to UEFI...Done.
     Generate Embedded Hddx at the end of HDD file...Done
-
+    
     ```
     
     The above command creates a new image `Win2012.hdd2` with Booster agent embedded from the original Windows setup image `Win2012.iso`. 
@@ -1075,7 +1083,7 @@ Steps to configure Booster mode:
     - Click `Elink Configuration` -> `Browse`.
     - Browse to the uploaded `Win2012.hdd2` and select it.
     - `Win2012.hdd2` is now exposed to the remote host computer as a USB drive and is selectable as a boot device in the BIOS.
-    
+
 ##### Create a minimal floppy image
 
     eLinkKVM is already bundled with the minimal image `floppy.hdd2` in its interal storage that can be mounted as a floppy disk drive.
@@ -1093,7 +1101,7 @@ Steps to configure Booster mode:
     ```
     vfimg /install-uefi img.hdd2
     ```
-
+    
     To install UEFI agent to `img.hdd2`.
 
 ##### Display version information:
@@ -1106,21 +1114,30 @@ Steps to configure Booster mode:
 ## Chapter 6: Multi user manager 
 #### Multiple User 
 
-- Support up to 8 device 
+- Support up to 8 users 
 - multiple role : 
-- Admin  : Data center  admin account. Can create other lower priority account types like Manager and User 
-- Manager:  User manager account. Can create User account 
-- User:  Access account
+  - Admin  : Data center  admin account. Can create other lower priority account types like Manager and User 
+  - Manager:  User manager account. Can create User account 
+  - User:  Access account 
 |![](../../Resource/EV_multiple_user.png)|
 | :----------------------------------------------------------: |
 |          *Figure 5: Account login UI*           |
 **Note** : For the first time configure, the default user name and password of ELinkKVM is `admin/admin`
 click to icon User Configure bellow to open User Account Configuration
-![](D:\Project\elinkgate_doc\Resource\EV_UM_ico.jpg)
+|![](D:\Project\elinkgate_doc\Resource\EV_UM_ico.jpg)|
+| :----------------------------------------------------------: |
+|          *Figure 5: Account login UI*           |
+
 Create new account by click to blank field, enter password and select the rule for for the new account 
-![](../../Resource/EV_UM_Dialog.png)
-Create new account 
-#### TODO  add animation for Create new user by elinkviewer
+|![](../../Resource/EV_UM_mangementdialog.png)|
+| :----------------------------------------------------------: |
+|          *Figure 5: Account login UI*           |
+
+
+#### Create new user account in eLinkKVM 
+|![](..\..\Resource\EV_UM_adding_new_account.gif)|
+| :----------------------------------------------------------: |
+|          *Figure 5: Account login UI*           |
 
 ## Chapter 7: elinkSetuptool ###
 `elinkSetuptool` is an image creation tool that recreates OS
