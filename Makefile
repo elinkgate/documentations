@@ -1,9 +1,8 @@
-
-all: pdf_manual html_manual
-
 ELINKKVM_MANUAL=Docs/english/elinkkvm_guide.adoc
 ELINKKVM_XML_OUT=build/html/elinkkvm_guide.xml
 ELINKKVM_HTML_PATH=build/html/
+
+all: pdf_manual html_manual
 
 pdf_manual:
 	mkdir -p build/
