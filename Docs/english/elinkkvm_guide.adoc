@@ -3,9 +3,31 @@ v0.1
 :toc:
 
 <<<
-== Chapter {counter:chapter}: Introduction
-=== Overview
+== About eLinkGate
 
+LinkGate is a startup company whose aim is to help people learn
+about IT. eLinkGate has patented a technology called eLinkMe – a USB
+device that allows an IT expert to remotely access a computer, smart
+phone or tablet to fix any problem the user may have. Our eLinkMe
+technology has the following advantages
+
+- *Simple*: No pre-install software or hardware required
+- *Smart*: Ability to work when there is no OS (works at BIOS level)
+- *Safe*: Protects user data and service provider data
+
+It is our belief that the eLinkMe technology, as well as our future
+technologies will enable users to easily request online
+service. Inexperienced users who lack sufficient knowledge about
+computers such as farmers, housewives and the elderly can also begin
+to find support that will make their life better. eLinkMe can also
+assist service providers in providing more services online, while
+allowing customers to review their results face to face, without
+worrying about online theft.
+
+<<<
+== Chapter {counter:chapter}: Introduction
+'''
+=== Overview
 A KVM switch (an abbreviation stands for **K**eyboard, **V**ideo and
 **M**ouse") is a hardware device that enables a user to control
 multiple computers from one or more sets of keyboards, video monitors,
@@ -71,9 +93,9 @@ were physically present and working on the equipment directly.
 
 `*Booster*` is a patented technology that allows eLinkKVM to utilize
 computing resources from remote hosts to improve remote
-performance. To quickly summarize, Booster includes software agents
+performance. To quickly summarize, `*Booster*` includes software agents
 that work on major OS platforms (Windows, Linux and Mac OS)
-however,unlike traditional software solutions, Booster agents can also
+however,unlike traditional software solutions, `*Booster*` agents can also
 operate in BIOS and UEFI environments, independent of any operating
 system.
 
@@ -104,7 +126,7 @@ video signal up to 1920x1080 that help to monitor the screen in any
 situation.
 
 Patented Booster technology::
-Faster and higher resolution with Booster technology, a patent
+Faster and higher resolution with `*Booster*` technology, a patent
 technology allows monitor the screen with faster transfer, any video
 resolution with just a USB connection for almost any situation. See the
 `*Booster*` chapter for more information.
@@ -396,6 +418,7 @@ connected to the server serial port.
 
 <<<
 == Chapter {counter:chapter}: Installing eLinkKVM
+'''
 
 This chapter describes how to install the eLinkKVM device and necessary
 software to work with eLinkKVM . It contains the following sections:
@@ -554,10 +577,11 @@ following the instructions.
 Go to chapter 3 (Basic usage) to see how to run and using eLinkViewer.
 
 <<<
-== Chapter {counter:chapter}: Remote management software for eLinkKVM with eLinkViewer
+== Chapter {counter:chapter}: eLinkViewer
+'''
 
 eLinkViewer is a specialized software for remote control and management
-of an eLinkKVM device. Booster technology is only available with
+of an eLinkKVM device. `*Booster*` technology is only available with
 eLinkViewer.
 
 === Login
@@ -749,7 +773,7 @@ Video::
 
 ** Dummy : configure network and serial connections
 ** VGA: use VGA display over a VGA cable.
-** Booster: enable remote management with `Booster`. This will be covered
+** Booster: enable remote management with `*Booster*`. This will be covered
 in later chapters.
 ** Serial: enable serial display and communication
 ** IPMI: enable Serial Over Lan (SOL) with IPMI
@@ -764,7 +788,7 @@ TODO: Add a static version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1CVYABQC3zRPPt84Bs9G-QeivPD2uh1AR[FilebrowsingELinkKVM]
 
 
-* Example: Configure eLinkKVM to use `USB Key``, `Vnc Mouse`, and `Booster`
+* Example: Configure eLinkKVM to use `USB Key``, `Vnc Mouse`, and `*Booster*`
 mode with `refind.hdd2` disk image.
 
 TODO: Add a static version
@@ -902,6 +926,7 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 <<<
 == Chapter {counter:chapter}: eLinkKVM Configuration
+'''
 
 === User Management
 * Support up to 8 user accounts
@@ -1016,10 +1041,11 @@ file and reset eLinkKVM to use the new configuration.
 TODO Factory Reset
 
 <<<
-== Chapter {counter:chapter}: Booster Mode
+== Chapter {counter:chapter}: Booster
+'''
 
-Booster is a patented technology for eLinkKVM and related ElinkGate
-products. Booster includes software agents for each major OS platform
+`*Booster*` is a patented technology for eLinkKVM and related ElinkGate
+products. `*Booster*` includes software agents for each major OS platform
 (Windows, Linux and Mac OS) that are installed on controlled computers.
 When an eLinkKVM device is attached to a controlled computer, the
 installed software agent is activated to cooperate with a eLinkKVM
@@ -1029,26 +1055,26 @@ greately accelerate video input and output processing. As a result,
 eLinkKVM can deliver higher performance at higher resolutions for an
 extremely economical price.
 
-To enable Booster techonlogy, a user only needs to install the
+To enable `*Booster*` techonlogy, a user only needs to install the
 accompanied software components on an existing operating-system
 installation. For a fresh computer that need a new operating-system
 installation, a tool called `elinkSetuptool` is provided to help
-creating install disk images with embedded Booster from existing
+creating install disk images with embedded `*Booster*` from existing
 installation ISO files, which is covered in the next chapter.
 
 These disk images can be loaded on eLinkKVM internal storage for remote
-operating-system installations on new computers with Booster enabled
+operating-system installations on new computers with `*Booster*` enabled
 through the whole installation process. After the installation process
 is done, the freshly installed operating system is also pre-installed
-with Booster software to allow a user to continue using Booster without
+with `*Booster*` software to allow a user to continue using `*Booster*` without
 any interruption.
 
 .Booster operating scope
 image::../../Resource/BoosterModeDiagramFlow.svg[image]
 
 
-Once a Booster agent is installed on a respective operating system,
-simply click the `Booster` icon to start getting remote screen with
+Once a `*Booster*` agent is installed on a respective operating system,
+simply click the `*Booster*` icon to start getting remote screen with
 Booster.
 
 .Booster enabled
@@ -1061,15 +1087,15 @@ and mouse interactions become much more responsive.
 
 === Booster Configuration
 
-To make it convenient to switch between Booster and other modes,
-eLinkViewer allows a user to customize Auto Booster Toggle button.
+To make it convenient to switch between `*Booster*` and other modes,
+eLinkViewer allows a user to customize Auto `*Booster*` Toggle button.
 Pressing this button allows a user to switch between a pre-configured
 Booster mode and the current mode.
 
 .Booster Configuration UI
 image::../../Resource/elinkviewer_booster_elinkconfig.png[ToogleButtonConfig]
 
-Steps to configure Booster mode:
+Steps to configure `*Booster*` mode:
 
 .  Click `ELink Configuration` button.
 .  From `ELink Configuration` select a remote display mode.
@@ -1085,19 +1111,19 @@ TODO: Add a static version
 
 === Booster for Windows
 
-Follow these steps to install and use Booster on Windows:
+Follow these steps to install and use `*Booster*` on Windows:
 
 - Logged into the computer to be a remote host.
 - Download `setup_elinkagent.exe` on the website.
 - Click the exe file, follow the installer instructions to install the agent.
-- After the installation, run `elinkserver.exe` to enable `Booster` on the remote host.
+- After the installation, run `elinkserver.exe` to enable `*Booster*` on the remote host.
 - On the remote terminal, connect the remmote host with `eLinkViewer`.
 - Click `Elink Configuration` -> `Browse` then select  `A:\floppy.hdd2`.
-- Clicking `Booster` to activate remote with Booster.
+- Clicking `*Booster*` to activate remote with Booster.
 
 === Booster for Linux
 
-Follow these steps to install and use Booster on Linu:
+Follow these steps to install and use `*Booster*` on Linu:
 
 - Logged into the computer to be a remote host.
 - Download setup package for a distro, .e.g. `.deb` for Ubuntu, `.rpm` for Fedora.
@@ -1105,25 +1131,25 @@ Follow these steps to install and use Booster on Linu:
 - On Ubuntu: `sudo apt-get install elinkagent.deb`
 - On Feodra: `sudo apt-get install elinkagent.rpm`
 
-- After the installation, run `elinkserver` to enable `Booster` on the remote host.
+- After the installation, run `elinkserver` to enable `*Booster*` on the remote host.
 - On the remote terminal, connect the remmote host with `eLinkViewer`.
 - Click `Elink Configuration` -> `Browse` then select  `A:\floppy.hdd2`.
-- Clicking `Booster` to activate remote with Booster.
+- Clicking `*Booster*` to activate remote with Booster.
 
 === Booster for UEFI
 
 By default, when installing the setup packages for an appropriate
-operating system, Booster is also installed for UEFI
+operating system, `*Booster*` is also installed for UEFI
 boltloader. Whenever an operating system enters a non-graphical
-environment in UEFI, Booster can be used without any restriction.
+environment in UEFI, `*Booster*` can be used without any restriction.
 
 === Embbed Booster into operating system setup images with eLinkSetupTool
 
-`Booster` can run in a setup environment of an operating system
+`*Booster*` can run in a setup environment of an operating system
 when it is being installed on a computer. To use this feature, the
-setup disk images must be recreated with an appropriate `Booster`
+setup disk images must be recreated with an appropriate `*Booster*`
 agent embedded, using `eLinkSetupTool`, a disk creation image
-tool. `Booster` is enabled as soon as the setup image is loaded by
+tool. `*Booster*` is enabled as soon as the setup image is loaded by
 the remote host computer.
 
 ==== eLinkSetupTool instalation
@@ -1175,7 +1201,8 @@ Installing vfservice to UEFI...Done.
 Generate Embedded Hddx at the end of HDD file...Done
 ----
 
-The above command creates a new image `Win2012.hdd2` with Booster agent embedded from the original Windows setup image `Win2012.iso`.
+The above command creates a new image `Win2012.hdd2` with `*Booster*` agent embedded from the original Windows setup image `Win2012.iso`.
+
 Once the new image is created, upload it to eLinkKVM with `File Transfer`. To use the new image::
 
 - Click `Elink Configuration` -> `Browse`.
@@ -1189,13 +1216,12 @@ For some reason, if the disk is deleted, a user can recreate and reupload the im
 
 [listing]
 vfimg /make-floppy floppy.hdd2
-....
 
 ==== Install UEFI Booster agent to an existing disk image
 
 Aside from OS setup images, there are disk images that contain
 troubleshooting tools running in the UEFI environment. To create
-new images with UEFI Booster agent, run the following command:
+new images with UEFI `*Booster*` agent, run the following command:
 
 [listing]
 vfimg /install-uefi img.hdd2
@@ -1209,6 +1235,7 @@ vfimg /version
 
 <<<
 == Chapter {counter:chapter}: Multi user manager
+'''
 
 === Multiple User
 
