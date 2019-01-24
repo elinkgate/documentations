@@ -832,9 +832,11 @@ image::../../Resource/EventLog.png[image]
 eLinkViewer allows data transfer from a local PC to an eLinkKVM device
 with `File Transfer`:
 
-
+// TODO: Add a static version
+ifdef::html[]
 .File Transfer UI
 image::../../Resource/EV_file_transfer.png[FileTransfering]
+endif::[]
 
 * Click *`File Transfer`* on eLinkViewer toolbar . `File Transfer`
 window appears. To the left is a directory tree of the local PC, to
