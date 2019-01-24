@@ -351,6 +351,7 @@ available network bandwith
  computer's resolution.
 |===
 
+<<<
 === Components
 
 Front and rear views of an eLinkKVM device:
@@ -384,6 +385,7 @@ card
 Mass Storage, etc., to extend eLinkKVM functionality.
 |===
 
+<<<
 ==== Rear view
 
 [cols="1,3,6a"]
