@@ -586,7 +586,7 @@ eLinkViewer.
 
 === Login
 
-TODO need to disable Local Account/Online Account
+// TODO need to disable Local Account/Online Account
 
 To connect to an eLinkKVM device, fill the configured IP address in the
 textbox next to the *Server* field and click `Connect` to connect
@@ -603,14 +603,14 @@ image::../../Resource/elinkviewer_connection_options.jpg[Connection UI]
 * Scan: Scan for all eLinkKVM devices in the current local area network
 (LAN)
 
-TODO: add static image for scanning eLinkKVM devices later
+// TODO: add static image for scanning eLinkKVM devices later
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1JCnvvzjPa8L-eCFzl6kNBceS22OjBTGq[ScaneLinkKVM]
 
 After connecting to an eLinkKVM device, the viewer screen switches to
 `Dummy` screen. The `Dummy` screen displays device status and
 settings.
 
-TODO: Add dummy screen UI later
+// TODO: Add dummy screen UI later
 // image::https://lh3.googleusercontent.com/-k1OlzAGTAV4/XD1OfGcsRSI/AAAAAAAARDI/wBXQ4kye0Nk9B6CJZrmWXbEEwAWx1bxbACHMYCw/s0/elinkviewer_2019-01-15_10-07-38.png[Dummy Screen]
 
 // image::../../Resource/elinkview_dummy_screen.webp[image]
@@ -631,7 +631,7 @@ simply switching from `Dummy` video screen to `VGA` video screen:
 The default `Dummy` screen should be switched to the actual output from
 the remote remote host.
 
-TODO: Add static image version
+// TODO: Add static image version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1GWzc9F2mUWN8A-fbLGQ3KqBzPEhhe6D9[RemoteControlVGA]
 
 ==== Disconnect from an eLinkKVM device
@@ -671,7 +671,7 @@ image::../../Resource/elinkviewer_dummy_network.png[DummyInfoStatus]
 Display the current COM port configuration of an eLinkKVM device and
 allows changes accordingly:
 
-TODO need to add comport here
+// TODO need to add comport here
 
 .COM Port UI
 image::../../Resource/DummyCOMPort.png[DummyInfoStatus]
@@ -742,7 +742,7 @@ eLinkViewer)
 17. Disconnect
 18. Scan IPMI
 
-TODO: Add static image version
+// TODO: Add static image version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1eH2ngwZ-V6stvPc8yc9P5rEjHpcijvFQ[figscalingwindow]
 
 
@@ -784,14 +784,14 @@ in later chapters.
 ** `Browse` button allows navigating to the disk images with a file
 explorer:
 
-TODO: Add a static version
+// TODO: Add a static version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1CVYABQC3zRPPt84Bs9G-QeivPD2uh1AR[FilebrowsingELinkKVM]
 
 
 * Example: Configure eLinkKVM to use `USB Key``, `Vnc Mouse`, and `*Booster*`
 mode with `refind.hdd2` disk image.
 
-TODO: Add a static version
+// TODO: Add a static version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=13nAvrjHhx9Y94-ct4pjFXBFSQu75mYSU[image]
 
 
@@ -827,7 +827,7 @@ image::../../Resource/EventLog.png[image]
 eLinkViewer allows data transfer from a local PC to an eLinkKVM device
 with `File Transfer`:
 
-TODO: Add a static version
+// TODO: Add a static version
 .File Transfer UI
 image::https://drive.google.com/a/elinkgate.com/uc?id=1GxA_1EL_1K73yQ5nnnYQ6wVgxPXzgb-Xk[FileTransfering]
 
@@ -1038,7 +1038,7 @@ file and reset eLinkKVM to use the new configuration.
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1Bkt9flkzvf36T-5rNGA_HJH9VIdlZom1[gifConfigureFile]
 
 
-TODO Factory Reset
+// TODO Factory Reset
 
 <<<
 == Chapter {counter:chapter}: Booster
@@ -1106,7 +1106,7 @@ whenever `Auto Booster Mode` button is clicked.
 .  Press OK to save the configuration.
 .  Press OK to confirm.
 
-TODO: Add a static version
+// TODO: Add a static version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1yJGy1_O6FCYe0uyvxdja5eGSYl8vvWfC[Booster mode remote control]
 
 === Booster for Windows
@@ -1176,7 +1176,6 @@ sudo dnf install setuptool.rpm
 
 After the installation, `vfimg` command should be available globally to be used in a terminal program, e.g. `cmd.exe` on Windows.
 
-[[todo-the-setup-files-is-above-e.g.-setuptool.exe-should-be-clickable-to-download]]
 NOTE: the setup files is above, e.g. `setuptool.exe` should be clickable
 to download
 
@@ -1263,8 +1262,3 @@ image::../../Resource/EV_UM_ico.jpg[image]
 image::../../Resource/EV_UM_Dialog.png[image]
 
 //#### TODO add animation for Create new user by elinkviewer
-<<<
-
-## Chapter {counter:chapter}: elinkSetuptool ##
-`elinkSetuptool` is an image creation tool that recreates OS
-installation images into disk images with `Booster` agents installed.
