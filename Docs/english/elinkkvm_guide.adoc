@@ -635,7 +635,7 @@ the remote remote host.
 
 ==== Disconnect from an eLinkKVM device
 
-* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton, width='66%']
+* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton, width=66%]
 * The following dialog box shows the connection has been terminated:
 
 .Exit connection dialog
@@ -886,7 +886,7 @@ image::../../Resource/elinkviewer_ipmi_reset.png[ipmi-reset-options]
 
 Use IPMI command center to scan and run IPMI commands.
 
-* Click image:../../Resource/elinkviewer_ipmi_scan_icon.jpg[IPMI Scan, width='55%']
+* Click image:../../Resource/elinkviewer_ipmi_scan_icon.jpg[IPMI Scan, width=55%]
 * Enter Start IP and end IP. Limit the ranger of IP scanning.
 * Click `Scan` to start scanning. Found IPMI servers are displayed as
 a list.
