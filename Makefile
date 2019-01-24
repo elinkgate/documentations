@@ -12,4 +12,4 @@ pdf_manual:
 html_manual:
 	mkdir -p build/html
 	asciidoctor -b docbook -a data-uri! ${ELINKKVM_MANUAL} -o ${ELINKKVM_XML_OUT}
-	xsltproc --nonet Resource/docbook/html/chunk.xsl ${ELINKKVM_XML_OUT} 
+	xsltproc --output ${ELINKKVM_HTML_PATH} --nonet Resource/docbook/html/chunk.xsl  ${ELINKKVM_XML_OUT} 
