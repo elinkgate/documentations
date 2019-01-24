@@ -228,9 +228,9 @@ sidebar:
     font_size: $heading_h4_font_size
     font_style: $heading_font_style
 thematic_break:
-  border_color: $base_border_color
+  border_color: 000000
   border_style: solid
-  border_width: $base_border_width
+  border_width: 2
   margin_top: $vertical_rhythm * 0.5
   margin_bottom: $vertical_rhythm * 1.5
 description_list:
@@ -251,7 +251,7 @@ table:
   #body_background_color: <hex value>
   body_stripe_background_color: f9f9f9
   foot_background_color: f0f0f0
-  border_color: dddddd
+  border_color: 000000
   border_width: $base_border_width
   cell_padding: 3
 toc:
