@@ -886,7 +886,7 @@ image::../../Resource/elinkviewer_ipmi_reset.png[ipmi-reset-options]
 
 Use IPMI command center to scan and run IPMI commands.
 
-* Click image:../../Resource/elinkviewer_ipmi_scan_icon.jpg[IPMI Scan]
+* Click image:../../Resource/elinkviewer_ipmi_scan_icon.jpg[IPMI Scan, width='55%']
 * Enter Start IP and end IP. Limit the ranger of IP scanning.
 * Click `Scan` to start scanning. Found IPMI servers are displayed as
 a list.
