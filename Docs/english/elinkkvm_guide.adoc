@@ -16,7 +16,7 @@ right is currently being controlled by the peripherals.
 .KVM SWitch interworking
 image::../../Resource/Kvm-switch-diagram.svg[]
 
-[TODO] Replace Wikipedia diagram about with our original diagram
+//[TODO] Replace Wikipedia diagram about with our original diagram
 
 Normal KVM switches attach controlling and controlled devices directly
 to itself. In contrast, KVM over-IP switches, provides over-the-internet
@@ -516,21 +516,18 @@ only Windows is supported.
 .  Open `Control Panel` -> `All Control Panel Items` ->
 `Network Connections`.
 
-[TODO] Add an demo picture`
-
 .  Right click on Ethernet Device of the eLinkKVM connection, select
 `Properties.
 
-[TODO] Add an demo picture
-
 .  Double click `Internet Protocol version 4 (TCP/IPv4)`
-
-[TODO] Add an demo picture
 
 .  Check the following options:
 
 ** Ontain an IP Address automatically
 ** Obtain DNS server address automatically
+
+.Configure Network
+image::../../Resource/elinkvm_network_config.png[]
 
 .  Verify the Setting
 
@@ -544,7 +541,7 @@ emulator.
 [listing]
 ping 10.0.0.1
 
-If `ping`` receives response packets, this means eLinkKVM is
+If `ping` receives response packets, this means eLinkKVM is
 connected.  To actually use eLinkKVM, the software eLinkViewer is
 required. The basic usage is described in the next chapter.
 
@@ -862,13 +859,30 @@ Use IPMI command center to scan and run IPMI commands.
 * Enter Start IP and end IP. Limit the ranger of IP scanning.
 * Click `Scan` to start scanning. Found IPMI servers are displayed as
 a list.
-* Click on one of the found IPMI IP addresses, enter `Username` and
-`Password`, then click *`Connect`*
+* Click on one of the found IPMI IP addresses, enter `Username` and `Password`, then click *`Connect`*
 * Click *`Power On`*, *`Reset`*, etc., to run appropriate IPMI commands.
 
-TODO: Add a static version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1YlFJlJNrXDe7gTgu0r_rwJqCUgGSRJ1z[IPMI_Scanning]
+Example:
 
+* Open `IPMI Command Center` dialog:
+
+.IPMI scanning process dialog
+image::../../Resource/elinkviewer_ipmi_scanner.png[]
+
+* Select IPMI Ip addr  and enter user name/password: `root/root` and click connect
+
+.IPMI connect to IPMI server
+image::../../Resource/elinkviewer_ipmi_connect_success.png[]
+
+* select reset option to `reset to Bios` and click button `Reset`
+
+.Reset to `Bios` IPMI server by reset command
+image::../../Resource/elinkviewer_ipmi_resetbios.png[]
+
+* Reset command success
+
+.Reset to `Bios` IPMI server by reset command
+image::../../Resource/elinkviewer_ipmi_resetbios_success.png[]
 
 ==== Serial Console
 
@@ -876,18 +890,64 @@ TODO: Add a static version
 
 To capture the current eLinkViewer screen or a part of it:
 
-* Press the `Pause` button
+* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[] button
 * After the screen is paused, hold the `Ctrl` button.
 * While holding the `Ctrl` button, drag the mouse to select a capture
 region.
+* Elinkviewer stored the capture screen as file `tmp<count>.png` like this image:../../Resource/elinkviewer_capture_tmpfile.png[] in folder run `elinkviewer.exe`
 
-TODO: Add a screenshot
+.Capture screen
+image::../../Resource/elinkviewer_capture_screen.png[]
 
 
 <<<
 == Chapter {counter:chapter}: eLinkKVM Configuration
 
 === User Management
+* Support up to 8 user accounts
+* Multiple level management : The higher level can interrupt connection and modify atribute of lower level user account
+  ** Admin  : `Top level` account Data center  admin account. Can create other lower priority account types like Manager and User
+  ** Manager:  `Middle  level` User manager account. Can create User account
+  ** Operator:  Access account
+
+NOTE: For the *First Time Configure*, the default user name and password of ELinkKVM is `admin/admin`
+
+==== Login
+Fill User name/password to log in ELinkKVM
+
+.ELinkKVM login UI
+image::../../Resource/EV_user_login.png[]
+
+==== Manage User acounts in ELinkKVM
+
+* Click to icon User Configure bellow to open User Account Configuration
+
+.Account login UI
+image::../../Resource/EV_UM_ico.jpg[]
+
+
+.User management dialog
+image::../../Resource/EV_UM_mangementdialog.png[]
+
+* *Create new account*
+ ** Click `New User`  to create new account
+ ** Double click to a cell for edit their attribute.
+
+For example: Double click to password cell of new user to show password configure dialog
+
+.Double click to password field and set password for the new user account
+image::../../Resource/EV_user_create_new_account_set_password.png[]
+Input password and confirm the password
+
+.Click to Access Right field to modify the right of an account
+image::../../Resource/EV_user_modify_access_right.png[]
+
+click `Apply Changes` to apply all new configuration
+
+NOTE: click `Generate` buttont for auto generate password, Also can modified attribute of existed user acount by click to select account need to modify
+
+WARNING: Only Admin/Account can run User management
+
 
 === Network Configuration
 
@@ -909,8 +969,8 @@ When connected, eLinkViewer displays its home screen with many tabs
 for different screens. One of the tab is `Network`. Click on `Network`
 tab to move to this screen:
 
+.eLinkKVM configure
 image::../../Resource/elinkviewer_dummy_network.png[eLinkKVM configure]
-
 
 .  The `Network` screen displays the following fields:
 
@@ -919,26 +979,7 @@ image::../../Resource/elinkviewer_dummy_network.png[eLinkKVM configure]
 ** Gateway
 ** DNS
 
-Similar to how an ethernet adapter can be configured in an operating
-system.
-
-*Example*:
-
-Instead of using the default IP address `10.0.0.1`, the IP address of
-the connected eLinkKVM can be changed to `10.0.0.2`.
-
-----
-Ip address: 10.42.0.2
-Netmask:    255.255.255.0 
-GateWay:    10.42.0.1 
-DNS:        10.42.0.1
-----
-
-TODO: Add a static version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1cysTb7rS4BjjY-7PkymnbuA9-GhlAfqa[eLinkKVM]
-
-TODO: Add a static version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1H7-BtcI8SNSALvVU2VUl4YM6_94b5jJI[eLinkKVMConfig]
+Similar to how an ethernet adapter can be configured in an operating system.
 
 Dynamic IP Configuration::
 
@@ -946,9 +987,12 @@ Dynamic IP address is acquired automatically, issued by a DHCP server.
 In this case, the connected eLinkKVM device must be configured as a DHCP
 client.
 
-[TODO] Put a screenshot showing how to select DHCP Client
+.Select DHCP client
+image::../../Resource/elinkviewer_dummy_network_dhcpclient.png[]
 
-=== IPMI Configuration
+=== Virtual IPMI Configuration
+//TODO need to add IPMI configuration
+
 
 === Offline Configuration
 
@@ -965,7 +1009,7 @@ editted by any text editor.
 .  Edit the file following eLinkKVM configuration syntax. Store the
 file and reset eLinkKVM to use the new configuration.
 
-TODO: Add a static version
+//TODO: Add a static version
 // image::https://drive.google.com/a/elinkgate.com/uc?id=1Bkt9flkzvf36T-5rNGA_HJH9VIdlZom1[gifConfigureFile]
 
 
@@ -1057,7 +1101,7 @@ Follow these steps to install and use Booster on Linu:
 
 - Logged into the computer to be a remote host.
 - Download setup package for a distro, .e.g. `.deb` for Ubuntu, `.rpm` for Fedora.
-- Install the packages. 
+- Install the packages.
 - On Ubuntu: `sudo apt-get install elinkagent.deb`
 - On Feodra: `sudo apt-get install elinkagent.rpm`
 
@@ -1107,7 +1151,7 @@ sudo dnf install setuptool.rpm
 After the installation, `vfimg` command should be available globally to be used in a terminal program, e.g. `cmd.exe` on Windows.
 
 [[todo-the-setup-files-is-above-e.g.-setuptool.exe-should-be-clickable-to-download]]
-TODO: the setup files is above, e.g. `setuptool.exe` should be clickable
+NOTE: the setup files is above, e.g. `setuptool.exe` should be clickable
 to download
 
 === eLinkSetupTool usage
@@ -1131,7 +1175,7 @@ Installing vfservice to UEFI...Done.
 Generate Embedded Hddx at the end of HDD file...Done
 ----
 
-The above command creates a new image `Win2012.hdd2` with Booster agent embedded from the original Windows setup image `Win2012.iso`. 
+The above command creates a new image `Win2012.hdd2` with Booster agent embedded from the original Windows setup image `Win2012.iso`.
 Once the new image is created, upload it to eLinkKVM with `File Transfer`. To use the new image::
 
 - Click `Elink Configuration` -> `Browse`.
@@ -1175,17 +1219,25 @@ account types like Manager and User
 * Manager: User manager account. Can create User account
 * User: Access account
 
-image:::../../Resource/EV_multiple_user.png[caption="{counter:Figure}: KVM SWitch interworking"]
+.KVM SWitch interworking
+image::../../Resource/EV_multiple_user.png[]
 
 NOTE: For the first time configure, the default user name and password
 of ELinkKVM is `admin/admin` click to icon User Configure bellow to
 open User Account Configuration
 
-.Create new account by click to blank field, enter password and select
+* Create new account by click to blank field, enter password and select
 the rule for for the new account
-image::D:\Project\elinkgate_doc\Resource\EV_UM_ico.jpg[image]
 
-.Create new account
+.User manager icon in toolbar
+image::../../Resource/EV_UM_ico.jpg[image]
+
+.Create new account dialog
 image::../../Resource/EV_UM_Dialog.png[image]
-#### TODO add animation for Create new user by elinkviewer
 
+//#### TODO add animation for Create new user by elinkviewer
+<<<
+
+## Chapter {counter:chapter}: elinkSetuptool ##
+`elinkSetuptool` is an image creation tool that recreates OS
+installation images into disk images with `Booster` agents installed.
