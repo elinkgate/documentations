@@ -1,11 +1,7 @@
-= eLinkKVM Manual
-v0.1
-:toc:
-
 <<<
 == About eLinkGate
 
-LinkGate is a startup company whose aim is to help people learn
+eLinkGate is a startup company whose aim is to help people learn
 about IT. eLinkGate has patented a technology called eLinkMe – a USB
 device that allows an IT expert to remotely access a computer, smart
 phone or tablet to fix any problem the user may have. Our eLinkMe
@@ -604,14 +600,17 @@ image::../../Resource/elinkviewer_connection_options.jpg[Connection UI]
 (LAN)
 
 // TODO: add static image for scanning eLinkKVM devices later
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1JCnvvzjPa8L-eCFzl6kNBceS22OjBTGq[ScaneLinkKVM]
+ifdef::html[]
+image::https://drive.google.com/a/elinkgate.com/uc?id=1JCnvvzjPa8L-eCFzl6kNBceS22OjBTGq[ScaneLinkKVM]
+endif::[]
 
 After connecting to an eLinkKVM device, the viewer screen switches to
 `Dummy` screen. The `Dummy` screen displays device status and
 settings.
 
-// TODO: Add dummy screen UI later
+ifdef::html[]
 // image::https://lh3.googleusercontent.com/-k1OlzAGTAV4/XD1OfGcsRSI/AAAAAAAARDI/wBXQ4kye0Nk9B6CJZrmWXbEEwAWx1bxbACHMYCw/s0/elinkviewer_2019-01-15_10-07-38.png[Dummy Screen]
+endif::[]
 
 // image::../../Resource/elinkview_dummy_screen.webp[image]
 
@@ -829,7 +828,10 @@ with `File Transfer`:
 
 // TODO: Add a static version
 .File Transfer UI
+
+ifdef::html[]
 image::https://drive.google.com/a/elinkgate.com/uc?id=1GxA_1EL_1K73yQ5nnnYQ6wVgxPXzgb-Xk[FileTransfering]
+endif::[]
 
 * Click *`File Transfer`* on eLinkViewer toolbar . `File Transfer`
 window appears. To the left is a directory tree of the local PC, to
