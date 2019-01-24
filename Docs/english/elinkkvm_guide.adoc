@@ -635,7 +635,7 @@ the remote remote host.
 
 ==== Disconnect from an eLinkKVM device
 
-* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton]
+* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton, width='66%']
 * The following dialog box shows the connection has been terminated:
 
 .Exit connection dialog
