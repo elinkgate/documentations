@@ -875,7 +875,7 @@ Username and Password.
 * `Reset` with options:
 
 .IPMI Reset with options
-image::../../Resource/elinkviewer_ipmi_reset.png[ipmi-reset-options] +
+image::../../Resource/elinkviewer_ipmi_reset.png[ipmi-reset-options]
 
 ** `Reset` : restart a server
 ** `Reset to Bios Setup`: restart a server and enter BIOS
