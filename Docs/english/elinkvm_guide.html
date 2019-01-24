@@ -1,0 +1,481 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>elinkvm_guide</title><link href='night/mermaid.dark.css' rel='stylesheet' type='text/css' />
+<link href='night/codeblock.dark.css' rel='stylesheet' type='text/css' />
+<link href='night/sourcemode.dark.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:first-child { margin-top: -20px; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+.cm-s-inner .cm-variable, .cm-s-inner .cm-operator, .cm-s-inner .cm-property { color: rgb(184, 191, 198); }
+.cm-s-inner .cm-keyword { color: rgb(200, 143, 208); }
+.cm-s-inner .cm-tag { color: rgb(125, 244, 106); }
+.cm-s-inner .cm-attribute { color: rgb(117, 117, 228); }
+.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(184, 191, 198); z-index: 3; }
+.cm-s-inner .cm-string { color: rgb(210, 107, 107); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(218, 146, 74); }
+.cm-s-inner .cm-header, .cm-s-inner .cm-def, .cm-s-inner.cm-header, .cm-s-inner.cm-def { color: rgb(141, 141, 240); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(87, 172, 87); }
+.cm-s-inner .cm-hr { color: rgb(216, 213, 213); }
+.cm-s-inner .cm-link { color: rgb(211, 211, 239); }
+.cm-s-inner .cm-negative { color: rgb(217, 80, 80); }
+.cm-s-inner .cm-positive { color: rgb(80, 230, 80); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta, .cm-s-inner .cm-qualifier { color: rgb(183, 179, 179); }
+.cm-s-inner .cm-builtin { color: rgb(243, 179, 248); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(132, 182, 203); }
+.cm-s-inner .cm-number { color: rgb(100, 171, 143); }
+.cm-s-inner .cm-variable { color: rgb(184, 191, 198); }
+.cm-s-inner .cm-variable-2 { color: rgb(159, 186, 213); }
+.cm-s-inner .cm-variable-3 { color: rgb(28, 198, 133); }
+.CodeMirror-selectedtext, .CodeMirror-selected { background: rgb(74, 137, 220); text-shadow: none; color: rgb(255, 255, 255) !important; }
+.CodeMirror-gutters { border-right: none; }
+
+
+:root { --bg-color: #363B40; --side-bar-bg-color: #2E3033; --text-color: #b8bfc6; --select-text-bg-color:#4a89dc; --control-text-color: #b7b7b7; --control-text-hover-color: #eee; --window-border: 1px solid #555; --active-file-bg-color: rgb(34, 34, 34); --active-file-border-color: #8d8df0; --active-file-text-color: white; --item-hover-bg-color: #70717d; --item-hover-text-color: white; --primary-color: #6dc1e7; --rawblock-edit-panel-bd: #4B535A; }
+html { font-size: 16px; }
+html, body { text-size-adjust: 100%; background: var(--bg-color); fill: currentcolor; }
+#write { max-width: 914px; }
+html, body, button, input, select, textarea, div.code-tooltip-content { color: rgb(184, 191, 198); border-color: transparent; }
+div.code-tooltip, .md-hover-tip .md-arrow::after { background: rgb(75, 83, 90); }
+.popover.bottom > .arrow::after { border-bottom-color: rgb(75, 83, 90); }
+html, body, button, input, select, textarea { font-style: normal; line-height: 1.625rem; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+hr { height: 2px; border: 0px; margin: 24px 0px !important; }
+h1, h2, h3, h4, h5, h6 { font-family: "Lucida Grande", Corbel, sans-serif; font-weight: normal; clear: both; word-wrap: break-word; margin: 0px; padding: 0px; color: rgb(222, 222, 222); }
+h1 { font-size: 2.5rem; line-height: 2.75rem; margin-bottom: 1.5rem; letter-spacing: -1.5px; }
+h2 { font-size: 1.63rem; line-height: 1.875rem; margin-bottom: 1.5rem; letter-spacing: -1px; font-weight: bold; }
+h3 { font-size: 1.17rem; line-height: 1.5rem; margin-bottom: 1.5rem; letter-spacing: -1px; font-weight: bold; }
+h4 { font-size: 1.12rem; line-height: 1.375rem; margin-bottom: 1.5rem; color: white; }
+h5 { font-size: 0.97rem; line-height: 1.25rem; margin-bottom: 1.5rem; font-weight: bold; }
+h6 { font-size: 0.93rem; line-height: 1rem; margin-bottom: 0.75rem; color: white; }
+@media (min-width: 980px) {
+  h3.md-focus::before, h4.md-focus::before, h5.md-focus::before, h6.md-focus::before { color: rgb(221, 221, 221); border: 1px solid rgb(221, 221, 221); border-radius: 3px; position: absolute; left: -1.64286rem; top: 0.357143rem; float: left; font-size: 9px; padding-left: 2px; padding-right: 2px; vertical-align: bottom; font-weight: normal; line-height: normal; }
+  h3.md-focus::before { content: "h3"; }
+  h4.md-focus::before { content: "h4"; }
+  h5.md-focus::before { content: "h5"; top: 0px; }
+  h6.md-focus::before { content: "h6"; top: 0px; }
+}
+a { text-decoration: none; outline: 0px; }
+a:hover { outline: 0px; }
+a:focus { outline: dotted thin; }
+sup.md-footnote { background-color: rgb(85, 85, 85); color: rgb(221, 221, 221); }
+p { word-wrap: break-word; }
+p, ul, dd, ol, hr, address, pre, table, iframe, .wp-caption, .wp-audio-shortcode, .wp-video-shortcode { margin-top: 0px; margin-bottom: 1.5rem; }
+li > blockquote { margin-bottom: 0px; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+.in-text-selection, ::selection { background: rgb(74, 137, 220); color: rgb(255, 255, 255); text-shadow: none; }
+ul, ol { padding: 0px 0px 0px 1.875rem; }
+ul { list-style: square; }
+ol { list-style: decimal; }
+ul ul, ol ol, ul ol, ol ul { margin: 0px; }
+b, th, dt, strong { font-weight: bold; }
+i, em, dfn, cite { font-style: italic; }
+blockquote { margin: 35px 0px 1.875rem 1.875rem; border-left: 2px solid rgb(71, 77, 84); padding-left: 30px; }
+pre, code, kbd, tt, var { background: rgba(0, 0, 0, 0.05); font-size: 0.875rem; font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; }
+kbd { padding: 2px 4px; font-size: 90%; color: rgb(255, 255, 255); background-color: rgb(51, 51, 51); border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0px inset; }
+pre.md-fences { padding: 10px 30px; margin-bottom: 20px; border: 1px solid; }
+.md-fences .code-tooltip { bottom: -3.2em; }
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip, .enable-diagrams pre.md-fences[lang="flow"] .code-tooltip, .enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip { bottom: -2.2em; right: 4px; }
+code, kbd, tt, var { padding: 2px 5px; }
+table { max-width: 100%; width: 100%; border-collapse: collapse; border-spacing: 0px; }
+th, td { padding: 5px 10px; vertical-align: top; }
+a { transition: all 0.2s ease-in-out; }
+hr { background: rgb(71, 77, 84); }
+h1 { margin-top: 2em; }
+a { color: rgb(224, 224, 224); text-decoration: underline; }
+a:hover { color: rgb(255, 255, 255); }
+.md-inline-math script { color: rgb(129, 177, 219); }
+b, th, dt, strong { color: rgb(222, 222, 222); }
+mark { background: rgb(211, 212, 14); }
+blockquote { color: rgb(157, 162, 166); }
+table a { color: rgb(222, 222, 222); }
+th, td { border: 1px solid rgb(71, 77, 84); }
+.task-list { padding-left: 0px; }
+.md-task-list-item { padding-left: 1.25rem; }
+.md-task-list-item > input { top: auto; }
+.md-task-list-item > input::before { content: ""; display: inline-block; width: 0.875rem; height: 0.875rem; vertical-align: middle; text-align: center; border: 1px solid rgb(184, 191, 198); background-color: rgb(54, 59, 64); margin-top: -0.4rem; }
+.md-task-list-item > input:checked::before, .md-task-list-item > input[checked]::before { content: "√"; font-size: 0.625rem; line-height: 0.625rem; color: rgb(222, 222, 222); }
+.CodeMirror-gutters { background: transparent; border-right: 1px solid transparent; }
+.auto-suggest-container { border: 0px; background-color: rgb(82, 92, 101); }
+#typora-quick-open { background-color: rgb(82, 92, 101); }
+#typora-quick-open input { background-color: rgb(82, 92, 101); border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; border-bottom-style: solid; border-bottom-color: grey; }
+.typora-quick-open-item { background-color: inherit; color: inherit; }
+.typora-quick-open-item.active { background-color: rgb(77, 139, 219); color: white; }
+.typora-search-spinner > div { background-color: rgb(255, 255, 255); }
+#write pre.md-meta-block { border-bottom: 1px dashed rgb(204, 204, 204); background: transparent; padding-bottom: 0.6em; line-height: 1.6em; }
+.btn, .btn .btn-default { background: transparent; color: rgb(184, 191, 198); }
+.ty-table-edit { border-top: 1px solid gray; background-color: rgb(54, 59, 64); }
+.popover-title { background: transparent; }
+.md-image > .md-meta { color: rgb(187, 187, 187); background: transparent; }
+.md-expand.md-image > .md-meta { color: rgb(221, 221, 221); }
+#write > h3::before, #write > h4::before, #write > h5::before, #write > h6::before { border: none; border-radius: 0px; color: rgb(136, 136, 136); text-decoration: underline; left: -1.4rem; top: 0.2rem; }
+#write > h3.md-focus::before { top: 2px; }
+#write > h4.md-focus::before { top: 2px; }
+.md-toc-item { color: rgb(168, 194, 220); }
+#write div.md-toc-tooltip { background-color: rgb(54, 59, 64); }
+.dropdown-menu .btn:hover, .dropdown-menu .btn:focus, .md-toc .btn:hover, .md-toc .btn:focus { color: white; background: black; }
+#toc-dropmenu { background: rgba(50, 54, 59, 0.93); border: 1px solid rgba(253, 253, 253, 0.15); }
+#toc-dropmenu .divider { background-color: rgb(155, 155, 155); }
+.outline-expander::before { top: 2px; }
+#typora-sidebar { box-shadow: none; border-right: none; }
+.sidebar-tabs { border-bottom: 0px; }
+#typora-sidebar:hover .outline-title-wrapper { border-left: 1px dashed; }
+.outline-title-wrapper .btn { color: inherit; }
+.outline-item:hover { border-color: rgb(54, 59, 64); background-color: rgb(54, 59, 64); color: white; }
+h1.md-focus .md-attr, h2.md-focus .md-attr, h3.md-focus .md-attr, h4.md-focus .md-attr, h5.md-focus .md-attr, h6.md-focus .md-attr, .md-header-span .md-attr { color: rgb(140, 142, 146); display: inline; }
+.md-comment { color: rgb(90, 149, 227); opacity: 1; }
+.md-inline-math g, .md-inline-math svg { stroke: rgb(184, 191, 198) !important; fill: rgb(184, 191, 198) !important; }
+[md-inline="inline_math"] { color: rgb(156, 178, 233); }
+#math-inline-preview .md-arrow::after { background: black; }
+.modal-content { background: var(--bg-color); border: 0px; }
+.modal-title { font-size: 1.5em; }
+.modal-content input { background-color: rgba(26, 21, 21, 0.51); color: white; }
+.modal-content .input-group-addon { background-color: rgba(0, 0, 0, 0.17); color: white; }
+.modal-backdrop { background-color: rgba(174, 174, 174, 0.7); }
+.modal-content .btn-primary { border-color: var(--primary-color); }
+.md-table-resize-popover { background-color: rgb(75, 83, 90); }
+.form-inline .input-group .input-group-addon { color: white; }
+#md-searchpanel { border-bottom: 1px dashed grey; }
+.context-menu, #spell-check-panel, #footer-word-count-info { background-color: rgb(66, 70, 74); }
+.context-menu.dropdown-menu .divider, .dropdown-menu .divider { background-color: rgb(119, 119, 119); }
+footer { color: inherit; }
+@media (max-width: 1000px) {
+  footer { border-top: none; }
+  footer:hover { color: inherit; }
+}
+#file-info-file-path .file-info-field-value:hover { background-color: rgb(85, 85, 85); color: rgb(222, 222, 222); }
+.megamenu-content, .megamenu-opened header { background: var(--bg-color); }
+.megamenu-menu-panel h2, .megamenu-menu-panel h1, .long-btn { color: inherit; }
+.megamenu-menu-panel input[type="text"] { background: inherit; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-left-style: initial; border-color: initial; border-image: initial; border-bottom-style: solid; }
+#recent-file-panel-action-btn { background: inherit; border: 1px solid grey; }
+.megamenu-menu-panel .dropdown-menu > li > a { color: inherit; background-color: rgb(47, 53, 58); text-decoration: none; }
+.megamenu-menu-panel table td:nth-child(1) { color: inherit; font-weight: bold; }
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) { color: white; }
+.modal-footer .btn-default, .modal-footer .btn-primary, .modal-footer .btn-default:not(:hover) { border: 1px solid transparent; }
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default { color: white; border: 1px solid rgb(221, 221, 221); background-color: inherit; }
+.modal-header { border-bottom: 0px; }
+.modal-footer { border-top: 0px; }
+#recent-file-panel tbody tr:nth-child(2n-1) { background-color: transparent !important; }
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) { color: inherit; }
+.megamenu-menu-panel .btn { border: 1px solid rgb(238, 238, 238); background: transparent; }
+.mouse-hover .toolbar-icon.btn:hover, #w-full.mouse-hover, #w-pin.mouse-hover { background-color: inherit; }
+.typora-node::-webkit-scrollbar { width: 5px; }
+.typora-node::-webkit-scrollbar-thumb:vertical { background: rgba(250, 250, 250, 0.3); }
+.typora-node::-webkit-scrollbar-thumb:vertical:active { background: rgba(250, 250, 250, 0.5); }
+#w-unpin { background-color: rgb(65, 130, 196); }
+#top-titlebar, #top-titlebar * { color: var(--item-hover-text-color); }
+.typora-sourceview-on #toggle-sourceview-btn, #footer-word-count:hover, .ty-show-word-count #footer-word-count { background: rgb(51, 51, 51); }
+#toggle-sourceview-btn:hover { color: rgb(238, 238, 238); background: rgb(51, 51, 51); }
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * { color: rgb(104, 104, 104) !important; }
+.on-focus-mode .md-end-block:not(.md-focus) img, .on-focus-mode .md-task-list-item:not(.md-focus-container) > input { }
+.on-focus-mode li[cid]:not(.md-focus-container) { color: rgb(104, 104, 104); }
+.on-focus-mode .md-fences.md-focus .CodeMirror-code > :not(.CodeMirror-activeline) *, .on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * { color: rgb(104, 104, 104) !important; }
+.on-focus-mode .md-focus, .on-focus-mode .md-focus-container { color: rgb(255, 255, 255); }
+.on-focus-mode #typora-source .CodeMirror-code > :not(.CodeMirror-activeline) * { color: rgb(104, 104, 104) !important; }
+#write .md-focus .md-diagram-panel { border: 1px solid rgb(221, 221, 221); margin-left: -1px; width: calc(100% + 2px); }
+#write .md-focus.md-fences-with-lineno .md-diagram-panel { margin-left: auto; }
+.md-diagram-panel-error { color: rgb(241, 144, 142); }
+.active-tab-files #info-panel-tab-file, .active-tab-files #info-panel-tab-file:hover, .active-tab-outline #info-panel-tab-outline, .active-tab-outline #info-panel-tab-outline:hover { color: rgb(238, 238, 238); }
+.sidebar-footer-item:hover, .footer-item:hover { background: inherit; color: white; }
+.ty-side-sort-btn.active, .ty-side-sort-btn:hover, .selected-folder-menu-item a::after { color: white; }
+#sidebar-files-menu { border: 1px solid; box-shadow: rgba(0, 0, 0, 0.79) 4px 4px 20px; background-color: var(--bg-color); }
+.file-list-item { border-bottom: none; }
+.file-list-item-summary { opacity: 1; }
+.file-list-item.active:first-child { border-top: none; }
+.file-node-background { height: 32px; }
+.file-library-node.active > .file-node-content, .file-list-item.active { color: var(--active-file-text-color); }
+.file-library-node.active > .file-node-background { background-color: var(--active-file-bg-color); }
+.file-list-item.active { background-color: var(--active-file-bg-color); }
+#ty-tooltip { background-color: black; color: rgb(238, 238, 238); }
+.md-task-list-item > input { margin-left: -1.3em; margin-top: calc(1rem - 10px); -webkit-appearance: none; }
+.md-mathjax-midline { background-color: rgb(87, 97, 107); border-bottom: none; }
+
+
+
+
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><p><!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+<strong>Table of Contents</strong></p><ul><li><p><a href='#header-n12859'>eLinkKVM Guide</a></p><ul><li><p><a href='#chapter-1-introduction'>Chapter 1: Introduction</a></p><ul><li><p><a href='#a-overview'>a. Overview</a></p></li><li><p><a href='#b-features'>b. Features</a></p><ul><li><a href='#booster'>Booster</a></li></ul></li><li><p><a href='#c-bundled-hardware-components'>c. Bundled hardware components</a></p></li><li><p><a href='#d-technical-specifications'>d. Technical Specifications</a></p><ul><li><p><a href='#i-security'>i. Security</a></p></li><li><p><a href='#ii-target-server-requirements'>ii. Target Server Requirements</a></p><ul><li><a href='#operating-sytems'>Operating Sytems</a></li></ul></li><li><p><a href='#header-n12997'>Hardware specification</a></p><ul><li><a href='#header-n13141'>Front view</a></li><li><a href='#header-n13171'>Rear view</a></li><li><a href='#internal'>Internal</a></li></ul></li><li><p><a href='#elinkviewer'>eLinkViewer</a></p></li></ul></li></ul></li><li><p><a href='#chapter-2-hardware-setup'>Chapter 2: Hardware Setup</a></p><ul><li><p><a href='#a-first-power-on'>a. First Power On</a></p><ul><li><a href='#devices-and-cables'>Devices and cables</a></li><li><a href='#remote-computer'>Remote computer</a></li><li><a href='#local-computer'>Remote terminal</a></li><li><a href='#elinkkvm-configuration'>eLinkKVM configuration</a></li></ul></li><li><p><a href='#b-network-configuration'>b. Network configuration</a></p><ul><li><a href='#header-n13324'>Windows</a></li></ul></li><li><p><a href='#c-setup-verification'>c. Setup verification</a></p></li></ul></li><li><p><a href='#chapter-3-remote-management-software-for-elinkkvm-with-elinkviewer'>Chapter 3: Remote management software for eLinkKVM with eLinkViewer</a></p><ul><li><p><a href='#a-basic-usage'>a. Basic usage</a></p><ul><li><a href='#header-n13385'>Login</a></li><li><a href='#header-n13420'>Quick usage</a></li><li><a href='#header-n13436'>Disconnect from an eLinkKVM device</a></li></ul></li><li><p><a href='#b-dummy-screen'>b. Dummy Screen</a></p><ul><li><a href='#i-home'>i. Home</a></li><li><a href='#ii-infostatus'>ii. Info/Status</a></li><li><a href='#iii-networks'>iii. Networks</a></li><li><a href='#iv-com-port'>iv. COM Port</a></li><li><a href='#v-ipmi'>v. IPMI</a></li><li><a href='#vi-admin'>vi. Admin</a></li><li><a href='#vii-upgrade'>vii. Upgrade</a></li></ul></li><li><p><a href='#c-elinkkvm-toolbar'>c. eLinkKVM Toolbar</a></p></li><li><p><a href='#d-keyboard-video-and-mouse-settings'>d. Keyboard, Video and Mouse Settings</a></p><ul><li><a href='#key'>Key:</a></li><li><a href='#mouse'>Mouse:</a></li><li><a href='#video'>Video:</a></li><li><a href='#file-browsing-and-disk-image-mounting'>File browsing and disk image mounting:</a></li></ul></li><li><p><a href='#e-python-cnsole-ui'>e. Python Cnsole UI</a></p></li><li><p><a href='#f-event-log-ui'>f. Event Log UI</a></p></li><li><p><a href='#g-ipmi-command-center'>g. IPMI Command Center</a></p></li></ul></li><li><p><a href='#chapter-4-elinkkvm-configuration'>Chapter 4: eLinkKVM Configuration</a></p><ul><li><p><a href='#a-user-management'>a. User Management</a></p></li><li><p><a href='#b-network-configuration'>b. Network Configuration</a></p><ul><li><a href='#-'>-</a></li><li><a href='#header-n13767'>Dynamic IP Configuration</a></li></ul></li><li><p><a href='#c-ipmi-configuration'>c. IPMI Configuration</a></p></li><li><p><a href='#d-offline-configuration'>d. Offline Configuration</a></p></li><li><p><a href='#e-factory-reset'>e. Factory Reset</a></p></li></ul></li><li><p><a href='#chapter-5-booster-mode'>Chapter 5: Booster Mode</a></p><ul><li><a href='#header-n13813'>Customize Booster Mode</a></li></ul></li><li><p><a href='#chapter-6-elinksetuptool'>Chapter 6: elinkSetuptool</a></p></li></ul></li></ul><!-- markdown-toc end --><p>&nbsp;</p><h1><a name='header-n12859' class='md-header-anchor '></a>eLinkKVM Guide</h1><h2><a name='header-n12860' class='md-header-anchor '></a>Chapter 1: Introduction</h2><h3><a name='header-n12861' class='md-header-anchor '></a>a. Overview</h3><p>A KVM switch (an abbreviation stands for <strong>K</strong>eyboard, <strong>V</strong>ideo and <strong>M</strong>ouse&quot;) is a hardware device that enables a user to control multiple computers from one or more sets of keyboards, video monitors, and mice. For example, in the following diagram, the computer on the right is currently being controlled by the peripherals.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/Kvm-switch-diagram.svg' alt='kvm_diagram' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>###[TODO] Replace Wikipedia diagram about with our original diagram</p><p>Normal KVM switches attach controlling and controlled devices directly to itself. In contrast, KVM over-IP switches, provides over-the-internet functionality. This means, instead of physically connected to a KVM switch through very long cables and are usually limited in a room, a floor or a building, the controlling devices can be anywhere in the world that can connect to a KVM over-IP switch and control the connected computers with a normal Internet connection.</p><p>Another approach for remote controlling is using pure software. However, as a pure software solution is usually limited only in an operating system environment. Without an operating system, a software solution is infeasible. Unlike software solutions for remote controlling, a hardware solution like a KVM switch can be used as a replacement for a computer monitor. This diagram demonstrates the scope difference between a software and a hardware solution:</p><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/RemoteAccessTechnology.png' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>eLinkKVM is one of such KVM-over-IP devices. However, unlike other KVM-over-IP solutions that are solely hardware solutions, eLinkKVM takes on a unique hybrid approach that combines both hardware and software. While being a hardware solution similar to other KVM-over-IP switches, but unlike other KVM-over-IP switches, eLinkKVM takes a step further with its patented technology called <code>Booster</code>. <code>Booster</code> is a
+software solution that works together with eLinkKVM hardware to uplift processing performance by utilizing computing resources of the remote hosts. <code>Booster</code> is not limited to an operating system
+environment, but also in BIOS and UEFI environments.</p><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/BoosterModeDiagramFlow.svg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>Operators can monitor and access their computers from remote locations using a remote control software. An eLinkKVM device connects to a local area network or directly to a personal computer (PC) using
+a standard ethernet cable, then uses a USB cable and a video display cables to connect to a server and complete control it with Keyboard, Video and Mouse functionality from the eLinkKVM device.</p><p>Because the eLinkKVM uses the Internet as its data communication medium, the server it is connected to can be accessed from any authorized computer across the Internet, regardless of physical location.</p><p>A user at a remote location connect to the eLinkKVM via its IP address. Once a connection has been established and authorization granted, the remote computer can exchange keyboard, video and mouse
+signals with the remote server (of which the eLinkKVM is attached to), just as if they were physically present and working on the equipment directly.</p><h3><a name='header-n12887' class='md-header-anchor '></a>b. Introduce about Booster</h3><p><strong>Booster</strong> is a patented technology that allows eLinkKVM to utilize computing resources from remote hosts to improve remote performance. To quickly summarize, Booster includes software agents
+that work on major OS platforms (Windows, Linux and Mac OS) however,unlike traditional software solutions, Booster agents can also operate in BIOS and UEFI environments, independent of any operating
+system. </p><p>These software agents are installed on remote hosts to utilize the extra computing power on the remote hosts to accelerate screen data processing without affecting performance. This enables
+higher quality remote screen and more responsive interactions with the remotely remote hosts.</p><p><strong>Booster</strong> also helps reducing the loads on eLinkKVM devices, making eLinkKVM devices run cooler and extend the longevity of eLinkKVM devices, while delivering higher performance.</p><p>The following diagram shows the scope covered by Booster:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/EV_multiple_user.png' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n12899' class='md-header-anchor '></a>c. Features</h3><p>The eLinkKVM is designed to help the IT person remotely operate the Server in most responsive and efficient way. The device is not only allowing remotely access at Bios Level which is similar traditional KVM over IP but also adding more features:</p><ul><li><p><strong>Full Bios-level control over an IP Network</strong></p><p>The video capture hardware (Hardware mode) is designed to decode the video signal up to 1920x1080 that help to monitor the screen in any situation.</p></li><li><p><strong>Patented Booster technology</strong></p><p>Faster and higher resolution with Booster technology, a patent technology allows monitor the screen with faster transfer, any video resolution with just a USB connection for almost any situation. See the <strong>Booster</strong> chapter for more information.</p></li><li><p><strong>Featureful native client software</strong></p><p>Client software is bundled with many unique features: scripting and image recognition, to automate manual operations. See the eLinkViewer chapter for more information.      </p></li></ul><ul><li><p><strong>Virtual Media support with 8GB Internal Flash or 64GB with SD Card</strong> </p><p>Instead of using a separate computer as a share network storage to emulate the Virtual Media, eLinkKVM itself is a high performance shared network storage device.</p></li><li><p><strong>USB-Powered Design</strong></p><p>The power is getting from USB port of Server, no external power supply required</p></li><li><p><strong>RS232 Serial Port</strong></p><p>For Serial Console, Remote Dial In or control external PDU</p></li><li><p><strong>Built-in IPMI (Intelligent Platform Management Interface) utility</strong></p><p>eLinkKVM understands IPMI and allows control the server that support IPMI interface. The user may power on/off/reset server without using an external PDU</p></li><li><p><strong>Support USB Host Interface</strong></p><p>The USB Host port allow eLinkKVM control the USB 3G/4G, external USB storage or USB security device to add more functionality.</p></li><li><p><strong>Flexible Two Ethernet Ports</strong> </p><p>The Ethernet ports can be configured to work independently to connect 2 different networks with the master port can be configured as a DHCP server. Or 2 ports can be used to connect a server to a router, using a single server Ethernet port.</p></li><li><p><strong>Built-In USB Hub</strong> </p><p>Physically emulate all USB device (Mouse, Keyboard, Storage) with just one USB cables</p></li><li><p><strong>Scalability</strong> </p><p>eLinkKVM can scale to control more than one computers by connecting the computers to eLinkSwitch.</p></li><li><p><strong>Compact form factor</strong></p><p>Small footprint of eLinkKVM making it easy to attach to existing servers</p></li><li><p><strong>Low cost</strong></p><p>Ideal for distributed IT system environments such as small branch offices, campuses, test labs, and server hosting environments.</p></li><li><p><strong>Remote firmware upgrade</strong>
+Firmware can be easily upgraded remotely with a few mouse clicks.</p></li></ul><h3><a name='header-n12945' class='md-header-anchor '></a>d. eLinkKVM Phyical Connections</h3><p>eLinKVM can be flexibly setup to connect between a remote terminal and a remote host with many options. </p><p>To connect a remote terminal over IP, the following methods can be used:</p><ul><li>Connect eLinkKVM directly to a router. A remote terminal then can access eLinkKVM over the Internet.</li><li>Connect eLinkKVM directly to a USB 3G/4G. A remote terminal then can access eLinkKVM over the Internet.</li><li>Direct connect eLinkKVM to the remote terminal. A remote terminal then can access eLinkKVM with a direct connection, Internet is not required.</li></ul><p>After setting up, eLinkKVM is ready to be accessed by a remote terminal.</p><p>To connect a remote host to an already connected eLinkKVM device, the following methods can be used:</p><ul><li>Connect a VGA cable between the remote host and eLinkKVM to capture the host screen.</li><li>Using a RS232 cable to capture its serial output.</li><li>Connect the remote host to the Slave port on eLinkKVM to manage through IPMI interface.</li></ul><p>After phsyical connections on both ends are done, a remote connection is up and running.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/ElinkGate_full_connection.jpg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' >*Figure 1: Complete system eLinkKVM connect to Router, connect to IPMI server, USB, RS232, external PDU, USB 3G...**</td></tr></tbody></table></figure><p><strong>Todo: Bỏ kết nối RS232 trong hình vẽ tới PDU vì IPMI có thể dùng để power/on/off (Kevin)</strong></p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/Elinkkvm_lite.jpg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 2: ELinkKVM Lite A minimal connection just USB (to run Booster), eLinkKVM connect to Router, eLinkKVM connect to IPMI</em></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkkvm_bridge_network.jpg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 3: using feature network bridge to save network connection (network cable to eLinkKVM to Master Connector &amp; from Slave Connector to Server), eLinkKVM connect USB to server</em></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkkvm_multiple_network_layer.jpg' alt='Multiple network layer' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 4: Seperate network layer</em></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkkvm_multiple_usb_device.jpg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Extend function with USB device</em></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkkvm_configure_router.jpg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 6: ELinkKVM configure network through multiple network</em></td></tr></tbody></table></figure><h3><a name='header-n12996' class='md-header-anchor '></a>e. Technical Specifications</h3><h4><a name='header-n12997' class='md-header-anchor '></a>Hardware specification</h4><figure><table><thead><tr><th>Feature</th><th>Description</th></tr></thead><tbody><tr><td>Networks</td><td>2 Ethernet  ports (10/100Mbps)</td></tr><tr><td>Storage</td><td>Internal Flash Storage (8GB) that can be accessed by eLinkViewer software</td></tr><tr><td>Interfaces</td><td>Micro SD-CARD (extend up to 64GB)</td></tr><tr><td>&nbsp;</td><td>RS232 interface</td></tr><tr><td>&nbsp;</td><td>USB Host interface to extend to USB 3G/4G, USB Wifi, USB Storage</td></tr><tr><td>Video</td><td>VGA Port, Video Full HD Resolution</td></tr><tr><td>&nbsp;</td><td>VGA Text mode: 640x350, 640x480, 720x400</td></tr><tr><td>&nbsp;</td><td>VGA Graphic mode: 640x480, 800x600, 1024x768, 1152x864, 1280x1024,</td></tr><tr><td>&nbsp;</td><td>1440x900,1680x1050,1600x1200,1920 x1080</td></tr><tr><td>&nbsp;</td><td>Secure, full BIOS-level control of remote servers over an IP network</td></tr></tbody></table></figure><h4><a name='header-n13032' class='md-header-anchor '></a>Software Specification</h4><figure><table><thead><tr><th>Feature</th><th>Description</th></tr></thead><tbody><tr><td>Remote Access Features</td><td>Support  VNC Protocol</td></tr><tr><td>&nbsp;</td><td>Emulation the USB Relative Mouse and Absolute Mouse</td></tr><tr><td>&nbsp;</td><td>Emulation the USB Keyboard</td></tr><tr><td>&nbsp;</td><td>Capture Full HD resolution with <strong>Hardware Mode</strong></td></tr><tr><td>&nbsp;</td><td>Capture all resolutions with 100% screen quality using the patented <strong>Booster Mode</strong></td></tr><tr><td>Connections</td><td>Direct Connect Through TCP/IP</td></tr><tr><td>&nbsp;</td><td>Extension through USB 3G/4G</td></tr><tr><td>&nbsp;</td><td>Coming the Cloud Service to connect behind Firewall</td></tr><tr><td>Securities</td><td>Secure by SSL</td></tr><tr><td>&nbsp;</td><td>Multiple Login Accounts (Up to 8 users)</td></tr><tr><td>Remote Server Power Control</td><td>Remote Reset/On/Off  Server through an IPMI GUI Interface from eLinkViewer</td></tr><tr><td>&nbsp;</td><td>Control the External PDU through RS232</td></tr><tr><td>Virtual Media</td><td>Disk images (.iso, .raw, .hdd, .hdd2** can be mounted as a USB 2.0 devices on</td></tr><tr><td>Server power design</td><td>No external power supply required</td></tr><tr><td>&nbsp;</td><td>on a remote computer for easy software installation and system updates</td></tr><tr><td>Multi-purpose USB port</td><td>Keyboard, Mouse and Storage functionalities are integrated in a single USB port.</td></tr><tr><td>Compact form factor</td><td>Making it easier to attach to existing servers</td></tr><tr><td>Batch setup</td><td>Multiple eLinkKVM devices can be scripted by the eLinkViewer software to get</td></tr><tr><td>&nbsp;</td><td>the same configuration.</td></tr></tbody></table></figure><h4><a name='header-n13094' class='md-header-anchor '></a>eLinkViewer Software Specification</h4><p><strong>eLinkViewer</strong> is an application specifically made to view remote screen content captured by an eLinkKVM device as well as interact with a remote computer. </p><p><strong>eLinkViewer</strong> also provides functionalities to manage an eLinkKVM device.</p><figure><table><thead><tr><th>Feature</th><th>Description</th></tr></thead><tbody><tr><td>General</td><td>Support multiple VNC Server and eLinkKVM</td></tr><tr><td>&nbsp;</td><td>Remote protocol using VNC and extension commands for eLinkKVM</td></tr><tr><td>&nbsp;</td><td>Support video scaling and full screen</td></tr><tr><td>Automation</td><td>Support image recognization and Python scripting allow automation the activities</td></tr><tr><td>IPMI</td><td>Support IPMI protocol to control server with GUI</td></tr><tr><td>Platform</td><td>Currently support Windows</td></tr><tr><td>Bandwidth Optimization</td><td>Provide video quality settings to maximize remote performance for the available</td></tr><tr><td>&nbsp;</td><td>network bandwith</td></tr><tr><td>Screen scaling</td><td>Viewer screen can be scaled to any resolution independent from remote computer&#39;s</td></tr><tr><td>&nbsp;</td><td>resolution or even enter a full-screen mode. In full-screen mode, the viewer</td></tr><tr><td>&nbsp;</td><td>screen scales according to the remote computer&#39;s resolution.</td></tr></tbody></table></figure><h3><a name='header-n13134' class='md-header-anchor '></a>f. Components</h3><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1Inpd1l5-inhGNrO2rQHngclQskfswmQ4' alt='eLinkKVM' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h5><a name='header-n13141' class='md-header-anchor '></a>Front view</h5><figure><table><thead><tr><th>ID</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>USB Type-B</td><td>power the device and acts as a communication channel between eLinkKVM and a server</td></tr><tr><td>2</td><td>Power</td><td>the secondary source is supplied by a micro USB cable. It is neccessary when the power</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>from USB Type B port is insufficient, or keeping the connection to eLinkKVM</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>alive when the server is power off.</td></tr><tr><td>3</td><td>VGA</td><td>For capturing and outputting video signal to send and receive over the internet.</td></tr><tr><td>4</td><td>RS232</td><td>the serial communication port (COM port**. This port will be connected to the server serial port.</td></tr></tbody></table></figure><h5><a name='header-n13171' class='md-header-anchor '></a>Rear view</h5><figure><table><thead><tr><th>ID</th><th>Component</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>Ethernet ports (10/100Mbps)</td><td>Master: can be configured as a DHCP server, a DHCP client or a static IP</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>Slave: can be configured as a DHCP Client or a static IP</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>2</td><td>SD card</td><td>allows a user to expand storage capacity with an external micro SD card</td></tr><tr><td>3</td><td>Status Leds 1,2,3</td><td>signal device statuses through different led colors</td></tr><tr><td>4</td><td>USB Type-A</td><td>allow to attach an external peripheral device such as USB 3G/4G,</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>USB Mass Storage, etc., to extend eLinkKVM functionality.</td></tr></tbody></table></figure><h2><a name='header-n13205' class='md-header-anchor '></a>Chapter 2: Installing eLinkKVM</h2><p>This chapter describes how to install the eLinkKVM device and necessary software to work with eLinkKVM . It contains the following sections:</p><ul><li>Package contents</li><li>Power on eLinkKVM</li><li>eLinkKVM in Setup Mode</li><li>eLinkKVM in Operating Mode</li><li>Network setup</li><li>eLinkViewer setup</li></ul><h3><a name='header-n13220' class='md-header-anchor '></a>a. Package Contents</h3><p>In addition to the <strong>eLinkKVM</strong> device, the package contains the following items:</p><ul><li>1 USB 2.0 Type-B Cable</li><li>1 VGA cable</li><li>1 RS232 cable (optional)</li><li>1 USB Power Adapter (5V - 2A) and Micro USB cable</li><li>Mounting kit (see Chapter 4: Mounting Bracket Kit)</li><li>Quick Start Guide</li></ul><h3><a name='header-n13235' class='md-header-anchor '></a>b. Power On eLinkKVM</h3><p>The USB-Powered design allow eLinkKVM power directly from server USB port (1) without an external power. But in some cases, it is necessary to keep the device active while the server can be turned off or eLinkKVM need to provide the power to external USB 3G. This can be done by supplying another 5V power source to the micro USB port (2) on an eLinkKVM device.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/eLinkKVM_front_power.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>During the bootup process the 3 LEDs will be blink and turn green when the device is ready. User can start using the device.</p><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/eLinkKVM_back_led.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>&nbsp;</p><figure><table><thead><tr><th>LED ID</th><th>Color</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>Green</td><td>TBD</td></tr><tr><td>2</td><td>Green</td><td>TBD</td></tr><tr><td>3</td><td>Green</td><td>TBD</td></tr></tbody></table></figure><h3><a name='header-n13269' class='md-header-anchor '></a>c. eLinkKVM in Setup Mode</h3><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/eLinkKVM_connection_setup.png' alt='Multiple network layer' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 4: Multiple network layer</em></td></tr></tbody></table></figure><p>The eLinkKVM is designed to be just plug and play. User can just install the device in operation mode and start using immediately.  But there are some case when the auto DHCP IP address may not work the user may have to setup it manually. Below are the connection diagram when setup eLinkKVM</p><p><img src='../../Resource/eLinkKVM_connection_setup.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></p><p>Perform following steps to configure eLinkKVM:</p><ul><li>(1) Connect Ethernet RJ45 cable between eLinkKVM and remote terminal</li><li>(2) Connect USB Type-B cable to remote terminal and Type-B port of eLinkKVM device</li></ul><p><img src='../../Resource/eLinkKVM_setup_mode_guide.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></p><h3><a name='header-n13284' class='md-header-anchor '></a>d. eLinkKVM in Operation Modes</h3><p>The main usage of eLinkKVM is to remotely monitor a server. The basic connection is  described below where eLinkKVM is connected to Server through USB cable and VGA and connect to remote terminal through  ethernet.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/eLinkKVM_connection.png' alt='Multiple network layer' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Basic eLinkKVM Operating Mode</em></td></tr></tbody></table></figure><p>&nbsp;</p><p>Perform following steps to configure eLinkKVM:</p><ul><li>(1) Connect Ethernet RJ45 cable between eLinkKVM and remote terminal</li><li>(2) Connect VGA cable between Server and VGA port on eLinkKVM</li><li>(3) Connect USB Type-B cable between Server USB port and Type-B port of eLinkKVM device</li></ul><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/eLinkKVM_operation.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13307' class='md-header-anchor '></a>e. Network configuration</h3><p><strong>Todo (Tú): explain this eLinkKVM support multiple way to detect or setup IP address for device. (1) Ethernet Slave as DHCP client -&gt; but in case the router policy does not allow transfer discovery package, it can not work (2) The work as DHCP server so PC can get IP from device, it may not work if the PC does not have Ethernet port (3) configure as mass storage disk  -&gt; compare with using RS232 method, or OSD on CN8000A </strong>. We may not need to explain in detail how to config Window to get IP address as other manual don&#39;t explain that</p><p>eLinkKVM supports two Ethernet ports for network connection:</p><ul><li>Ethernet Master: by default, configured as a DHCP server.</li><li>Ethernet Slave: by default, configured as a DHCP client.</li></ul><p>To connect to an eLinkKVM device, a network connection between a remote terminal and an eLinkKVM device is required. The connection can either be:</p><ul><li><em>Direct connect</em>: An ethernet cable connects directly between a remote terminal and an eLinkKVM device.</li><li><em>Local Area Network</em>: Both the remote terminal and an eLinkKVM device are connected to a local area network (LAN). eLinkKVM is plugged to the router of the network.</li><li><em>Over the Internet</em>: an eLinkKVM device is provided with a static address for a remote terminal to access it anywhere in the world.</li></ul><p>When a connection is established, its network interface must be configured in the operating system of the remote terminal. Currently, only Windows is supported.</p><h4><a name='header-n13324' class='md-header-anchor '></a>Windows</h4><ol start='' ><li>Open <code>Control Panel</code> -&gt; <code>All Control Panel Items</code> -&gt; <code>Network Connections</code>.</li></ol><p>[TODO] Add an demo picture</p><ol start='2' ><li>Right click on Ethernet Device of the eLinkKVM connection, select `Properties.</li></ol><p>[TODO] Add an demo picture</p><ol start='3' ><li>Double click <code>Internet Protocol version 4 (TCP/IPv4)</code></li></ol><p>[TODO] Add an demo picture</p><ol start='4' ><li>Check the following options:</li></ol><ul><li>Ontain an IP Address automatically</li><li>Obtain DNS server address automatically</li></ul><ol start='5' ><li><p>Verify the Setting</p><p>The default address for Ethernet Master port is <code>10.0.0.1</code>. To check if the hardware is setup correctly:</p><ol start='' ><li><p>On Windows, open <code>cmd.exe</code>. On Linux and Mac OS, open a terminal emulator.</p></li><li><p>Type the following command:</p><p><code>ping 10.0.0.1</code></p><p>If `ping** receives response packets, this means eLinkKVM is connected. To actually use eLinkKVM, the software eLinkViewer is required. The basic usage is described in the next chapter.</p></li></ol></li></ol><h3><a name='header-n13356' class='md-header-anchor '></a>c. Setup eLinkViewer</h3><p>Download the eLinkViewer setup package from <a href='http://www.elinkgate.com/support/download.html' target='_blank' class='url'>www.elinkgate.com/support/download.html</a> just run setup.exe and following the instructions.</p><p>Go to chapter 3 (Basic usage) to see how to run and using eLinkViewer.</p><p>&nbsp;</p><h2><a name='header-n13360' class='md-header-anchor '></a>Chapter 3: Remote management software for eLinkKVM with eLinkViewer</h2><p><strong>Todo (Tú): refer the setup eLinkViewer above, explain how to get IP address of eLinkKVM, the viewer can connect to VNC compatible server and eLinkKVM...explain about 3 VNC mode: dummy, vga, booster. List down the feature of eLinkViewer here...Rearrange content as below</strong></p><ol start='' ><li>Login</li><li>Basic Remote Control: Sending      Key, Mouse, Video Setting, scalling, send special keys...</li><li>eLinkKVM Mode Setting UI</li><li>Python Console UI</li><li>Event Log UI</li><li>File Transfer UI</li><li>IPMI Command Center</li><li>Serial Console (TBD)</li><li>eLinkViewer Image Capture</li><li>Operation Recording (TBD)</li></ol><p>eLinkViewer is a specialized software for remote control and management of an eLinkKVM device. Booster technology is only available with eLinkViewer.</p><h3><a name='header-n13384' class='md-header-anchor '></a>a. Basic usage</h3><h4><a name='header-n13385' class='md-header-anchor '></a>Login</h4><h4><a name='header-n13386' class='md-header-anchor '></a>TODO need to disbale Local Account/Online Account </h4><p>To connect to an eLinkKVM device, fill the configured IP address in the textbox next to the <strong>Server</strong> field and click <code>Connect</code> to connect eLinkViewer to the eLinkKVM at the configured IP address:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1XmJUH4yOOTuo_9ddt71yyWvzMEC1m-85' alt='Elink viewer login Quick Connect' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p><code>Options</code>: configure eLinkKVM-VNC connection</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1RqCDvR-cw-CcmGMrVCuZFZn-O6kXr6SJ' alt='Connection option UI' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p><strong>Scan</strong>: Scan for all eLinkKVM devices in the current local area network (LAN)</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1JCnvvzjPa8L-eCFzl6kNBceS22OjBTGq' alt='ScaneLinkKVM' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>After connecting to an eLinkKVM device, the viewer screen switches to <code>Dummy</code> screen. The <code>Dummy</code> screen displays device status and settings.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://lh3.googleusercontent.com/-k1OlzAGTAV4/XD1OfGcsRSI/AAAAAAAARDI/wBXQ4kye0Nk9B6CJZrmWXbEEwAWx1bxbACHMYCw/s0/elinkviewer_2019-01-15_10-07-38.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkview_dummy_screen.webp' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13420' class='md-header-anchor '></a>Quick usage</h4><p><code>Dummy</code> screen includes many tabs that displays an appropriate screen
+for the functionality of each tab. Assume the eLinkKVM device is
+properly setup with VGA cable attached, to start remote controlling,
+simply switching from <code>Dummy</code> video screen to <code>VGA</code> video screen:</p><ol start='' ><li>Click <code>ELink Configuration</code>.</li><li>Click <code>VGA</code>.</li><li>Click <code>OK</code>.</li></ol><p>The default <code>Dummy</code> screen should be switched to the actual output
+from the remote remote host.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1GWzc9F2mUWN8A-fbLGQ3KqBzPEhhe6D9' alt='RemoteControlVGA' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13436' class='md-header-anchor '></a>Disconnect from an eLinkKVM device</h4><ul><li>Click the button <img src='https://drive.google.com/a/elinkgate.com/uc?id=1y4Ru1fD3a0UXBERF7mDh7IIxqA8cKRuc' alt='ExitButton' referrerPolicy='no-referrer' /></li><li>The dialog box <img src='https://drive.google.com/a/elinkgate.com/uc?id=1U4jmMjBL-9p-x9IK-kWMX2MVIIoDaqgZ' alt='exit inform' referrerPolicy='no-referrer' /> announces connection successfully terminated. </li></ul><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1MC_UUz0tERNfc2TGCudEGgF-77M3aKYT' alt='Exit connection ' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13449' class='md-header-anchor '></a>b. Dummy Screen</h3><h4><a name='header-n13450' class='md-header-anchor '></a>i. Device Status</h4><p>The default screen when successfully connected to an ElinkKVM device.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkviewer_dummy_screen_deviceinfo.png' alt='Dummy Screen' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13459' class='md-header-anchor '></a>ii. External Dock</h4><p>Display basic info of Dock if current eLinkKVM connected to a eLink Dock</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkviewer_dummy_screen_dockinfo.png' alt='DummyInfoStatus' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13467' class='md-header-anchor '></a>iii. Networks</h4><p>Display the current network configuration of an eLinkKVM device and
+allows changes accordingly:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkviewer_dummy_network.png' alt='DummyInfoStatus' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13475' class='md-header-anchor '></a>iv. COM Port</h4><p>Display the current COM port configuration of an eLinkKVM device and
+allows changes accordingly:</p><h3><a name='header-n13477' class='md-header-anchor '></a>TODO need to add comport here </h3><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/DummyCOMPort.png' alt='DummyInfoStatus' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13484' class='md-header-anchor '></a>DHCP </h4><p>Display all IP address already allocated by DHCP server of eLinkKVM</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkviewer_dummy_DHCP_Client.png' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13492' class='md-header-anchor '></a>v. IPMI</h4><p>Display the current IPMI configuration of an eLinkKVM device and
+allows changes accordingly:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkview_dummy_IPMI.png' alt='DummyInfoStatus' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h4><a name='header-n13500' class='md-header-anchor '></a>vi. Admin</h4><h4><a name='header-n13501' class='md-header-anchor '></a>vii. Upgrade</h4><p>Display the current firmware version of an eLinkKVM device and allows
+upgrading to a newer firmware. The firmware must be first uploaded
+onto the device using <code>File Transfer</code> feature of eLinkViewer.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/DummyUpgrade.png' alt='DummyInfoStatus' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13509' class='md-header-anchor '></a>c. eLinkKVM Toolbar</h3><p>Connection user interface:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1z8x6QtmbukgJQwigmqJuqkVsrzErp6cY' alt='eLinkKVMToolBar' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><ol start='' ><li>Create a new connect to an eLinkKVM device</li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/ToolbarNewConnection.png' alt='ToolbarNewConnection' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><ol start='2' ><li>Store current vnc session as a <code>.vnc</code> file</li><li>eLinkKVM connect options</li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/ToolbarConnectOptions.png' alt='ToolbarConnectOptions' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><ol start='4' ><li>Current connection status</li><li>Pause frame transmitting</li><li>Request refresh current remote screen</li><li>Send <code>Ctrl + Alt + Delete</code> key combination</li><li>Press/Hold <code>Ctrl</code> key</li><li>Press/Hold <code>Alt</code> key</li><li>Open eLinkViewer <code>File Transfer</code> window</li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1GxA_1EL_1K73yQ5nnnYQ6wVgxPXzgb-X' alt='FileTransfering' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>eLinkViewer allows data transfer from a local PC to an eLinkKVM device
+with <code>File Transfer</code>:</p><ul><li>Click <strong><code>File Transfer</code></strong> on eLinkViewer toolbar . <code>File Transfer</code>
+window appears. To the left is a directory tree of the local PC, to
+the right is the directory tree of the eLinkKVM device.</li><li>Browse the local directory tree and select a file or directory to
+upload to an eLinkKVM device. Next, on the directory tree of the
+eLinkKVM device, select a path to store the file or directory.</li><li>Finally, click the button <strong><code>&gt;&gt;</code></strong> to transfer the selected
+file/directory. A confirm dialog appears. Click <strong><code>Yes</code></strong> to confirm
+or click <strong><code>No</code></strong> cancel the action. After confirming the transfer,
+the transfer starts and a progress bar that displays the transfering
+process starts running.</li></ul><ol start='11' ><li>Scale in</li><li>Scale out</li><li>Scale (100%)</li><li>Auto zoom </li><li>Full screen (press <code>Ctrl + Shift + Alt + F</code> to return to windowed eLinkViewer)</li><li>Turn booster mode on/off</li><li>eLinkKVM Configuration</li><li>Open event log </li><li>Open Python script command prompt</li><li>Disconnect</li><li>Scan IPMI </li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1eH2ngwZ-V6stvPc8yc9P5rEjHpcijvFQ' alt='figscalingwindow' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13594' class='md-header-anchor '></a>d. Keyboard, Video and Mouse Settings</h3><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1ZAKrwEi7X0q1qR8OcmzzJ2qbD2X0WsQd' alt='ElinkKVMConfigurationUi' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>The viewer provides a dialog called <code>Elink Configuration</code> that includes the following options to configure how an eLinkKVM emulates keyboard, video and mouse.</p><h4><a name='header-n13602' class='md-header-anchor '></a>Key:</h4><ul><li>HID USB : use real keyboard (USB). </li><li>HID VNC : use software keyboard (VNC protocol)</li><li>Serial: use software keyboard (serial protocol)</li></ul><h4><a name='header-n13610' class='md-header-anchor '></a>Mouse:</h4><ul><li>HID USB : use real mouse (USB)</li><li>HID VNC: use software mouse (VNC protocol)</li><li>ABS USB: use real mouse, but sync both local and remote mouse as one mouse pointer (USB absolute hid)</li></ul><h4><a name='header-n13618' class='md-header-anchor '></a>Video:</h4><ul><li>Dummy : configure network and serial connections</li><li>VGA: configure VGA display</li><li>Booster: enable remote management with Booster. This will be covered in later chapters. </li><li>Serial: enable serial display and communication</li><li>IPMI:  enable Serial Over Lan (SOL) with IPMI </li></ul><h4><a name='header-n13630' class='md-header-anchor '></a>File browsing and disk image mounting:</h4><ul><li>Path 0/1/2/3: File paths to disk images</li><li><code>Browse</code> button allows navigating to the disk images with a file
+explorer:</li></ul><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1CVYABQC3zRPPt84Bs9G-QeivPD2uh1AR' alt='FilebrowsingELinkKVM' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><ul><li>Example: Configure eLinkKVM to use USB Key, Vnc Mouse and Booster
+mode with <code>refind.hdd2</code> disk image:</li></ul><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=13nAvrjHhx9Y94-ct4pjFXBFSQu75mYSU' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13651' class='md-header-anchor '></a>e. Python Console UI</h3><h4><a name='header-n13652' class='md-header-anchor '></a>TODO</h4><h3><a name='header-n13653' class='md-header-anchor '></a>f. Event Log UI</h3><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/EventLog.png' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13660' class='md-header-anchor '></a>g. IPMI Command Center</h3><p>IPMI Interface:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1JZqcasrMUA6Nd1l--fKWEIWDT3r3WtJL' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>IPMI command center allows a user to scan servers with IPMI ports in a local area network and connect to these server to run IPMI commands.</p><ul><li>Start IP: start IP to begin scanning</li><li>Stop IP: End IP to end scanning</li><li>User Name - Password: user name and password for each IPMI server. For example, default username and password are ADMIN/ADMIN for a Super Micro server.</li><li>Scan : start scanning for an IPMI server </li><li>Stop: End a current scanning process</li><li>Connect: connects to an IPMI server. When an IPMI server is found, an IP address is display, click on the IP address to select then enter a Username and Password.</li><li>Power On: Turn a server on with IPMI</li><li>Reset  with <img src='https://drive.google.com/a/elinkgate.com/uc?id=1sc2g-bPFQP7vRPfZ6SFIddJLa21OkOUn' alt='option' referrerPolicy='no-referrer' />  </li><li>Reset : restart a server</li><li>Reset to Bios Setup: restart a server and enter BIOS</li><li>Reset to USB: restart a server and boot with a USB device</li><li>Sol Active: enable IPMI management with Serial Over Lan (SOL)</li><li>Close : Close IPMI command center</li></ul><p>Use IPMI command center to scan and run IPMI commands. </p><ul><li>Click <img src='https://drive.google.com/a/elinkgate.com/uc?id=1UjcwiThAiZ_XaAnF1zviG2hflCgd4uCJ' alt='IPMI Scan' referrerPolicy='no-referrer' /></li><li>Enter Start IP and end IP. Limit the ranger of IP scanning. </li><li>Click <code>Scan</code> to start scanning. Found IPMI servers are displayed as a list.</li><li>Click on one of the found IPMI IP addresses, enter <code>Username</code> and <code>Password</code>, then click <strong><code>Connect</code></strong> </li><li>Click <strong><code>Power On</code></strong>,  <strong><code>Reset</code></strong>, etc., to run appropriate IPMI commands.</li></ul><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1YlFJlJNrXDe7gTgu0r_rwJqCUgGSRJ1z' alt='IPMI_Scanning' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h2><a name='header-n13714' class='md-header-anchor '></a>Chapter 4: eLinkKVM Configuration</h2><h3><a name='header-n13715' class='md-header-anchor '></a>a. User Management</h3><h3><a name='header-n13716' class='md-header-anchor '></a>b. Network Configuration</h3><h5><a name='header-n13717' class='md-header-anchor '></a>Static IP configuration</h5><p>Steps to configure static IP for an eLinkKVM device:</p><ol start='' ><li>Power up an eLinkKVM device and wait for the device to start up completely (all LED1 , LED2, LED 3 light up).</li><li>Use a Ethernet (RJ45) cable to connect a PC to the Ethernet Master port. The default IP is <code>10.0.0.1</code>.</li><li>Open eLinkViewer, enter <code>*10.0.0.1*</code> and click <code>Connect</code> to connect to the eLinkKVM device:</li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1pDbmgGfgn38E0m4jOBbdHlOZreElEKPa' alt='MasterConnect' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>When connected, eLinkViewer displays its home screen with many tabs for different screens. One of the tab is <code>Network</code>. Click on <code>Network</code> tab to move to this screen:</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/elinkviewer_dummy_network.png' alt='eLinkKVM configure' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><ol start='5' ><li>The <code>Network</code> screen displays the following fields: </li></ol><ul><li>IP Address</li><li>Netmask</li><li>Gateway</li><li>DNS</li></ul><p>Similar to how an ethernet adapter can be configured in an operating system.</p><p><strong>Example</strong>:</p><p>Instead of using the default IP address <code>10.0.0.1</code>, the IP address of the connected eLinkKVM can be changed to <code>10.0.0.2</code>.</p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Ip address: 10.42.0.2</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Netmask: <span class="cm-tab" role="presentation" cm-text="	">   </span>255.255.255.0 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">GateWay: <span class="cm-tab" role="presentation" cm-text="	">   </span>10.42.0.1 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">DNS: <span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-tab" role="presentation" cm-text="	">    </span>10.42.0.1</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 104px;"></div><div class="CodeMirror-gutters" style="display: none; height: 104px;"></div></div></div></pre><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1cysTb7rS4BjjY-7PkymnbuA9-GhlAfqa' alt='eLinkKVM configure ui' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1H7-BtcI8SNSALvVU2VUl4YM6_94b5jJI' alt='eLinkKVMConfig' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h5><a name='header-n13767' class='md-header-anchor '></a>Dynamic IP Configuration</h5><p>Dynamic IP address is acquired automatically, issued by a DHCP server. In this case, the connected eLinkKVM device must be configured as a DHCP client.</p><p>[TODO] Put a screenshot showing how to select DHCP Client</p><h3><a name='header-n13770' class='md-header-anchor '></a>c. IPMI Configuration</h3><h3><a name='header-n13771' class='md-header-anchor '></a>d. Offline Configuration</h3><p>eLinkKVM supports configuration with a text file. Steps: </p><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1iKrSG4coRPMnUkbcNSEplJtHuewuhxkD' alt='ConfigureFileConfig' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><ol start='' ><li>Press <code>Enter Configuration</code> button an eLinkKVM device. The firmware on the eLinkKVM device then configures itself as a storage device.</li><li>Open the drive <code>ELINKCONF</code>.</li><li>In <code>ELINKCONF</code> drive, there is a configuration file that can be editted by any text editor. </li><li>Edit the file following eLinkKVM configuration syntax. Store the file and reset eLinkKVM to use the new configuration.</li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1Bkt9flkzvf36T-5rNGA_HJH9VIdlZom1' alt='gifConfigureFile' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h3><a name='header-n13793' class='md-header-anchor '></a>e. TODO Factory Reset</h3><p>&nbsp;</p><h2><a name='header-n13795' class='md-header-anchor '></a>Chapter 5: Booster Mode</h2><p>Booster is a patented technology for eLinkKVM and related ElinkGate
+products. Booster includes software agents for each major OS platform
+(Windows, Linux and Mac OS) that are installed on controlled
+computers. When an eLinkKVM device is attached to a controlled
+computer, the installed software agent is activated to cooperate with
+a eLinkKVM device using a specialized proprieteray protocol. The
+software agent then utilizes the available computing resources on the
+remote host to greately accelerate video input and output
+processing. As a result, eLinkKVM can deliver higher performance at
+higher resolutions for an extremely economical price.</p><p>To enable Booster techonlogy, a user only needs to install the
+accompanied software components on an existing operating-system
+installation. For a fresh computer that need a new operating-system
+installation, a tool called <code>elinkSetuptool</code> is provided to help
+creating install disk images with embedded Booster from existing
+installation ISO files, which is covered in the next chapter.</p><p>These disk images can be loaded on eLinkKVM internal storage for
+remote operating-system installations on new computers with Booster
+enabled through the whole installation process. After the installation
+process is done, the freshly installed operating system is also
+pre-installed with Booster software to allow a user to continue using
+Booster without any interruption.</p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/BoosterModeDiagramFlow.svg' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>Once a Booster agent is installed on a respective operating system,
+simply click the <code>Booster</code> icon to start getting remote screen with
+Booster. </p><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/BoosterScreen.png' alt='BoosterToogle' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p>Screen quality may improve slightly or significantly compared to VGA
+hardwrae mode, depends on the quality of the VGA cable. Remote
+keyboard and mouse interactions become much more responsive.</p><h3><a name='header-n13813' class='md-header-anchor '></a>Customize Booster Mode</h3><p>To make it convenient to switch between Booster and other modes,
+eLinkViewer allows a user to customize Auto Booster Toggle
+button. Pressing this button allows a user to switch between a
+pre-configured Booster mode and the current mode.</p><p><img src='https://drive.google.com/a/elinkgate.com/uc?id=1BtRGCSRGPBNN-vy86_nDGfr4qM823pgH' alt='ToogleButtonConfig' referrerPolicy='no-referrer' /></p><p>Steps to configure Booster mode:</p><ol start='' ><li>Click <code>ELink Configuration</code> button.</li><li>From <code>ELink Configuration</code> select a remote display mode.</li><li>Similarly, select a Key mode</li><li>Next, select a Mouse mode</li><li>Select <code>Base</code> to confirm configuration. This configuration is used whenever <code>Auto Booster Mode</code> button is clicked.</li><li>Press OK to save the configuration.</li><li>Press OK to confirm.</li></ol><figure><table><thead><tr><th style='text-align:center;' ><img src='https://drive.google.com/a/elinkgate.com/uc?id=1yJGy1_O6FCYe0uyvxdja5eGSYl8vvWfC' alt='Booster mode remote control' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><h2><a name='header-n13838' class='md-header-anchor '></a>Chapter 6: Multi user manager </h2><h4><a name='header-n13839' class='md-header-anchor '></a>Multiple User </h4><ul><li><p>Support up to 8 device </p></li><li><p>multiple role : </p><ul><li>Admin  : Data center  admin account. Can create other lower priority account types like Manager and User </li><li>Manager:  User manager account. Can create User account </li><li>User:  Access account</li></ul></li></ul><figure><table><thead><tr><th style='text-align:center;' ><img src='../../Resource/EV_multiple_user.png' alt='' referrerPolicy='no-referrer' /></th></tr></thead><tbody><tr><td style='text-align:center;' ><em>Figure 5: Account login UI</em></td></tr></tbody></table></figure><p><strong>Note</strong> : For the first time configure, the default user name and password of ELinkKVM is <code>admin/admin</code>
+click to icon User Configure bellow to open User Account Configuration
+<img src='D:\Project\elinkgate_doc\Resource\EV_UM_ico.jpg' alt='' referrerPolicy='no-referrer' />
+Create new account by click to blank field, enter password and select the rule for for the new account 
+<img src='../../Resource/EV_UM_Dialog.png' alt='' referrerPolicy='no-referrer' />
+Create new account </p><h4><a name='header-n13858' class='md-header-anchor '></a>TODO  add animation for Create new user by elinkviewer</h4><h2><a name='header-n13859' class='md-header-anchor '></a>Chapter 6: elinkSetuptool</h2><p><code>elinkSetuptool</code> is an image creation tool that recreates OS
+installation images into disk images with <code>Booster</code> agents installed.</p></div>
+</body>
+</html>

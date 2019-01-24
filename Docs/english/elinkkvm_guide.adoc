@@ -692,12 +692,26 @@ image::../../Resource/elinkview_dummy_IPMI.png[DummyInfoStatus]
 ===== Admin
 
 ===== Upgrade
+Step by step to upgrade firmware for ELinkKVM
 
-Display the current firmware version of an eLinkKVM device and allows
-upgrading to a newer firmware. The firmware must be first uploaded onto
-the device using `File Transfer` feature of eLinkViewer.
+* Firwmare upgrade by open `eLinkViewer File Transfer dialog`
+* Transfering firmware file from local to ELinkKVM EMMC (`A:\`)
+* Double click to firmware file in ELinkKVM
+* Click button `Firmware` to ELinkKVM with the selected firmware file
 
-image::../../Resource/DummyUpgrade.png[DummyInfoStatus]
+.Firmware upgrade
+image::../../Resource/EV_firware_upgrade.png[]
+
+.Firmware upgrade process
+image::../../Resource/EV_firwmare_upgrade_process.png[]
+
+After upgrade firmware process complete, device will automatic restart. verifying firmware version by click info button in elinkviewer
+
+.Connection info
+image::../../Resource/EV_connection_info.png[]
+in `Connection Information` display info of firmware version. In the case is `Firmware: 01.04.01.07`
+
+
 
 
 ==== eLinkKVM Toolbar
@@ -741,10 +755,6 @@ eLinkViewer)
 17. Disconnect
 18. Scan IPMI
 
-// TODO: Add static image version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1eH2ngwZ-V6stvPc8yc9P5rEjHpcijvFQ[figscalingwindow]
-
-
 ==== Mode Setting UI
 
 .Elink Configuration UI
@@ -778,20 +788,16 @@ in later chapters.
 ** IPMI: enable Serial Over Lan (SOL) with IPMI
 
 * File browsing and disk image mounting:
-
 ** Path 0/1/2/3: File paths to disk images
 ** `Browse` button allows navigating to the disk images with a file
 explorer:
 
-// TODO: Add a static version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1CVYABQC3zRPPt84Bs9G-QeivPD2uh1AR[FilebrowsingELinkKVM]
 
-
-* Example: Configure eLinkKVM to use `USB Key``, `Vnc Mouse`, and `*Booster*`
+* Example: Configure eLinkKVM to use `USB Key``, `Vnc Mouse`, and `Booster`
 mode with `refind.hdd2` disk image.
 
-// TODO: Add a static version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=13nAvrjHhx9Y94-ct4pjFXBFSQu75mYSU[image]
+.Configure Usb Mode - Video mode
+image::../../Resource/EV_usbmode_config.png[image]
 
 
 ==== Python Console UI
@@ -826,12 +832,9 @@ image::../../Resource/EventLog.png[image]
 eLinkViewer allows data transfer from a local PC to an eLinkKVM device
 with `File Transfer`:
 
-// TODO: Add a static version
-.File Transfer UI
 
-ifdef::html[]
-image::https://drive.google.com/a/elinkgate.com/uc?id=1GxA_1EL_1K73yQ5nnnYQ6wVgxPXzgb-Xk[FileTransfering]
-endif::[]
+.File Transfer UI
+image::../../Resource/EV_file_transfer.png[FileTransfering]
 
 * Click *`File Transfer`* on eLinkViewer toolbar . `File Transfer`
 window appears. To the left is a directory tree of the local PC, to
@@ -928,7 +931,6 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 <<<
 == Chapter {counter:chapter}: eLinkKVM Configuration
-'''
 
 === User Management
 * Support up to 8 user accounts
