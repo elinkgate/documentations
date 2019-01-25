@@ -608,11 +608,11 @@ eLinkViewer.
 ==== Remote control using VGA mode
 //TODO:
 // Quick usage => Rieeng
-
 // basic
-// 1. đổi mode video
-// 2. đổi mode\keyboard
-// 3. đổi mode mouse
+// capture screen
+// 1. emulate keyboard
+// 3. mouse
+//
 // 4. Storage
 // Advance:
 // Dummy screen .... all
@@ -629,10 +629,10 @@ image:../../Resource/EV_authenticate.png[width=200]
 image:../../Resource/EV_click_config.png[width=150]
 
 . Enable `Keyboard HID USB` and active the inteface +
-image:../../Resource/EV_config_kv_hidusb_active.png[width=120]
+image:../../Resource/EV_config_kv_hidusb_active.png[width=150]
 
 . Enable `Mouse ABS USB` and active the inteface +
-image:../../Resource/EV_config_mouse_absusb_active.png[width=120]
+image:../../Resource/EV_config_mouse_absusb_active.png[width=150]
 
 . Set `Video Mode` to VGA +
 image:../../Resource/EV_config_VGA_active.png[width=150]
@@ -649,6 +649,7 @@ ifdef::html[]
 .Switch VGA mode
 image::../../Resource/EV_switch_VGA.gif[switch vga mode]
 endif::[]
+
 
 === Login
 ==== Establish connection
@@ -686,9 +687,6 @@ After establishing a new connection to ELinkKVM, the device should require an au
 .ELinkKVM login UI
 image::../../Resource/EV_user_login.png[]
 
-=== Basic Remote Control
-
-
 ==== Disconnect from an eLinkKVM device
 
 * Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton]
@@ -696,6 +694,68 @@ image::../../Resource/EV_user_login.png[]
 
 .Exit connection dialog
 image::../../Resource/elinkviewer_exit_connection_dialog.jpg[Exit nnection]
+=== Basic Remote Control
+
+==== ELink Configuration UI
+ELinkViewer support UI to configure ELinkKVM.
+Open ELink Configuration Dialog:
+
+1. Click `ELink Configuration`. +
+image:../../Resource/EV_click_config.png[width=150]
+2. ELink Configurationn show up: +
+image:../../Resource/EV_config_dialog.png[]
+
+==== Remote screen capture
+//TODO
+. Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
+. Select a video which want to switch to. For example: Select VGA video mode +
+image:../../Resource/EV_config_VGA_active.png[width=150]
+. Click Ok to apply the new configuration. In the case, eLinkViewer displayed VGA output of server +
+==== Emulate Mouse device:
+//TODO
+. Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
+. Enable a Mouse Mode and active the mode. For example: Enable Mouse ABS USB Mode and active the mode  +
+image:../../Resource/EV_config_mouse_absusb_active.png[width=150]
+. Click `OK` to apply the new `Mouse mode`
+
+==== Emulate Key device:
+//Why we need emulate Key device,
+Key Mode::
+** HID USB : use real keyboard (USB).
+** HID VNC : use software keyboard (VNC protocol)
+** Serial: use software keyboard (serial protocol)
+Configure `Keyboard Mode`::
+. Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
+. Enable a Keyboard Mode and active the mode. For example: Enable `HID USB Mode` and active the mode  +
+image:../../Resource/EV_config_kv_hidusb_active.png[width=150]
+. Click `OK` to apply the new `Keyboard mode`
+
+==== Emulate Virtual USB media :
+//TODO
+
+=== Advance Remote Control
+//TODO
+
+==== File Transfer
+
+eLinkViewer allows data transfer from a local PC to an eLinkKVM device
+with `File Transfer`:
+
+.File Transfer UI
+image::../../Resource/EV_file_transfer.png[FileTransfering]
+
+* Click *`File Transfer`* on eLinkViewer toolbar . `File Transfer`
+window appears. To the left is a directory tree of the local PC, to
+the right is the directory tree of the eLinkKVM device.
+* Browse the local directory tree and select a file or directory to
+upload to an eLinkKVM device. Next, on the directory tree of the
+eLinkKVM device, select a path to store the file or directory.
+* Finally, click the button *`>>`* to transfer the selected
+file/directory. A confirm dialog appears. Click *`Yes`* to confirm or
+click *`No`* cancel the action. After confirming the transfer, the
+transfer starts and a progress bar that displays the transfering process
+starts running.
+
 
 ==== Dummy Screen
 
@@ -747,7 +807,7 @@ image::../../Resource/elinkview_dummy_IPMI.png[DummyInfoStatus]
 
 ===== Admin
 
-===== Upgrade
+==== Firmware Upgrade
 Step by step to upgrade firmware for ELinkKVM
 
 * Firwmare upgrade by open `eLinkViewer File Transfer dialog`
@@ -766,145 +826,6 @@ After upgrade firmware process complete, device will automatic restart. verifyin
 .Connection info
 image::../../Resource/EV_connection_info.png[]
 in `Connection Information` display info of firmware version. In the case is `Firmware: 01.04.01.07`
-
-
-
-
-==== eLinkKVM Toolbar
-
-Connection user interface:
-
-.eLinkViewer Toolbar
-image::../../Resource/elinkviewer_toolbar.jpg[eLinkKVMToolBar]
-
-
-1.  Create a new connect to an eLinkKVM device
-
-.Create New Connection
-image::../../Resource/ToolbarNewConnection.png[ToolbarNewConnection]
-
-
-.  Store current vnc session as a `.vnc` file
-.  eLinkKVM connect options
-
-.Connection Options
-image::../../Resource/ToolbarConnectOptions.png[ToolbarConnectOptions]
-
-
-.  Current connection status
-.  Pause frame transmitting
-.  Request refresh current remote screen
-.  Send `Ctrl + Alt + Delete` key combination
-.  Press/Hold `Ctrl` key
-.  Press/Hold `Alt` key
-.  Open eLinkViewer `File Transfer` window
-.  Scale in
-.  Scale out
-. Scale (100%)
-. Auto zoom
-. Full screen (press `Ctrl + Shift + Alt + F` to return to windowed
-eLinkViewer)
-. Turn booster mode on/off
-. eLinkKVM Configuration
-. Open event log
-. Open Python script command prompt
-. Disconnect
-. Scan IPMI
-
-==== Mode Setting UI
-
-.Elink Configuration UI
-image::../../Resource/elinkviewer_elink_configuration.jpg[ElinkKVMConfigurationUi]
-
-
-The viewer provides a dialog called `Elink Configuration` that includes
-the following options to configure how an eLinkKVM emulates keyboard,
-video and mouse.
-
-Key::
-
-** HID USB : use real keyboard (USB).
-** HID VNC : use software keyboard (VNC protocol)
-** Serial: use software keyboard (serial protocol)
-
-Mouse::
-
-** HID USB : use real mouse (USB)
-** HID VNC: use software mouse (VNC protocol)
-** ABS USB: use real mouse, but sync both local and remote mouse as one
-mouse pointer (USB absolute hid)
-
-Video::
-
-** Dummy : configure network and serial connections
-** VGA: use VGA display over a VGA cable.
-** Booster: enable remote management with `*Booster*`. This will be
-covered in later chapters.
-** Serial: enable serial display and communication
-** IPMI: enable Serial Over Lan (SOL) with IPMI
-
-* File browsing and disk image mounting:
-** Path 0/1/2/3: File paths to disk images
-** `Browse` button allows navigating to the disk images with a file
-explorer:
-
-
-* Example: Configure eLinkKVM to use `USB Key``, `Vnc Mouse`, and `Booster`
-mode with `refind.hdd2` disk image.
-
-.Configure Usb Mode - Video mode
-image::../../Resource/EV_usbmode_config.png[image]
-
-
-==== Python Console UI
-
-eLinkKVM allows eLinkKVM to be controlled by scripting with Python. On
-the toolbar, the button `Python Console Script` open a Python console
-similar to regular Python console but with Python eLinkSDK already
-loaded. A user can interactively use the Python console by typing code
-directly on it.
-
-.Python Console UI
-image::../../Resource/PythonConsoleUI.png[PythonConsoleUI]
-
-The Python console can also launch a script from the command line:
-
-[listing]
-elinkviewer.exe -cons=setup_win2012.py
-
-The Python console appears to display script output, error and exception
-if any.
-
-==== Event Log UI
-
-Event log displays events and performance metrics related to eLinkKVM.
-
-.Event Log UI
-image::../../Resource/EventLog.png[image]
-
-
-==== File Transfer UI
-
-eLinkViewer allows data transfer from a local PC to an eLinkKVM device
-with `File Transfer`:
-
-// TODO: Add a static version
-ifdef::html[]
-.File Transfer UI
-image::../../Resource/EV_file_transfer.png[FileTransfering]
-endif::[]
-
-* Click *`File Transfer`* on eLinkViewer toolbar . `File Transfer`
-window appears. To the left is a directory tree of the local PC, to
-the right is the directory tree of the eLinkKVM device.
-* Browse the local directory tree and select a file or directory to
-upload to an eLinkKVM device. Next, on the directory tree of the
-eLinkKVM device, select a path to store the file or directory.
-* Finally, click the button *`>>`* to transfer the selected
-file/directory. A confirm dialog appears. Click *`Yes`* to confirm or
-click *`No`* cancel the action. After confirming the transfer, the
-transfer starts and a progress bar that displays the transfering process
-starts running.
 
 ==== IPMI Command Center
 
@@ -970,6 +891,80 @@ image::../../Resource/elinkviewer_ipmi_resetbios.png[]
 
 .Reset to `Bios` IPMI server by reset command
 image::../../Resource/elinkviewer_ipmi_resetbios_success.png[]
+
+//TODO
+
+
+
+==== eLinkKVM Toolbar
+
+Connection user interface:
+
+.eLinkViewer Toolbar
+image::../../Resource/elinkviewer_toolbar.jpg[eLinkKVMToolBar]
+
+
+1.  Create a new connect to an eLinkKVM device
+
+.Create New Connection
+image::../../Resource/ToolbarNewConnection.png[ToolbarNewConnection]
+
+
+.  Store current vnc session as a `.vnc` file
+.  eLinkKVM connect options
+
+.Connection Options
+image::../../Resource/ToolbarConnectOptions.png[ToolbarConnectOptions]
+
+
+.  Current connection status
+.  Pause frame transmitting
+.  Request refresh current remote screen
+.  Send `Ctrl + Alt + Delete` key combination
+.  Press/Hold `Ctrl` key
+.  Press/Hold `Alt` key
+.  Open eLinkViewer `File Transfer` window
+.  Scale in
+.  Scale out
+. Scale (100%)
+. Auto zoom
+. Full screen (press `Ctrl + Shift + Alt + F` to return to windowed
+eLinkViewer)
+. Turn booster mode on/off
+. eLinkKVM Configuration
+. Open event log
+. Open Python script command prompt
+. Disconnect
+. Scan IPMI
+
+
+
+==== Python Console UI
+
+eLinkKVM allows eLinkKVM to be controlled by scripting with Python. On
+the toolbar, the button `Python Console Script` open a Python console
+similar to regular Python console but with Python eLinkSDK already
+loaded. A user can interactively use the Python console by typing code
+directly on it.
+
+.Python Console UI
+image::../../Resource/PythonConsoleUI.png[PythonConsoleUI]
+
+The Python console can also launch a script from the command line:
+
+[listing]
+elinkviewer.exe -cons=setup_win2012.py
+
+The Python console appears to display script output, error and exception
+if any.
+
+==== Event Log UI
+
+Event log displays events and performance metrics related to eLinkKVM.
+
+.Event Log UI
+image::../../Resource/EventLog.png[image]
+
 
 ==== Serial Console
 
