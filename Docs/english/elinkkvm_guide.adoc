@@ -604,18 +604,53 @@ eLinkViewer is a specialized software for remote control and management
 of an eLinkKVM device. `*Booster*` technology is only available with
 eLinkViewer.
 
+=== Quick usage
+==== Remote control using VGA mode
+//TODO:
+// Quick usage => Rieeng
+
+// basic
+// 1. đổi mode video
+// 2. đổi mode\keyboard
+// 3. đổi mode mouse
+// 4. Storage
+// Advance:
+// Dummy screen .... all
+// File transfer
+// IPMI command center
+
+. Establishing a new connection to  to `ELinkKVM` with `eLinkViewer`.image:../../Resource/EV_establish_connection.png[width=250]
+. Authenticate device with user name/password (default: `admin/admin`).image:../../Resource/EV_authenticate.png[width=200]
+. Click `ELink Configuration` image:../../Resource/EV_click_config.png[width=150]
+. Enable `Keyboard HID USB` and active the inteface image:../../Resource/EV_config_kv_hidusb_active.png[width=120]
+. Enable `Mouse ABS USB` and active the inteface image:../../Resource/EV_config_mouse_absusb_active.png[width=120]
+. Set `Video Mode` to VGA image:../../Resource/EV_config_VGA_active.png[width=150]
+. Click `OK` to apply new configure.
+
+.Remote control quick usage
+image::../../Resource/EV_quick_usage_config.png[]
+
+The default `Dummy` screen should be switched to the actual output from
+the remote remote host.
+
+ifdef::html[]
+.Switch VGA mode
+image::../../Resource/EV_switch_VGA.gif[switch vga mode]
+endif::[]
+
 === Login
+==== Establish connection
 To connect to an eLinkKVM device, fill the configured IP address in the
 textbox next to the *Server* field and click `Connect` to connect
 eLinkViewer to the eLinkKVM at the configured IP address:
 
 .eLinkViewer quick connectd UI
-image::../../Resource/EV_login_ui.png[Elink ewer login Quick Connect]
+image::../../Resource/EV_login_ui.png[Elinkviewr Quick Connect]
 
 `Options`: configure eLinkKVM-VNC connection
 
 .Connection options
-image::../../Resource/elinkviewer_connection_options.jpg[Connection UI]
+image::../../Resource/EV_connection_options.png[Connection UI]
 
 * Scan: Scan for all eLinkKVM devices in the current local area network (LAN)
 
@@ -633,27 +668,14 @@ ifdef::html[]
 endif::[]
 
 // image::../../Resource/elinkview_dummy_screen.webp[image]
+==== Device authenticate
+After establishing a new connection to ELinkKVM, the device should require an authenticate process. Currently, support authenticate by plain user name/password likve bellow
+
+.ELinkKVM login UI
+image::../../Resource/EV_user_login.png[]
 
 === Basic Remote Control
 
-==== Quick usage
-
-`Dummy` screen includes many tabs that displays an appropriate screen
-for the functionality of each tab. Assume the eLinkKVM device is
-properly setup with VGA cable attached, to start remote controlling,
-simply switching from `Dummy` video screen to `VGA` video screen:
-
-.  Click `ELink Configuration`.
-.  Click `VGA`.
-.  Click `OK`.
-
-The default `Dummy` screen should be switched to the actual output from
-the remote remote host.
-
-ifdef::html[]
-.Switch VGA mode
-image::../../Resource/EV_switch_VGA.gif[switch vga mode]
-endif::[]
 
 ==== Disconnect from an eLinkKVM device
 
