@@ -253,7 +253,7 @@ table:
   foot_background_color: f0f0f0
   border_color: 000000
   border_width: $base_border_width
-  cell_padding: 3
+  cell_padding: 7
 toc:
   indent: $horizontal_rhythm
   line_height: 1.4
@@ -281,7 +281,7 @@ footer:
   # * {section-title}
   # * {section-or-chapter-title}
   recto:
-    #columns: "<50% =0% >50%"
+    # columns: "<50% =0% >50%"
     right:
       # content: '{page-number}'
       content: '{section-or-chapter-title} | {page-number}'
@@ -289,9 +289,9 @@ footer:
     #center:
     #  content: '{page-number}'
   verso:
-    #columns: $footer_recto_columns
+    # columns: $footer_recto_columns
     left:
-      content: $footer_recto_right_content
-      #content: '{page-number} | {chapter-title}'
+      # content: $footer_recto_right_content
+      content: '{page-number} | {section-or-chapter-title}'
     #center:
     #  content: '{page-number}'
