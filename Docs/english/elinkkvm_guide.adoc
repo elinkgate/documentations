@@ -587,6 +587,53 @@ If `ping` receives response packets, this means eLinkKVM is
 connected.  To actually use eLinkKVM, the software eLinkViewer is
 required. The basic usage is described in the next chapter.
 
+
+=== Quick usage
+==== Remote control using VGA mode
+//TODO:
+// Quick usage => Rieeng
+// basic
+// capture screen
+// 1. emulate keyboard
+// 3. mouse
+//
+// 4. Storage
+// Advance:
+// Dummy screen .... all
+// File transfer
+// IPMI command center
+
+. Establishing a new connection to  to `ELinkKVM` with `eLinkViewer`. +
+image:../../Resource/EV_establish_connection.png[width=250]
+
+. Authenticate device with user name/password (default: `admin/admin`). +
+image:../../Resource/EV_authenticate.png[width=200]
+
+. Click `ELink Configuration`. +
+image:../../Resource/EV_click_config.png[width=150]
+
+. Enable `Keyboard HID USB` and active the inteface +
+image:../../Resource/EV_config_kv_hidusb_active.png[width=150]
+
+. Enable `Mouse ABS USB` and active the inteface +
+image:../../Resource/EV_config_mouse_absusb_active.png[width=150]
+
+. Set `Video Mode` to VGA +
+image:../../Resource/EV_config_VGA_active.png[width=150]
+
+. Click `OK` to apply new configure.
+
+.Remote control quick usage
+image::../../Resource/EV_quick_usage_config.png[]
+
+The default `Dummy` screen should be switched to the actual output from
+the remote remote host.
+
+ifdef::html[]
+.Switch VGA mode
+image::../../Resource/EV_switch_VGA.gif[switch vga mode]
+endif::[]
+
 === Setup eLinkViewer
 
 Download the eLinkViewer setup package from link:
@@ -597,6 +644,7 @@ following the instructions.
 
 <<<
 [[elinkviewer-chap]]
+
 == eLinkViewer
 '''
 
@@ -604,7 +652,7 @@ eLinkViewer is a specialized software for remote control and management
 of an eLinkKVM device. `*Booster*` technology is only available with
 eLinkViewer.
 
-=== Quick usage
+=== Quick usage ELinkViewer
 ==== Remote control using VGA mode
 //TODO:
 // Quick usage => Rieeng
