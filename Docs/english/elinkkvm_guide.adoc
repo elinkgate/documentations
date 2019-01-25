@@ -369,6 +369,7 @@ image::../../Resource/eLinkKVM_FrontRearViews.jpg[eLinkKVM]
 [cols="1,3,6a"]
 |===
 |ID |Component |Description
+
 |1
 |Ethernet ports (10/100Mbps)
 |* Master: can be configured as a DHCP server, a DHCP client or a
@@ -467,9 +468,11 @@ image::../../Resource/eLinkKVM_back_led.png[Dummy Screen]
 [cols="1,3,6a"]
 |===
 |LED ID |Color |Description
+
 |1 |Green |TBD
 |2 |Green |TBD
 |3 |Green |TBD
+
 |===
 
 === eLinkKVM in Setup Mode
