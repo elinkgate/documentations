@@ -1,7 +1,7 @@
 <<<
 == About eLinkGate
 
-eLinkGate is a startup company whose aim is to help people learn
+eLinkGate is a company whose aim is to help people learn
 about IT. eLinkGate has patented a technology called eLinkMe – a USB
 device that allows an IT expert to remotely access a computer, smart
 phone or tablet to fix any problem the user may have. Our eLinkMe
@@ -27,14 +27,18 @@ worrying about online theft.
 A KVM switch (an abbreviation stands for **K**eyboard, **V**ideo and
 **M**ouse") is a hardware device that enables a user to control
 multiple computers from one or more sets of keyboards, video monitors,
-and mice.  For example, in the following diagram, the computer on the
-right is currently being controlled by the peripherals.
+and mice.
 
 ****
 .KVM SWitch interworking
 image::../../Resource/Kvm-switch-diagram.svg[]
 
-//[TODO] Replace Wikipedia diagram about with our original diagram
+The computer on the right is currently being controlled by the
+peripherals. Only one set of keyboard and mouse is required to control
+multiple computers, each connected to a monitor. A user can switch
+between each monitor to see the output of each connected computer (to
+that monitor).
+****
 
 Normal KVM switches attach controlling and controlled devices directly
 to itself. In contrast, KVM over-IP switches, provides over-the-internet
@@ -43,7 +47,6 @@ switch through very long cables and are usually limited in a room, a
 floor or a building, the controlling devices can be anywhere in the
 world that can connect to a KVM over-IP switch and control the connected
 computers with a normal Internet connection.
-****
 
 Another approach for remote controlling is using pure software. However,
 as a pure software solution is usually limited only in an operating
@@ -244,7 +247,9 @@ image::../../Resource/elinkkvm_configure_router.jpg[image]
 [cols="3,7a"]
 |===
 |Feature |Description
-|Networks |2 Ethernet ports (10/100Mbps)
+
+|Networks
+|2 Ethernet ports (10/100Mbps)
 
 |Storage
 |Internal Flash Storage (8GB) that can be accessed by eLinkViewer software
@@ -268,6 +273,7 @@ image::../../Resource/elinkkvm_configure_router.jpg[image]
 [cols="3,7a"]
 |===
 |Feature |Description
+
 |Remote Access Features
 | * Support VNC Protocol
 * Emulation the USB Relative Mouse and Absolute Mouse
@@ -568,13 +574,14 @@ required. The basic usage is described in the next chapter.
 
 === Setup eLinkViewer
 
-Download the eLinkViewer setup package from
-link:www.elinkgate.com/support/download.html just run setup.exe and
+Download the eLinkViewer setup package from link:
+www.elinkgate.com/support/download.html just run setup.exe and
 following the instructions.
 
-Go to chapter 3 (Basic usage) to see how to run and using eLinkViewer.
+<<elinkviewer-chap, eLinkViewer>> chapter shows how to run and using eLinkViewer.
 
 <<<
+[[elinkviewer-chap]]
 == Chapter {counter:chapter}: eLinkViewer
 '''
 
@@ -635,7 +642,7 @@ endif::[]
 
 ==== Disconnect from an eLinkKVM device
 
-* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton, width=150]
+* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton]
 * The following dialog box shows the connection has been terminated:
 
 .Exit connection dialog
@@ -728,32 +735,32 @@ image::../../Resource/elinkviewer_toolbar.jpg[eLinkKVMToolBar]
 image::../../Resource/ToolbarNewConnection.png[ToolbarNewConnection]
 
 
-1.  Store current vnc session as a `.vnc` file
-2.  eLinkKVM connect options
+.  Store current vnc session as a `.vnc` file
+.  eLinkKVM connect options
 
 .Connection Options
 image::../../Resource/ToolbarConnectOptions.png[ToolbarConnectOptions]
 
 
-1.  Current connection status
-2.  Pause frame transmitting
-3.  Request refresh current remote screen
-4.  Send `Ctrl + Alt + Delete` key combination
-5.  Press/Hold `Ctrl` key
-6.  Press/Hold `Alt` key
-7.  Open eLinkViewer `File Transfer` window
-8.  Scale in
-9.  Scale out
-10. Scale (100%)
-11. Auto zoom
-12. Full screen (press `Ctrl + Shift + Alt + F` to return to windowed
+.  Current connection status
+.  Pause frame transmitting
+.  Request refresh current remote screen
+.  Send `Ctrl + Alt + Delete` key combination
+.  Press/Hold `Ctrl` key
+.  Press/Hold `Alt` key
+.  Open eLinkViewer `File Transfer` window
+.  Scale in
+.  Scale out
+. Scale (100%)
+. Auto zoom
+. Full screen (press `Ctrl + Shift + Alt + F` to return to windowed
 eLinkViewer)
-13. Turn booster mode on/off
-14. eLinkKVM Configuration
-15. Open event log
-16. Open Python script command prompt
-17. Disconnect
-18. Scan IPMI
+. Turn booster mode on/off
+. eLinkKVM Configuration
+. Open event log
+. Open Python script command prompt
+. Disconnect
+. Scan IPMI
 
 ==== Mode Setting UI
 
@@ -782,8 +789,8 @@ Video::
 
 ** Dummy : configure network and serial connections
 ** VGA: use VGA display over a VGA cable.
-** Booster: enable remote management with `*Booster*`. This will be covered
-in later chapters.
+** Booster: enable remote management with `*Booster*`. This will be
+covered in later chapters.
 ** Serial: enable serial display and communication
 ** IPMI: enable Serial Over Lan (SOL) with IPMI
 
@@ -921,11 +928,12 @@ image::../../Resource/elinkviewer_ipmi_resetbios_success.png[]
 
 To capture the current eLinkViewer screen or a part of it:
 
-* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[width=150] button
-* After the screen is paused, hold the `Ctrl` button.
+* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[width=60%] button +
+* After the screen is paused, hold the `Ctrl` button. +
 * While holding the `Ctrl` button, drag the mouse to select a capture
-region.
-* Elinkviewer stored the capture screen as file `tmp<count>.png` like this image:../../Resource/elinkviewer_capture_tmpfile.png[width=90] in folder run `elinkviewer.exe`
+region. +
+* Elinkviewer stored the capture screen as file `tmp<count>.png` like this: +
+image:../../Resource/elinkviewer_capture_tmpfile.png[width=80%] in folder run `elinkviewer.exe`
 
 .Capture screen
 image::../../Resource/elinkviewer_capture_screen.png[]
@@ -933,6 +941,7 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 <<<
 == Chapter {counter:chapter}: eLinkKVM Configuration
+'''
 
 === User Management
 * Support up to 8 user accounts

@@ -87,10 +87,10 @@ base:
 # FIXME vertical_rhythm is weird; we should think in terms of ems
 #vertical_rhythm: $base_line_height_length * 2 / 3
 # correct line height for Noto Serif metrics (comes with built-in line height)
-vertical_rhythm: $base_line_height_length
+vertical_rhythm: $base_line_height_length * 0.7
 horizontal_rhythm: $base_line_height_length
 # QUESTION should vertical_spacing be block_spacing instead?
-vertical_spacing: $vertical_rhythm
+vertical_spacing: $base_line_height_length * 0.2
 link:
   font_color: 428bca
 # literal is currently used for inline monospaced in prose and table cells
@@ -164,7 +164,7 @@ abstract:
     font_size: $heading_h4_font_size
     font_style: $heading_font_style
 admonition:
-  column_rule_color: $base_border_color
+  column_rule_color: 000000
   column_rule_width: $base_border_width
   padding: [0, $horizontal_rhythm, 0, $horizontal_rhythm]
   #icon:
@@ -242,7 +242,7 @@ outline_list:
   indent: $horizontal_rhythm * 1.5
   #marker_font_color: 404040
   # NOTE outline_list_item_spacing applies to list items that do not have complex content
-  item_spacing: $vertical_rhythm / 2
+  item_spacing: $vertical_rhythm
 table:
   background_color: $page_background_color
   #head_background_color: <hex value>
