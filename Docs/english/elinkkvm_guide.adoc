@@ -583,9 +583,6 @@ of an eLinkKVM device. `*Booster*` technology is only available with
 eLinkViewer.
 
 === Login
-
-// TODO need to disable Local Account/Online Account
-
 To connect to an eLinkKVM device, fill the configured IP address in the
 textbox next to the *Server* field and click `Connect` to connect
 eLinkViewer to the eLinkKVM at the configured IP address:
@@ -598,12 +595,11 @@ image::../../Resource/elinkviewer_quickconnect.jpg[Elink ewer login Quick Connec
 .Connection options
 image::../../Resource/elinkviewer_connection_options.jpg[Connection UI]
 
-* Scan: Scan for all eLinkKVM devices in the current local area network
-(LAN)
+* Scan: Scan for all eLinkKVM devices in the current local area network (LAN)
 
-// TODO: add static image for scanning eLinkKVM devices later
 ifdef::html[]
-image::https://drive.google.com/a/elinkgate.com/uc?id=1JCnvvzjPa8L-eCFzl6kNBceS22OjBTGq[ScaneLinkKVM]
+.Scanning process
+image::../../Resource/EV_Scanning.gif[ScaneLinkKVM]
 endif::[]
 
 After connecting to an eLinkKVM device, the viewer screen switches to
@@ -632,12 +628,14 @@ simply switching from `Dummy` video screen to `VGA` video screen:
 The default `Dummy` screen should be switched to the actual output from
 the remote remote host.
 
-// TODO: Add static image version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1GWzc9F2mUWN8A-fbLGQ3KqBzPEhhe6D9[RemoteControlVGA]
+ifdef::html[]
+.Switch VGA mode
+image::../../Resource/EV_switch_VGA.gif[switch vga mode]
+endif::[]
 
 ==== Disconnect from an eLinkKVM device
 
-* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton, width=66%]
+* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton, width=150]
 * The following dialog box shows the connection has been terminated:
 
 .Exit connection dialog
@@ -923,11 +921,11 @@ image::../../Resource/elinkviewer_ipmi_resetbios_success.png[]
 
 To capture the current eLinkViewer screen or a part of it:
 
-* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[] button
+* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[width=150] button
 * After the screen is paused, hold the `Ctrl` button.
 * While holding the `Ctrl` button, drag the mouse to select a capture
 region.
-* Elinkviewer stored the capture screen as file `tmp<count>.png` like this image:../../Resource/elinkviewer_capture_tmpfile.png[] in folder run `elinkviewer.exe`
+* Elinkviewer stored the capture screen as file `tmp<count>.png` like this image:../../Resource/elinkviewer_capture_tmpfile.png[width=90] in folder run `elinkviewer.exe`
 
 .Capture screen
 image::../../Resource/elinkviewer_capture_screen.png[]
@@ -945,7 +943,7 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 NOTE: For the *First Time Configure*, the default user name and password of ELinkKVM is `admin/admin`
 
-==== Login
+==== User login
 Fill User name/password to log in ELinkKVM
 
 .ELinkKVM login UI
@@ -1241,32 +1239,4 @@ To show the current setuptool version, run the following command:
 vfimg /version
 
 <<<
-== Chapter {counter:chapter}: Multi user manager
-'''
 
-=== Multiple User
-
-* Support up to 8 device
-* multiple role :
-* Admin : Data center admin account. Can create other lower priority
-account types like Manager and User
-* Manager: User manager account. Can create User account
-* User: Access account
-
-.KVM SWitch interworking
-image::../../Resource/EV_multiple_user.png[]
-
-NOTE: For the first time configure, the default user name and password
-of ELinkKVM is `admin/admin` click to icon User Configure bellow to
-open User Account Configuration
-
-* Create new account by click to blank field, enter password and select
-the rule for for the new account
-
-.User manager icon in toolbar
-image::../../Resource/EV_UM_ico.jpg[image]
-
-.Create new account dialog
-image::../../Resource/EV_UM_Dialog.png[image]
-
-//#### TODO add animation for Create new user by elinkviewer
