@@ -900,32 +900,31 @@ image::../../Resource/elinkviewer_ipmi_resetbios_success.png[]
 
 Connection user interface:
 
-.eLinkViewer Toolbar
+.eLinkViewer Toolbar 
 image::../../Resource/elinkviewer_toolbar.jpg[eLinkKVMToolBar]
 
-
-1.  Create a new connect to an eLinkKVM device
+.  Create a new connect to an eLinkKVM device
 
 .Create New Connection
 image::../../Resource/ToolbarNewConnection.png[ToolbarNewConnection]
 
-
-.  Store current vnc session as a `.vnc` file
-.  eLinkKVM connect options
+[start=2]
+. Store current vnc session as a `.vnc` file
+. eLinkKVM connect options
 
 .Connection Options
 image::../../Resource/ToolbarConnectOptions.png[ToolbarConnectOptions]
 
-
-.  Current connection status
-.  Pause frame transmitting
-.  Request refresh current remote screen
-.  Send `Ctrl + Alt + Delete` key combination
-.  Press/Hold `Ctrl` key
-.  Press/Hold `Alt` key
-.  Open eLinkViewer `File Transfer` window
-.  Scale in
-.  Scale out
+[start=4]
+. Current connection status
+. Pause frame transmitting
+. Request refresh current remote screen
+. Send `Ctrl + Alt + Delete` key combination
+. Press/Hold `Ctrl` key
+. Press/Hold `Alt` key
+. Open eLinkViewer `File Transfer` window
+. Scale in
+. Scale out
 . Scale (100%)
 . Auto zoom
 . Full screen (press `Ctrl + Shift + Alt + F` to return to windowed
@@ -936,8 +935,6 @@ eLinkViewer)
 . Open Python script command prompt
 . Disconnect
 . Scan IPMI
-
-
 
 ==== Python Console UI
 
