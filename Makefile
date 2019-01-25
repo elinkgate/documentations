@@ -1,9 +1,15 @@
+ELINKKVM_PDF_QUICKGUIDE=Docs/english/elinkkvm_quick_guide.adoc
 ELINKKVM_PDF_MANUAL=Docs/english/elinkkvm_manual_pdf.adoc
 ELINKKVM_HTML_MANUAL=Docs/english/elinkkvm_manual_html.adoc
 ELINKKVM_XML_OUT=build/html/elinkkvm_guide.xml
 ELINKKVM_HTML_PATH=build/html/
 
-all: pdf-manual html-manual
+all: pdf-manual pdf-quickguide html-manual
+
+pdf-quickguide:
+	mkdir -p build/
+	asciidoctor-pdf -a pdf-style=Resource/theme/custom-theme.yml -a pdf-fontsdir=Resource/fonts/ ${ELINKKVM_PDF_QUICKGUIDE} -o build/elinkkvm_quick_guide.pdf
+
 
 pdf-manual:
 	mkdir -p build/

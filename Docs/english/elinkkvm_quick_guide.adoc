@@ -1,0 +1,4 @@
+= eLinkKVM Quick Guide
+:doctype: article
+
+include::elinkkvm_quick_guide_chapter.adoc[]
