@@ -244,7 +244,7 @@ image::../../Resource/elinkkvm_configure_router.jpg[image]
 
 ==== Hardware specification
 
-[cols="^.^3,<.^7a"]
+[cols="^.^3,<.^7"]
 |===
 |Feature |Description
 
@@ -256,53 +256,62 @@ image::../../Resource/elinkkvm_configure_router.jpg[image]
 
 |Interfaces
 |
-Micro SD-CARD (extend up to `64GB`) +
-RS232 interface +
+Micro SD-CARD (extend up to `64GB`)
+RS232 interface
 USB Host interface to extend to USB 3G/4G, USB Wifi, USB Storage
 
 |Video
 |
-VGA Port, Video Full HD Resolution +
-VGA Text mode: `640x350, 640x480, 720x400` +
+VGA Port, Video Full HD Resolution
+VGA Text mode: `640x350, 640x480, 720x400`
 VGA Graphic mode: `640x480, 800x600, 1024x768, 1152x864, 1280x1024,
-1440x900,1680x1050,1600x1200,1920 x1080` +
+1440x900,1680x1050,1600x1200,1920 x1080`
 Secure, full BIOS-level control of remote servers over an IP network
 |===
 
-=== Software Specification
+==== Software Specification
 
-[cols="^.^3,<.^7a"]
+[cols="^.^3,<.^7"]
 |===
 |Feature |Description
 
 |Remote Access Features
 |
-Support VNC Protocol +
-Emulation the USB Relative Mouse and Absolute Mouse +
-Emulation the USB Keyboard +
-Capture Full HD resolution with `Hardware Mode` +
+Support VNC Protocol
+
+Emulation the USB Relative Mouse and Absolute Mouse
+
+Emulation the USB Keyboard
+
+Capture Full HD resolution with `Hardware Mode`
+
 Capture all resolutions with 100% screen quality using the patented
 `Booster Mode`
 
 |Connections
 |
-Direct Connect Through TCP/IP +
-Extension through USB 3G/4G +
-Coming the Cloud Service to connect behind Firewall +
+Direct Connect Through TCP/IP
+
+Extension through USB 3G/4G
+
+Coming the Cloud Service to connect behind Firewall
 
 |Securities
 |
-Secure by SSL +
-Multiple Login Accounts (Up to `8 users`) +
+Secure by SSL
+
+Multiple Login Accounts (Up to `8 users`)
 
 |Remote Server Power Control
 |
-Remote Reset/On/Off Server through an IPMI +
-GUI Interface from eLinkViewer +
-Control the External PDU through RS232 +
+Remote Reset/On/Off Server through an IPMI
+
+GUI Interface from eLinkViewer
+
+Control the External PDU through RS232
 
 |Virtual Media
-|Disk images (.iso, .raw, .hdd, .hdd2** can be mounted as a USB 2.0
+|Disk images (.iso, .raw, .hdd, .hdd2 can be mounted as a USB 2.0
 devices on
 
 |Server power design
@@ -320,7 +329,7 @@ single USB port.
 to get the same configuration.
 |===
 
-=== eLinkViewer Software Specification
+==== eLinkViewer Software Specification
 
 *eLinkViewer* is an application specifically made to view remote screen
 content captured by an eLinkKVM device as well as interact with a remote
@@ -329,15 +338,17 @@ computer.
 *eLinkViewer* also provides functionalities to manage an eLinkKVM
 device.
 
-[cols="^.^3,<.^7a"]
+[cols="^.^3,<.^7"]
 |===
 |Feature |Description
 
 |General
 |
-Support multiple VNC Server and eLinkKVM +
-Remote protocol using VNC and extension commands for eLinkKVM +
-Support video scaling and full screen +
+Support multiple VNC Server and eLinkKVM
+
+Remote protocol using VNC and extension commands for eLinkKVM
+
+Support video scaling and full screen
 
 |Automation
 |Support image recognization and Python scripting allow automation the
@@ -369,7 +380,7 @@ image::../../Resource/eLinkKVM_FrontRearViews.jpg[eLinkKVM]
 
 ==== Front view
 
-[cols="^.^1,^.^3,<.^6a"]
+[cols="^.^1,^.^3,<.^6"]
 |===
 |ID |Component |Description
 
@@ -377,7 +388,7 @@ image::../../Resource/eLinkKVM_FrontRearViews.jpg[eLinkKVM]
 |Ethernet ports (10/100Mbps)
 |
 Master: can be configured as a DHCP server, a DHCP client or a
-static IP +
+static IP 
 
 Slave: can be configured as a DHCP Client or a static IP
 
@@ -399,7 +410,7 @@ Mass Storage, etc., to extend eLinkKVM functionality.
 <<<
 ==== Rear view
 
-[cols="^1,^3,6a"]
+[cols="^1,^3,6"]
 |===
 |ID |Component |Description
 
@@ -472,9 +483,9 @@ image::../../Resource/eLinkKVM_back_led.png[Dummy Screen]
 |===
 |LED ID |Color |Description
 
-|1 |Green |TBD
-|2 |Green |TBD
-|3 |Green |TBD
+|1 |Green |To Be Defined
+|2 |Green |To Be Defined
+|3 |Green |To Be Defined
 
 |===
 
