@@ -1,5 +1,7 @@
 = eLinkKVM Manual
-v0.1
+:sectnums:
 :toc:
+:toclevels: 5
+v0.1
 
 include::elinkkvm_guide.adoc[]
