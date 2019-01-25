@@ -113,6 +113,7 @@ heading:
   h4_font_size: $base_font_size_large
   h5_font_size: $base_font_size
   h6_font_size: $base_font_size_small
+  h2_text_transform: uppercase
   #line_height: 1.4
   # correct line height for Noto Serif metrics (comes with built-in line height)
   line_height: 1

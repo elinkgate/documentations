@@ -2,6 +2,7 @@
 :sectnums:
 :toc:
 :toclevels: 5
-v0.1
+:chapter-label: Chapter
+:doctype: book
 
 include::elinkkvm_guide.adoc[]

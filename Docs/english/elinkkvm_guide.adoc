@@ -1,6 +1,5 @@
-<<<
 == About eLinkGate
-
+'''
 eLinkGate is a company whose aim is to help people learn
 about IT. eLinkGate has patented a technology called eLinkMe – a USB
 device that allows an IT expert to remotely access a computer, smart
@@ -21,7 +20,7 @@ allowing customers to review their results face to face, without
 worrying about online theft.
 
 <<<
-== Chapter {counter:chapter}: Introduction
+== Introduction
 '''
 === Overview
 A KVM switch (an abbreviation stands for **K**eyboard, **V**ideo and
@@ -437,7 +436,7 @@ connected to the server serial port.
 |===
 
 <<<
-== Chapter {counter:chapter}: Installing eLinkKVM
+== Installing eLinkKVM
 '''
 
 This chapter describes how to install the eLinkKVM device and necessary
@@ -598,7 +597,7 @@ following the instructions.
 
 <<<
 [[elinkviewer-chap]]
-== Chapter {counter:chapter}: eLinkViewer
+== eLinkViewer
 '''
 
 eLinkViewer is a specialized software for remote control and management
@@ -956,7 +955,7 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 
 <<<
-== Chapter {counter:chapter}: eLinkKVM Configuration
+== eLinkKVM Configuration
 '''
 
 === User Management
@@ -1078,7 +1077,7 @@ Support Hardware factory reset
 . Press and hold (3 seconds) again till LED1 blinks green  to confirm action factory reset, the board factory resets and then reboots.
 
 <<<
-== Chapter {counter:chapter}: Booster
+== Booster
 '''
 
 `*Booster*` is a patented technology for eLinkKVM and related ElinkGate
