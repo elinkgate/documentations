@@ -458,7 +458,8 @@ items:
 * `1` USB 2.0 Type-B Cable
 * `1` VGA cable
 * `1` RS232 cable (optional)
-* `1` USB Power Adapter (5V - 2A) and Micro USB cable
+* `1` Micro USB cable
+* `1` USB Power Adapter (5V - 2A) 
 * Quick Start Guide
 
 === Power On eLinkKVM
