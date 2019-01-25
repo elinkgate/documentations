@@ -491,7 +491,7 @@ image::../../Resource/eLinkKVM_back_led.png[Dummy Screen]
 |===
 
 === eLinkKVM in Setup Mode
-.Multiple network layers
+.ELinkKVM connection in Setup mode
 image::../../Resource/eLinkKVM_connection_setup.png[Multiple network layer]
 
 The eLinkKVM is designed to be just plug and play. User can just install
@@ -499,9 +499,6 @@ the device in operation mode and start using immediately. But there are
 some case when the auto DHCP IP address may not work the user may have
 to setup it manually. Below are the connection diagram when setup
 eLinkKVM
-
-.Connection setup from an eLinkKVM device to a remote host
-image::../../Resource/eLinkKVM_connection_setup.png[Dummy Screen]
 
 Perform following steps to configure eLinkKVM:
 
@@ -528,6 +525,7 @@ Perform following steps to configure eLinkKVM:
 3.  Connect USB Type-B cable between Server USB port and Type-B port
 of eLinkKVM device
 
+.eLinkKVM connection (basic operation)
 image::../../Resource/eLinkKVM_operation.png[Dummy Screen]
 
 === Network configuration
@@ -613,7 +611,7 @@ textbox next to the *Server* field and click `Connect` to connect
 eLinkViewer to the eLinkKVM at the configured IP address:
 
 .eLinkViewer quick connectd UI
-image::../../Resource/elinkviewer_quickconnect.jpg[Elink ewer login Quick Connect]
+image::../../Resource/EV_login_ui.png[Elink ewer login Quick Connect]
 
 `Options`: configure eLinkKVM-VNC connection
 
@@ -698,16 +696,16 @@ allows changes accordingly:
 // TODO need to add comport here
 
 .COM Port UI
-image::../../Resource/DummyCOMPort.png[DummyInfoStatus]
+image::../../Resource/EV_dummy_comport.png[Comport port UI]
 
 ===== DHCP
 
 Display all IP address already allocated by DHCP server of eLinkKVM
 
 .DHCP Configuration UI
-image::../../Resource/elinkviewer_dummy_DHCP_Client.png[image]
+image::../../Resource/EV_dummy_DHCP.png[image]
 
-===== IPMI
+===== Virtual IPMI Server
 
 Display the current IPMI configuration of an eLinkKVM device and allows
 changes accordingly:
@@ -1048,7 +1046,7 @@ client.
 .Select DHCP client
 image::../../Resource/elinkviewer_dummy_network_dhcpclient.png[]
 
-=== Virtual IPMI Configuration
+//=== Virtual IPMI Configuration
 //TODO need to add IPMI configuration
 
 
@@ -1066,12 +1064,18 @@ on the eLinkKVM device then configures itself as a storage device.
 editted by any text editor.
 .  Edit the file following eLinkKVM configuration syntax. Store the
 file and reset eLinkKVM to use the new configuration.
+.  Press button `Enter configuration` button again to exit configuration mode
 
-//TODO: Add a static version
-// image::https://drive.google.com/a/elinkgate.com/uc?id=1Bkt9flkzvf36T-5rNGA_HJH9VIdlZom1[gifConfigureFile]
+ifdef::html[]
+.Offline configure
+image::../../Resource/EK_offline_configura.gif[ScaneLinkKVM]
+endif::[]
 
+=== Factory Reset
+Support Hardware factory reset
 
-// TODO Factory Reset
+. Press and hold button for 3 seconds till all 3 leds blinks in red color then release the button
+. Press and hold (3 seconds) again till LED1 blinks green  to confirm action factory reset, the board factory resets and then reboots.
 
 <<<
 == Chapter {counter:chapter}: Booster
@@ -1154,7 +1158,7 @@ Follow these steps to install and use `*Booster*` on Windows:
 - Click `Elink Configuration` -> `Browse` then select  `A:\floppy.hdd2`.
 - Clicking `*Booster*` to activate remote with Booster.
 
-=== Booster for Linux
+=== Booster for Linux (Non supported yet)
 
 Follow these steps to install and use `*Booster*` on Linu:
 
