@@ -805,7 +805,29 @@ changes accordingly:
 
 image::../../Resource/elinkview_dummy_IPMI.png[DummyInfoStatus]
 
-===== Admin
+
+==== Serial Console
+//TODO
+
+
+==== Python Console UI
+
+eLinkKVM allows eLinkKVM to be controlled by scripting with Python. On
+the toolbar, the button `Python Console Script` open a Python console
+similar to regular Python console but with Python eLinkSDK already
+loaded. A user can interactively use the Python console by typing code
+directly on it.
+
+.Python Console UI
+image::../../Resource/PythonConsoleUI.png[PythonConsoleUI]
+
+The Python console can also launch a script from the command line:
+
+[listing]
+elinkviewer.exe -cons=setup_win2012.py
+
+The Python console appears to display script output, error and exception
+if any.
 
 ==== Firmware Upgrade
 Step by step to upgrade firmware for ELinkKVM
@@ -833,7 +855,6 @@ IPMI Interface:
 
 .eLinkViewer IPMI Command Center
 image::../../Resource/elinkviewer_IPMI_Center.png[image]
-
 
 IPMI command center allows a user to scan servers with IPMI ports in a
 local area network and connect to these server to run IPMI commands.
@@ -892,8 +913,28 @@ image::../../Resource/elinkviewer_ipmi_resetbios.png[]
 .Reset to `Bios` IPMI server by reset command
 image::../../Resource/elinkviewer_ipmi_resetbios_success.png[]
 
-//TODO
+==== eLinkViewer Image Capture
 
+To capture the current eLinkViewer screen or a part of it:
+
+* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[width=60%] button +
+* After the screen is paused, hold the `Ctrl` button. +
+* While holding the `Ctrl` button, drag the mouse to select a capture
+region. +
+* Elinkviewer stored the capture screen as file `tmp<count>.png` like this: +
+image:../../Resource/elinkviewer_capture_tmpfile.png[width=80%] in folder run `elinkviewer.exe`
+
+.Capture screen
+image::../../Resource/elinkviewer_capture_screen.png[]
+
+=== Utility
+
+==== Event Log UI
+
+Event log displays events and performance metrics related to eLinkKVM.
+
+.Event Log UI
+image::../../Resource/EventLog.png[image]
 
 
 ==== eLinkKVM Toolbar
