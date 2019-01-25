@@ -33,7 +33,7 @@ supplying another 5V power source to the micro USB port (2) on an
 eLinkKVM device.
 
 .Rear USB ports for powering up an eLinkKVM device
-image::../../Resource/eLinkKVM_front_power.png[Dummy Screen]
+image::../../Resource/eLinkKVM_front_power.png[Dummy Screen,width=400]
 
 During the bootup process the 3 LEDs will be blink and turn green when
 the device is ready. User can start using the device.
@@ -68,7 +68,7 @@ Perform following steps to configure eLinkKVM:
 eLinkKVM device
 
 .Connection setup from an eLinkKVM device to a remote terminal
-image::../../Resource/eLinkKVM_setup_mode_guide.png[Dummy Screen]
+image::../../Resource/eLinkKVM_setup_mode_guide.png[Dummy Screen,width=400]
 
 === eLinkKVM in Operation Modes
 The main usage of eLinkKVM is to remotely monitor a server. The basic
@@ -77,7 +77,7 @@ through USB cable and VGA and connect to remote terminal through
 ethernet.
 
 .Basic eLinkKVM Operating Mode
-image::../../Resource/eLinkKVM_connection.png[Multiple network layer]
+image::../../Resource/eLinkKVM_connection.png[Multiple network layer,width=600]
 
 Perform following steps to configure eLinkKVM:
 
@@ -156,10 +156,7 @@ www.elinkgate.com/support/download.html just run setup.exe and
 following the instructions.
 
 <<elinkviewer-chap, eLinkViewer>> chapter shows how to run and using eLinkViewer.
-
-<<<
 [[elinkviewer-chap]]
-
 === eLinkViewer quick start
 //TODO:
 // Quick usage => Rieeng
