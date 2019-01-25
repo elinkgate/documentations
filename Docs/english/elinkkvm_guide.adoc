@@ -619,12 +619,24 @@ eLinkViewer.
 // File transfer
 // IPMI command center
 
-. Establishing a new connection to  to `ELinkKVM` with `eLinkViewer`.image:../../Resource/EV_establish_connection.png[width=250]
-. Authenticate device with user name/password (default: `admin/admin`).image:../../Resource/EV_authenticate.png[width=200]
-. Click `ELink Configuration` image:../../Resource/EV_click_config.png[width=150]
-. Enable `Keyboard HID USB` and active the inteface image:../../Resource/EV_config_kv_hidusb_active.png[width=120]
-. Enable `Mouse ABS USB` and active the inteface image:../../Resource/EV_config_mouse_absusb_active.png[width=120]
-. Set `Video Mode` to VGA image:../../Resource/EV_config_VGA_active.png[width=150]
+. Establishing a new connection to  to `ELinkKVM` with `eLinkViewer`. +
+image:../../Resource/EV_establish_connection.png[width=250]
+
+. Authenticate device with user name/password (default: `admin/admin`). +
+image:../../Resource/EV_authenticate.png[width=200]
+
+. Click `ELink Configuration`. +
+image:../../Resource/EV_click_config.png[width=150]
+
+. Enable `Keyboard HID USB` and active the inteface +
+image:../../Resource/EV_config_kv_hidusb_active.png[width=120]
+
+. Enable `Mouse ABS USB` and active the inteface +
+image:../../Resource/EV_config_mouse_absusb_active.png[width=120]
+
+. Set `Video Mode` to VGA +
+image:../../Resource/EV_config_VGA_active.png[width=150]
+
 . Click `OK` to apply new configure.
 
 .Remote control quick usage
