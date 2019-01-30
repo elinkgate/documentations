@@ -507,6 +507,7 @@ image:../../Resource/EV_config_dialog.png[]
 . Select a video which want to switch to. For example: Select VGA video mode +
 image:../../Resource/EV_config_VGA_active.png[width=150]
 . Click Ok to apply the new configuration. In the case, eLinkViewer displayed VGA output of server +
+
 ==== Emulate Mouse device:
 //TODO
 . Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
@@ -527,10 +528,17 @@ image:../../Resource/EV_config_kv_hidusb_active.png[width=150]
 . Click `OK` to apply the new `Keyboard mode`
 
 ==== Emulate Virtual USB media :
-//TODO
+Configure to mount an iamge as a `virtual USB media`::
+. Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
+. Click button `Browser` to browse file in ELink-KVM remotely.
+. Select an image file (format iso/hdd/hdd2) and click button `<<` to specific the image should be mount
+. Click `OK` to apply the mount image
+
+.Emulate ELinkKVM as a virutal USB media
+image::../../Resource/EV_conf_virutal_usb.png[]
 
 === Advance Remote Control
-//TODO
+//TODO Description
 
 ==== File Transfer
 
@@ -567,7 +575,7 @@ image::../../Resource/elinkviewer_dummy_screen_deviceinfo.png[Dummy screen]
 Display basic info of Dock if current eLinkKVM connected to a eLink Dock
 
 .Dummy Info Status UI
-image::../../Resource/elinkviewer_dummy_screen_dockinfo.png[DummyInfoStatus]
+image::../../Resource/EV_dummy_dock.png[DummyInfoStatus]
 
 ===== Networks
 
@@ -575,14 +583,12 @@ Display the current network configuration of an eLinkKVM device and
 allows changes accordingly:
 
 .Network Configuration UI
-image::../../Resource/elinkviewer_dummy_network.png[DummyInfoStatus]
+image::../../Resource/EV_dummy_network.png[DummyInfoStatus]
 
 ===== COM Port
 
 Display the current COM port configuration of an eLinkKVM device and
 allows changes accordingly:
-
-// TODO need to add comport here
 
 .COM Port UI
 image::../../Resource/EV_dummy_comport.png[Comport port UI]
@@ -599,11 +605,10 @@ image::../../Resource/EV_dummy_DHCP.png[image]
 Display the current IPMI configuration of an eLinkKVM device and allows
 changes accordingly:
 
-image::../../Resource/elinkview_dummy_IPMI.png[DummyInfoStatus]
+image::../../Resource/EV_dummy_IPMI.png[DummyInfoStatus]
 
 
 ==== Serial Console
-//TODO
 
 
 ==== Python Console UI
