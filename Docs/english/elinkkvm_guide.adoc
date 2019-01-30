@@ -443,29 +443,29 @@ include::elinkkvm_quick_guide_chapter.adoc[]
 == eLinkViewer
 '''
 
-eLinkViewer is a specialized software for remote control and management
-of an eLinkKVM device. `*Booster*` technology is only available with
-eLinkViewer.
+eLinkViewer is a specialized software for remote control and
+management of an eLinkKVM device. `*Booster*` technology on eLinkKVM
+is only available when using eLinkViewer.
 
-=== Login
+=== Login to eLinkKVM
 ==== Establish connection
-To connect to an eLinkKVM device, fill the configured IP address in the
-textbox next to the *Server* field and click `Connect` to connect
-eLinkViewer to the eLinkKVM at the configured IP address:
+When first open `eLinkViwer`, the following dialog is presented:
 
 .eLinkViewer quick connectd UI
 image::../../Resource/EV_login_ui.png[Elinkviewr Quick Connect]
 
-`Options`: configure eLinkKVM-VNC connection
+* `Connect`: To connect to eLinkKVM, fill the configured IP address in the
+textbox next to the *Server* field and click `Connect` to connect
+eLinkViewer to the eLinkKVM at the configured IP address:
 
-.Connection options
-image::../../Resource/EV_connection_options.png[Connection UI]
+* `Options`: configure eLinkKVM-VNC connection
 
-* Scan: Scan for all eLinkKVM devices in the current local area network (LAN)
+* `Scan` to scan for all eLinkKVM devices in the current local
+area network (LAN).
 
 ifdef::html[]
 .Scanning process
-image::../../Resource/EV_Scanning.gif[ScaneLinkKVM]
+image::../../Resource/EV_Scanning.gif[ScanLinkKVM]
 endif::[]
 
 After connecting to an eLinkKVM device, the viewer screen switches to
@@ -492,9 +492,16 @@ image::../../Resource/EV_user_login.png[]
 image::../../Resource/elinkviewer_exit_connection_dialog.jpg[Exit nnection]
 === Basic Remote Control
 
+Before a remote control session, eLinkViewer allows a user different
+methods to interact with eLinkKVM. The interaction methods include
+configurations for `Keyboard`, `Video` and `Mouse` are sent and
+received between a remote terminal and a remote host. A disk image can
+also be selected as a virtual media for a remote host to facilitate
+data transfer.
+
 ==== ELink Configuration UI
-ELinkViewer support UI to configure ELinkKVM.
-Open ELink Configuration Dialog:
+
+To configure a remote controll session, open `ELink Configuration` Dialog:
 
 1. Click `ELink Configuration`. +
 image:../../Resource/EV_click_config.png[width=150]
@@ -610,6 +617,7 @@ image::../../Resource/EV_dummy_IPMI.png[DummyInfoStatus]
 
 ==== Serial Console
 
+// TODO: Write later
 
 ==== Python Console UI
 
@@ -633,10 +641,10 @@ if any.
 ==== Firmware Upgrade
 Step by step to upgrade firmware for ELinkKVM
 
-* Firwmare upgrade by open `eLinkViewer File Transfer dialog`
-* Transfering firmware file from local to ELinkKVM EMMC (`A:\`)
-* Double click to firmware file in ELinkKVM
-* Click button `Firmware` to ELinkKVM with the selected firmware file
+* Firmwmare upgrade by open `File Transfer` dialog
+* Transfering firmware file from local to ELinkKVM EMMC device (`A:\` drive)
+* Double click the firmware file in ELinkKVM
+* Click `Firmware` button to ELinkKVM with the selected firmware file
 
 .Firmware upgrade
 image::../../Resource/EV_firware_upgrade.png[]
@@ -644,11 +652,14 @@ image::../../Resource/EV_firware_upgrade.png[]
 .Firmware upgrade process
 image::../../Resource/EV_firwmare_upgrade_process.png[]
 
-After upgrade firmware process complete, device will automatic restart. verifying firmware version by click info button in elinkviewer
+After the firmware upgrade process completed, eLinKKVM will automatic
+restart. Verify firmware version by click `Info`` button in
+eLinkViewer.
 
 .Connection info
 image::../../Resource/EV_connection_info.png[]
-in `Connection Information` display info of firmware version. In the case is `Firmware: 01.04.01.07`
+`Connection Information` display info of firmware
+version. In the case is `Firmware: 01.04.01.07`
 
 ==== IPMI Command Center
 
@@ -689,8 +700,8 @@ Use IPMI command center to scan and run IPMI commands.
 * Enter Start IP and end IP. Limit the ranger of IP scanning.
 * Click `Scan` to start scanning. Found IPMI servers are displayed as
 a list.
-* Click on one of the found IPMI IP addresses, enter `Username` and `Password`, then click *`Connect`*
-* Click *`Power On`*, *`Reset`*, etc., to run appropriate IPMI commands.
+* Click on one of the found IPMI IP addresses, enter `Username` and `Password`, then click `Connect`
+* Click `Power On`, `Reset`, etc., to run appropriate IPMI commands.
 
 Example:
 
@@ -823,10 +834,11 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 
 <<<
-== eLinkKVM Configuration
+== eLinkKVM Advance Configuration
 '''
 
 === User Management
+
 * Support up to 8 user accounts
 * Multiple level management : The higher level can interrupt connection and modify atribute of lower level user account
   ** Admin  : `Top level` account Data center  admin account. Can create other lower priority account types like Manager and User
@@ -836,7 +848,7 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 NOTE: For the *First Time Configure*, the default user name and password of ELinkKVM is `admin/admin`
 
 ==== User login
-Fill User name/password to log in ELinkKVM
+Fill User name/password to log in ELinkKVM:
 
 .ELinkKVM login UI
 image::../../Resource/EV_user_login.png[]
@@ -1095,13 +1107,17 @@ The command produces the following output:
 
 ----
 Initializing environment...Done.
-Start Analyzing image...Found a Windows 2012 ISO. Done
-Format HDD image to FAT32...Done.
-Generate elinkme_dummy.dat...Done.
-Copy files from ISO to HDD...Done.
-Installing vfservice to boot.wim...Done.
-Installing vfservice to UEFI...Done.
-Generate Embedded Hddx at the end of HDD file...Done
+Start Analyzing image...Found a x86_64 Windows 2012 ISO. Done. 
+Format HDD image to FAT32...Done formatting.
+Generate elinkme_dummy.dat...
+- Start sector: 18136, end sector: 19164.
+Copy files from ISO to HDD...Done copying.
+Installing vfservice to boot.wim...Done coyping.
+Installing UEFI vfservice...
+- Copy vfUEFI bootloader
+- Copy vfUEFI driver
+- Done copying.
+Generate Embedded Hddx at the end of HDD file...Done.
 ----
 
 The above command creates a new image `Win2012.hdd2` with `*Booster*` agent embedded from the original Windows setup image `Win2012.iso`.
