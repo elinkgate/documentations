@@ -158,18 +158,6 @@ following the instructions.
 <<elinkviewer-chap, eLinkViewer>> chapter shows how to run and using eLinkViewer.
 [[elinkviewer-chap]]
 === eLinkViewer quick start
-//TODO:
-// Quick usage => Rieeng
-// basic
-// capture screen
-// 1. emulate keyboard
-// 3. mouse
-//
-// 4. Storage
-// Advance:
-// Dummy screen .... all
-// File transfer
-// IPMI command center
 
 . Establishing a new connection to  to `ELinkKVM` with `eLinkViewer`. +
 image:../../Resource/EV_establish_connection.png[width=250]

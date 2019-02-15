@@ -789,25 +789,6 @@ eLinkViewer)
 . Disconnect
 . Scan IPMI
 
-==== Python Console UI
-
-eLinkKVM allows eLinkKVM to be controlled by scripting with Python. On
-the toolbar, the button `Python Console Script` open a Python console
-similar to regular Python console but with Python eLinkSDK already
-loaded. A user can interactively use the Python console by typing code
-directly on it.
-
-.Python Console UI
-image::../../Resource/PythonConsoleUI.png[PythonConsoleUI]
-
-The Python console can also launch a script from the command line:
-
-[listing]
-elinkviewer.exe -cons=setup_win2012.py
-
-The Python console appears to display script output, error and exception
-if any.
-
 ==== Event Log UI
 
 Event log displays events and performance metrics related to eLinkKVM.
@@ -815,22 +796,6 @@ Event log displays events and performance metrics related to eLinkKVM.
 .Event Log UI
 image::../../Resource/EventLog.png[image]
 
-
-==== Serial Console
-
-==== eLinkViewer Image Capture
-
-To capture the current eLinkViewer screen or a part of it:
-
-* Press the `Pause` image:../../Resource/elinkviewer_pause_ico.png[width=60%] button +
-* After the screen is paused, hold the `Ctrl` button. +
-* While holding the `Ctrl` button, drag the mouse to select a capture
-region. +
-* Elinkviewer stored the capture screen as file `tmp<count>.png` like this: +
-image:../../Resource/elinkviewer_capture_tmpfile.png[width=80%] in folder run `elinkviewer.exe`
-
-.Capture screen
-image::../../Resource/elinkviewer_capture_screen.png[]
 
 
 <<<
