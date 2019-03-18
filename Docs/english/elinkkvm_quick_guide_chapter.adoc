@@ -20,7 +20,7 @@ items:
 * `1` VGA cable
 * `1` RS232 cable (optional)
 * `1` Micro USB cable
-* `1` USB Power Adapter (5V - 2A) 
+* `1` USB Power Adapter (5V - 2A)
 * Quick Start Guide
 
 === Power On eLinkKVM
@@ -127,7 +127,7 @@ only Windows is supported.
 
 .  Check the following options:
 
-** Ontain an IP Address automatically
+** Obtain an IP Address automatically
 ** Obtain DNS server address automatically
 
 .Configure Network
@@ -155,35 +155,42 @@ Download the eLinkViewer setup package from link:
 www.elinkgate.com/support/download.html just run setup.exe and
 following the instructions.
 
-<<elinkviewer-chap, eLinkViewer>> chapter shows how to run and using eLinkViewer.
+See <<elinkviewer-chap>> chapter shows how to run and using eLinkViewer.
 [[elinkviewer-chap]]
 === eLinkViewer quick start
 
-. Establishing a new connection to  to `ELinkKVM` with `eLinkViewer`. +
-image:../../Resource/EV_establish_connection.png[width=250]
-
-. Authenticate device with user name/password (default: `admin/admin`). +
-image:../../Resource/EV_authenticate.png[width=200]
-
-. Click `ELink Configuration`. +
-image:../../Resource/EV_click_config.png[width=150]
-
-. Enable `Keyboard HID USB` and active the inteface +
-image:../../Resource/EV_config_kv_hidusb_active.png[width=150]
-
-. Enable `Mouse ABS USB` and active the inteface +
-image:../../Resource/EV_config_mouse_absusb_active.png[width=150]
-
-. Set `Video Mode` to VGA +
-image:../../Resource/EV_config_VGA_active.png[width=150]
-
+. Establishing a new connection to  `eLinkKVM` with `eLinkViewer`.
++
+.Establish new connection
+image::../../Resource/EV_establish_connection.png[]
+. Authenticate device with user name/password (default: `admin/admin`).
++
+.eLinkKVM Authentication UI
+image::../../Resource/EV_authenticate.png[]
+. Click `ELink Configuration`.
++
+.Configurate eLinkKVM
+image::../../Resource/EV_click_config.png[]
+. Enable `Keyboard HID USB` and active the interface
++
+.Keyboard Operation Modes
+image::../../Resource/EV_config_kv_hidusb_active.png[]
+. Enable `Mouse ABS USB` and active the interface
++
+.Mouse Operation Modes
+image::../../Resource/EV_config_mouse_absusb_active.png[]
+. Set `Video Mode` to VGA
++
+.Video Capture Modes
+image::../../Resource/EV_config_VGA_active.png[]
++
 . Click `OK` to apply new configure.
-
++
 .Remote control quick usage
 image::../../Resource/EV_quick_usage_config.png[]
 
 The default `Dummy` screen should be switched to the actual output from
-the remote remote host.
+the remote host.
 
 ifdef::html[]
 .Switch VGA mode
