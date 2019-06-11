@@ -1,19 +1,19 @@
-== eLinkKVM quick start
+== elinkKVM quick start guide
 '''
 
-This chapter describes how to install the eLinkKVM device and necessary
-software to work with eLinkKVM . It contains the following sections:
+This chapter describes how to install the elinkKVM device and necessary
+software to work with elinkKVM . It contains the following sections:
 
 * Package contents
-* Power on eLinkKVM
-* eLinkKVM in Setup Mode
-* eLinkKVM in Operating Mode
+* Power on elinkKVM
+* elinkKVM in Setup Mode
+* elinkKVM in Operating Mode
 * Network setup
-* eLinkViewer setup
+* elinkViewer setup
 
 === Package Contents
 
-In addition to the *eLinkKVM* device, the package contains the following
+In addition to the *elinkKVM* device, the package contains the following
 items:
 
 * `1` USB 2.0 Type-B Cable
@@ -21,178 +21,174 @@ items:
 * `1` RS232 cable (optional)
 * `1` Micro USB cable
 * `1` USB Power Adapter (5V - 2A)
-* Quick Start Guide
+* `1` elinkKVM Quick Start Guide
 
-=== Power On eLinkKVM
+=== Power On elinkKVM
 
-The USB-Powered design allow eLinkKVM power directly from server USB
+The USB-Powered design allows elinkKVM power directly from server USB
 port (1) without an external power. But in some cases, it is necessary
-to keep the device active while the server can be turned off or eLinkKVM
-need to provide the power to external USB 3G. This can be done by
+to keep the device active while the server can be turned off or elinkKVM
+needs to provide the power to external USB device. This can be done by
 supplying another 5V power source to the micro USB port (2) on an
-eLinkKVM device.
+elinkKVM device.
 
-.Rear USB ports for powering up an eLinkKVM device
-image::../../Resource/eLinkKVM_front_power.png[Dummy Screen,width=400]
+.Rear USB ports for powering up an elinkKVM device
+image::../../Resource/eLinkKVM_front_power.png[Dummy Screen,width=600]
 
-During the bootup process the 3 LEDs will be blink and turn green when
-the device is ready. User can start using the device.
+During the bootup process, the 3 LEDs will blink and turn green when
+the device is ready. Now, the user can start using the device.
 
 .Front status LEDs
-image::../../Resource/eLinkKVM_back_led.png[Dummy Screen]
+image::../../Resource/eLinkKVM_back_led.png[Dummy Screen, width=600]
 
 [cols="^.^1,^.^3,<.^6"]
 |===
 |LED ID |Color |Description
 
-|1 |Green |To Be Defined
-|2 |Green |To Be Defined
-|3 |Green |To Be Defined
+|1 |Green |The system is initialized successfully
+|2 |Green |The network slave port is ready
+|3 |Green |The network master port is ready
 
 |===
 
-=== eLinkKVM in Setup Mode
-.ELinkKVM connection in Setup mode
+=== elinkKVM in Setup Mode
+.elinkKVM connection in Setup mode
 image::../../Resource/eLinkKVM_connection_setup.png[Multiple network layer]
 
-The eLinkKVM is designed to be just plug and play. User can just install
-the device in operation mode and start using immediately. But there are
-some case when the auto DHCP IP address may not work the user may have
-to setup it manually. Below are the connection diagram when setup
-eLinkKVM
+The elinkKVM is designed to be just plug and play. User can simply install
+the device in operation mode and start using immediately. But, there are
+some cases when the auto DHCP IP address may not work. The user may have
+to setup it manually. Below are the connection diagrams when setup
+elinkKVM.
 
-Perform following steps to configure eLinkKVM:
+Perform following steps to configure elinkKVM in Setup Mode:
 
-. Connect Ethernet RJ45 cable between eLinkKVM and remote terminal
-. Connect USB Type-B cable to remote terminal and Type-B port of
-eLinkKVM device
+. Connect Ethernet RJ45 cable between eLinkKVM and remote terminal computer.
+. Connect USB Type-B cable to remote terminal computer and Type-B port of
+eLinkKVM device.
 
-.Connection setup from an eLinkKVM device to a remote terminal
-image::../../Resource/eLinkKVM_setup_mode_guide.png[Dummy Screen,width=400]
+.Connection of an elinkKVM device in Setup Mode
+image::../../Resource/eLinkKVM_setup_mode_guide.png[Dummy Screen, width=600]
 
-=== eLinkKVM in Operation Modes
-The main usage of eLinkKVM is to remotely monitor a server. The basic
-connection is described below where eLinkKVM is connected to Server
-through USB cable and VGA and connect to remote terminal through
-ethernet.
+<<<
+=== elinkKVM in Basic Operation Mode
+The main usage of elinkKVM is to remotely monitor a server. The basic
+connection is described below, where elinkKVM is connected to Server
+through USB cable and VGA. It is also connected to remote terminal through
+Ethernet.
 
-.Basic eLinkKVM Operating Mode
-image::../../Resource/eLinkKVM_connection.png[Multiple network layer,width=600]
+.Basic eLinkKVM Operation Mode
+image::../../Resource/eLinkKVM_connection.png[Multiple network layer, width=600]
 
-Perform following steps to configure eLinkKVM:
+Perform following steps to configure elinkKVM:
 
-1.  Connect Ethernet RJ45 cable between eLinkKVM and remote terminal
-2.  Connect VGA cable between Server and VGA port on eLinkKVM
+1.  Connect Ethernet RJ45 cable between elinkKVM and remote terminal computer.
+2.  Connect VGA cable between Server and VGA port on elinkKVM.
 3.  Connect USB Type-B cable between Server USB port and Type-B port
-of eLinkKVM device
+of elinkKVM device.
 
-.eLinkKVM connection (basic operation)
-image::../../Resource/eLinkKVM_operation.png[Dummy Screen]
+.elinkKVM connection (basic operation mode)
+image::../../Resource/eLinkKVM_operation.png[Dummy Screen,width=600]
 
 === Network configuration
 
-We may not need to explain in detail how to config Window to get IP
-address as other manual don't explain that
-
-eLinkKVM supports two Ethernet ports for network connection:
+elinkKVM supports two Ethernet ports for network connection:
 
 * Ethernet Master: by default, configured as a DHCP server.
 * Ethernet Slave: by default, configured as a DHCP client.
 
-To connect to an eLinkKVM device, a network connection between a remote
+In order to connect to an elinkKVM device, a network connection between a remote
 terminal and an eLinkKVM device is required. The connection can either
 be:
 
-* _Direct connect_: An ethernet cable connects directly between a remote
-terminal and an eLinkKVM device.
-* _Local Area Network_: Both the remote terminal and an eLinkKVM device
+* _Direct connect_: An Ethernet cable connects directly between a remote
+terminal and an elinkKVM device. In this case, we should configure elinkKVM as
+DHCP server (using Master port) and remote terminal as DHCP client.
+* _Local Area Network_: Both the remote terminal and an elinkKVM device
 are connected to a local area network (LAN). eLinkKVM is plugged to the
-router of the network.
-* _Over the Internet_: an eLinkKVM device is provided with a static
-address for a remote terminal to access it anywhere in the world.
+router of the network. In this case we should configure elinkKVM (using Slave
+port) and remote terminal as DHCP client
+* _Over the Internet_: an elinkKVM device is provided a static address
+for a remote terminal to access it anywhere in the world.
 
-When a connection is established, its network interface must be
-configured in the operating system of the remote terminal. Currently,
-only Windows is supported.
-
-==== Windows
-
-.  Open `Control Panel` -> `All Control Panel Items` ->
-`Network Connections`.
-
-.  Right click on Ethernet Device of the eLinkKVM connection, select
-`Properties.
-
-.  Double click `Internet Protocol version 4 (TCP/IPv4)`
-
-.  Check the following options:
-
-** Obtain an IP Address automatically
-** Obtain DNS server address automatically
-
-.Configure Network
-image::../../Resource/elinkvm_network_config.png[]
-
-.  Verify the Setting
-
-The default address for Ethernet Master port is `10.0.0.1`. To check if
-the hardware is setup correctly:
-
-.  On Windows, open `cmd.exe`. On Linux and Mac OS, open a terminal
-emulator.
-.  Type the following command:
-
-[listing]
-ping 10.0.0.1
-
-If `ping` receives response packets, this means eLinkKVM is
-connected.  To actually use eLinkKVM, the software eLinkViewer is
-required. The basic usage is described in the next chapter.
+When a connection is established, the elinkKVM is accessed from remote terminal
+by the software elinkViewer. Currently, elinkViewer is only supporting Windows.
 
 === Setup eLinkViewer
 
-Download the eLinkViewer setup package from link:
-www.elinkgate.com/support/download.html just run setup.exe and
-following the instructions.
+Download the elinkViewer setup package from link:
+www.elinkgate.com/support/download.html.
 
-See <<elinkviewer-chap>> chapter shows how to run and using eLinkViewer.
+.Setting Button of elinkKVM
+image::../../Resource/eLinkKVM_setting_button.png[width=600]
+
+Optionally, the elinkKVM comes with pre-production setup package of elinkViewer.
+When LED1 of elinkKVM turns green, short pressing the Setting Button will result
+elinkKVM to appear as storage to attached computer. The setup.exe can be found in
+the attached storage at folder elinkViewer\setup.exe
+
+.The contents of attached storage
+image::../../Resource/elinkTools_CD.png[]
+
+Just run setup.exe and follow the instructions to complete the setup.
+
+<<elinkviewer-chap>> chapter shows how to run and use eLinkViewer.
 [[elinkviewer-chap]]
-=== eLinkViewer quick start
+=== elinkViewer quick start
 
-. Establishing a new connection to  `eLinkKVM` with `eLinkViewer`.
+. Run elinkViewer.exe by double clicking the application icon. The login dialog
+appears as below.
++
+If user knows the elinkKVM address, then just fill in the address and move to
+connect step.
+Or click on `Scan` button to pop up Service Discovery Dialog to find the elinkKVM.
 +
 .Establish new connection
 image::../../Resource/EV_establish_connection.png[]
-. Authenticate device with user name/password (default: `admin/admin`).
+. Click on `Scan` button to search for device.
++
+.Scan for elinkKVM devices
+image::../../Resource/EV_scan_connection1.png[]
+. Click `Connect` button to connect to the device
++
+When device is detected, it will appear on the dialog. Select the device and click
+`Connect` button.
++
+.Select the device and click "Connect" button
+image::../../Resource/EV_scan_connection2.png[]
+
+. Get the IP address and connect
++
+When the IP address is filled either manually or as a result of scan operation
+above, user can click on `Connect` button to establish the connection with elinkKVM.
++
+.Establish new connection
+image::../../Resource/EV_establish_connection2.png[]
+. Authenticate with device
++
+When connected to elinkKVM, an authentication dialog will pop up to ask for username
+and password. The default username and password is `admin/admin`.
 +
 .eLinkKVM Authentication UI
 image::../../Resource/EV_authenticate.png[]
-. Click `ELink Configuration`.
+. Switch to Local Screen.
 +
-.Configurate eLinkKVM
+When first connect to elinkKVM, the last used screen will appear. The  default
+last used screen is `local screen`, which shows the status and setting of elinkKVM.
+If the last used screen is not `local screen`, user can quickly switch to by
+clicking on `local screen` icon of quick tool bar.
+image:../../Resource/icons/local_quick_button.png[]
++
+
+.Switch to Local Screen
 image::../../Resource/EV_click_config.png[]
-. Enable `Keyboard HID USB` and active the interface
+. Switch to VGA Screen
 +
-.Keyboard Operation Modes
-image::../../Resource/EV_config_kv_hidusb_active.png[]
-. Enable `Mouse ABS USB` and active the interface
-+
-.Mouse Operation Modes
-image::../../Resource/EV_config_mouse_absusb_active.png[]
-. Set `Video Mode` to VGA
-+
-.Video Capture Modes
-image::../../Resource/EV_config_VGA_active.png[]
-+
-. Click `OK` to apply new configure.
-+
-.Remote control quick usage
-image::../../Resource/EV_quick_usage_config.png[]
+If elinkKVM is connected in operation mode, user can see the Server screen by
+clicking on `VGA screen` icon of quick tool bar
+image:../../Resource/icons/vga_quick_button.png[]
 
-The default `Dummy` screen should be switched to the actual output from
-the remote host.
+.Switch to VGA Screen
+image::../../Resource/EV_vga_screen.png[]
 
-ifdef::html[]
-.Switch VGA mode
-image::../../Resource/EV_switch_VGA.gif[switch vga mode]
-endif::[]
+For more detailed operation of elinkKVM, please see `elinkKVM User Manual`.
