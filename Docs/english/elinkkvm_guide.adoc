@@ -29,7 +29,7 @@ multiple computers from one or more sets of keyboards, video monitors,
 and mice.
 
 ****
-.KVM SWitch interworking
+.KVM Switch interworking
 image::../../Resource/Kvm-switch-diagram.svg[]
 
 The computer on the right is currently being controlled by the
@@ -50,14 +50,26 @@ computers with a normal Internet connection.
 Another approach for remote controlling is using pure software. However,
 as a pure software solution is usually limited only in an operating
 system environment. Without an operating system, a software solution is
-infeasible. Unlike software solutions for remote controlling, a hardware
+infeasible.
+
+:xrefstyle: short
+Unlike software solutions for remote controlling, a hardware
 solution like a KVM switch can be used as a replacement for a computer
-monitor. This diagram demonstrates the scope difference between a
-software and a hardware solution:
+monitor and it can work in either operating system or non-OS (such as Bios, UEFI).
+The below diagram <<hardware_vs_software>> demonstrates the scope difference
+between a software and a hardware solution:
 
+****
+[[hardware_vs_software]]
 .Hardware and Software remote control scopes
-image::../../Resource/RemoteAccessTechnology.png[]
+image::../../Resource/RemoteAccessTechnology.png[hardware_vs_software]
 
+image:../../Resource/icons/yellow_shape.png[40,40] Show the area the hardware
+solutions take advantage
+
+image:../../Resource/icons/green_shape.png[40,40]  Show the area where
+the software solutions take advantage
+****
 eLinkKVM is one of such KVM-over-IP devices. However, unlike other
 KVM-over-IP solutions that are solely hardware solutions, eLinkKVM
 takes on a unique hybrid approach that combines both hardware and
@@ -70,30 +82,13 @@ computing resources of the remote hosts.  `*Booster*` is not limited
 to an operating system environment, but also in BIOS and UEFI
 environments.
 
-Operators can monitor and access their computers from remote locations
-using a remote control software. An eLinkKVM device connects to a local
-area network or directly to a personal computer (PC) using a standard
-ethernet cable, then uses a USB cable and a video display cables to
-connect to a server and complete control it with Keyboard, Video and
-Mouse functionality from the eLinkKVM device.
-
-Because the eLinkKVM uses the Internet as its data communication medium,
-the server it is connected to can be accessed from any authorized
-computer across the Internet, regardless of physical location.
-
-A user at a remote location connect to the eLinkKVM via its IP address.
-Once a connection has been established and authorization granted, the
-remote computer can exchange keyboard, video and mouse signals with the
-remote server (of which the eLinkKVM is attached to), just as if they
-were physically present and working on the equipment directly.
-
 === Booster technology
 
 `*Booster*` is a patented technology that allows eLinkKVM to utilize
 computing resources from remote hosts to improve remote
 performance. To quickly summarize, `*Booster*` includes software agents
 that work on major OS platforms (Windows, Linux and Mac OS)
-however,unlike traditional software solutions, `*Booster*` agents can also
+however, unlike traditional software solutions, `*Booster*` agents can also
 operate in BIOS and UEFI environments, independent of any operating
 system.
 
@@ -137,23 +132,23 @@ chapter for more information.
 Virtual Media support with 8GB Internal Flash or 64GB with SD Card::
 
 Instead of using a separate computer as a share network storage to
-emulate the Virtual Media, eLinkKVM itself is a high performance shared
-network storage device.
+emulate the Virtual Media. Let enjoy a high performance local
+storage device.
 
 USB-Powered Design::
 
-The power is getting from USB port of Server, no external power supply
-required
+The device can just power from USB port of Server, no external power supply
+required.
 
 RS232 Serial Port::
 
-For Serial Console, Remote Dial In or control external PDU
+For Serial Console, Remote Dial In or control external PDU.
 
 Built-in IPMI (Intelligent Platform Management Interface) utility::
 
 eLinkKVM understands IPMI and allows control the server that support
 IPMI interface. The user may power on/off/reset server without using an
-external PDU
+external PDU.
 
 Support USB Host Interface::
 
@@ -162,10 +157,8 @@ storage or USB security device to add more functionality.
 
 Flexible Two Ethernet Ports::
 
-The Ethernet ports can be configured to work independently to connect 2
-different networks with the master port can be configured as a DHCP
-server. Or 2 ports can be used to connect a server to a router, using a
-single server Ethernet port.
+The tow Ethernet ports can be configured to work independently to connect 2
+different networks or bridge together to work as local switch.
 
 Built-In USB Hub::
 
@@ -187,11 +180,11 @@ Ideal for distributed IT system environments such as small branch
 offices, campuses, test labs, and server hosting environments.
 
 Remote firmware upgrade::
-Firmware can be easily upgraded remotely with a few mouse clicks.
+Firmware can be easily upgraded remotely with GUI or scripting for batch upgrade.
 
 === eLinkKVM Physical Connections
 
-eLinKVM can be flexibly setup to connect between a remote terminal and a
+eLinkKVM can be flexibly setup to connect between a remote terminal and a
 remote host with many options.
 
 To connect a remote terminal over IP, the following methods can be used:
@@ -218,7 +211,7 @@ the host screen.
 * Connect the remote host to the Slave port on eLinkKVM to manage
 through IPMI interface.
 
-After phsyical connections on both ends are done, a remote connection is
+After physical connections on both ends are done, a remote connection is
 up and running.
 
 .Complete system eLinkKVM connect to Router, connect to IPMI server, USB, RS232, external PDU, USB 3G, etc.
@@ -230,8 +223,8 @@ image::../../Resource/Elinkkvm_lite.jpg[image]
 .Using feature network bridge to save network connection (network cable to eLinkKVM to Master Connector & from Slave Connector to Server), eLinkKVM connect USB to server
 image::../../Resource/elinkkvm_bridge_network.jpg[image]
 
-.Seperate network layer
-image::../../Resource/elinkkvm_multiple_network_layer.jpg[Multiple twork layer]
+.Separate network layer
+image::../../Resource/elinkkvm_multiple_network_layer.jpg[image]
 
 .Extend function with USB device
 image::../../Resource/elinkkvm_multiple_usb_device.jpg[image]
@@ -241,13 +234,13 @@ image::../../Resource/elinkkvm_configure_router.jpg[image]
 
 === Technical Specifications
 
-==== Hardware specification
+==== eLinkKVM Hardware Specification
 
 [cols="^.^3,<.^7"]
 |===
 |Feature |Description
 
-|Networks
+|Network
 |`2` Ethernet ports (`10/100Mbps`)
 
 |Storage
@@ -256,7 +249,9 @@ image::../../Resource/elinkkvm_configure_router.jpg[image]
 |Interfaces
 |
 Micro SD-CARD (extend up to `64GB`)
+
 RS232 interface
+
 USB Host interface to extend to USB 3G/4G, USB Wifi, USB Storage
 
 |Video
@@ -268,7 +263,21 @@ VGA Graphic mode: `640x480, 800x600, 1024x768, 1152x864, 1280x1024,
 Secure, full BIOS-level control of remote servers over an IP network
 |===
 
-==== Software Specification
+
+==== eLinkKVM Mechanical Specification
+
+[cols="^.^3,<.^7"]
+|===
+|Feature |Description
+
+|Dimension
+|119mm x 69mm x 24mm
+
+|Weight
+| 200gr
+|===
+
+==== eLinkKVM Firmware Specification
 
 [cols="^.^3,<.^7"]
 |===
@@ -284,16 +293,13 @@ Emulation the USB Keyboard
 
 Capture Full HD resolution with `Hardware Mode`
 
-Capture all resolutions with 100% screen quality using the patented
+Capture all resolutions with 100% screen quality using ELINKGATE patented
 `Booster Mode`
 
-|Connections
-|
-Direct Connect Through TCP/IP
+Emulation Virtual Media (file .iso, .raw, .hdd, .hdd2 can be mounted as a USB 2.0
+devices)
 
-Extension through USB 3G/4G
-
-Coming the Cloud Service to connect behind Firewall
+Emulation RS232 Port
 
 |Securities
 |
@@ -309,23 +315,6 @@ GUI Interface from eLinkViewer
 
 Control the External PDU through RS232
 
-|Virtual Media
-|Disk images (.iso, .raw, .hdd, .hdd2 can be mounted as a USB 2.0
-devices on
-
-|Server power design
-|No external power supply required on a remote computer for easy
-software installation and system updates
-
-|Multi-purpose USB port
-|Keyboard, Mouse and Storage functionalities are integrated in a
-single USB port.
-
-|Compact form factor |Making it easier to attach to existing servers
-
-|Batch setup
-|Multiple eLinkKVM devices can be scripted by the eLinkViewer software
-to get the same configuration.
 |===
 
 ==== eLinkViewer Software Specification
@@ -334,23 +323,20 @@ to get the same configuration.
 content captured by an eLinkKVM device as well as interact with a remote
 computer.
 
-*eLinkViewer* also provides functionalities to manage an eLinkKVM
-device.
-
 [cols="^.^3,<.^7"]
 |===
 |Feature |Description
 
 |General
 |
-Support multiple VNC Server and eLinkKVM
+Support multiple VNC Servers and eLinkKVM
 
-Remote protocol using VNC and extension commands for eLinkKVM
+Remote protocol using VNC and extension command sets for eLinkKVM
 
 Support video scaling and full screen
 
 |Automation
-|Support image recognization and Python scripting allow automation the
+|Support image recognition and Python scripting allow automation the
 activities
 
 |IPMI
@@ -361,7 +347,7 @@ activities
 
 |Bandwidth Optimization
 |Provide video quality settings to maximize remote performance for the
-available network bandwith
+available network bandwidth
 
 |Screen scaling
 |Viewer screen can be scaled to any resolution independent from remote
@@ -375,7 +361,8 @@ available network bandwith
 
 Front and rear views of an eLinkKVM device:
 
-image::../../Resource/eLinkKVM_FrontRearViews.jpg[eLinkKVM]
+.eLinkKVM Front View
+image::../../Resource/eLinkKVM_FrontRearViews.jpg[image]
 
 ==== Front view
 
@@ -387,7 +374,7 @@ image::../../Resource/eLinkKVM_FrontRearViews.jpg[eLinkKVM]
 |Ethernet ports (10/100Mbps)
 |
 Master: can be configured as a DHCP server, a DHCP client or a
-static IP 
+static IP
 
 Slave: can be configured as a DHCP Client or a static IP
 
@@ -421,7 +408,7 @@ and a server
 |2
 |Power
 |The secondary source is supplied by a micro USB cable. It is
-neccessary when the power from USB Type B port is insufficient, or
+necessary when the power from USB Type B port is insufficient, or
 keeping the connection to eLinkKVM alive when the server is power off.
 
 |3
@@ -431,7 +418,7 @@ the internet.
 
 |4
 |RS232
-|The serial communication port (COM port**. This port will be
+|The serial communication port **COM** port. This port will be
 connected to the server serial port.
 |===
 
@@ -449,10 +436,10 @@ is only available when using eLinkViewer.
 
 === Login to eLinkKVM
 ==== Establish connection
-When first open `eLinkViwer`, the following dialog is presented:
+When first open `eLinkViewer`, the following dialog is presented:
 
-.eLinkViewer quick connectd UI
-image::../../Resource/EV_login_ui.png[Elinkviewr Quick Connect]
+.eLinkViewer quick connected UI
+image::../../Resource/EV_login_ui.png[eLinkViewer Quick Connect]
 
 * `Connect`: To connect to eLinkKVM, fill the configured IP address in the
 textbox next to the *Server* field and click `Connect` to connect
@@ -478,48 +465,100 @@ endif::[]
 
 // image::../../Resource/elinkview_dummy_screen.webp[image]
 ==== Device authenticate
-After establishing a new connection to ELinkKVM, the device should require an authenticate process. Currently, support authenticate by plain user name/password likve bellow
+After establishing a new connection to ELinkKVM, the device should require an authenticate
+process. Currently, support authenticate by plain user name/password like bellow
 
 .ELinkKVM login UI
 image::../../Resource/EV_user_login.png[]
 
 ==== Disconnect from an eLinkKVM device
 
-* Click the button image:../../Resource/elinkviewer_exit_connection_icon.jpg[ExitButton]
+* Click the button
+
+.Exit Connection Button
+image::../../Resource/elinkviewer_exit_connection_icon.jpg[image]
+
 * The following dialog box shows the connection has been terminated:
 
 .Exit connection dialog
-image::../../Resource/elinkviewer_exit_connection_dialog.jpg[Exit nnection]
+image::../../Resource/elinkviewer_exit_connection_dialog.jpg[image]
 === Basic Remote Control
 
-Before a remote control session, eLinkViewer allows a user different
-methods to interact with eLinkKVM. The interaction methods include
-configurations for `Keyboard`, `Video` and `Mouse` are sent and
-received between a remote terminal and a remote host. A disk image can
-also be selected as a virtual media for a remote host to facilitate
-data transfer.
+As evolution from traditional KVM (**K**eyboard,**V**ideo and **M**ouse) device, the
+main functionality of eLinkKVM and the software eLinkViewer is to allow user
+emulate the keyboard, mouse and capture the video data of the targeted server.
+There are few options for user to select.
+
+_The keyboard emulation modes_:
+
+[cols="^.^1,^.^3,<.^6"]
+|===
+|ID |Keyboard Mode |Description
+
+|1 |*USB HID* | Emulate as physical USB Keyboard
+|2 |*VNC HID* | Emulate as software keyboard, this will require an agent software
+running on targeted server
+|===
+
+
+_The mouse emulation modes_:
+
+[cols="^.^1,^.^3,<.^6"]
+|===
+|ID |Mouse Mode |Description
+
+|1 |*USB HID* | Emulate as physical USB Mouse
+|2 |*USB ABS HID* | Emulate as physical absolute USB Mouse
+|3 |*VNC HID* | Emulate as software mouse, this will require an agent software
+running on targeted server
+|===
+
+
+_The video capture mode_:
+
+[cols="^.^1,^.^3,<.^6"]
+|===
+|ID |Video Capture Mode |Description
+
+|1 |*DUMMY* | A dummy video screen to show the internal status of eLinkKVM and
+configuration page
+|2 |*VGA* | The video data is captured from VGA port
+|3 |*BOOSTER* | The video data is captured from an agent software
+|===
+
+_The virtual media feature_: In addition, the user can also select an disk images
+(.iso,.hdd2...) to emulate a *Virtual Media* as it appear locally on targeted
+server. User can select up to 4 disk images.
 
 ==== ELink Configuration UI
 
-To configure a remote controll session, open `ELink Configuration` Dialog:
+To configure a remote control session, open `ELink Configuration` Dialog:
 
-1. Click `ELink Configuration`. +
-image:../../Resource/EV_click_config.png[width=150]
-2. ELink Configurationn show up: +
-image:../../Resource/EV_config_dialog.png[]
+1. Click `ELink Configuration`.
++
+.Elink Configuration Click
+image::../../Resource/EV_click_config.png[width=150]
+2. ELink Configuration Dialog show up:
++
+.Elink Configuration Dialog
+image::../../Resource/EV_config_dialog.png[]
 
 ==== Remote screen capture
 //TODO
 . Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
-. Select a video which want to switch to. For example: Select VGA video mode +
-image:../../Resource/EV_config_VGA_active.png[width=150]
+. Select a video which want to switch to. For example: Select VGA video mode
++
+.Select VGA Mode
+image::../../Resource/EV_config_VGA_active.png[width=150]
 . Click Ok to apply the new configuration. In the case, eLinkViewer displayed VGA output of server +
 
 ==== Emulate Mouse device:
 //TODO
 . Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
-. Enable a Mouse Mode and active the mode. For example: Enable Mouse ABS USB Mode and active the mode  +
-image:../../Resource/EV_config_mouse_absusb_active.png[width=150]
+. Enable a Mouse Mode and active the mode. For example: Enable Mouse ABS USB Mode and active the mode
++
+.Select Mouse Abs UI
+image::../../Resource/EV_config_mouse_absusb_active.png[width=150]
 . Click `OK` to apply the new `Mouse mode`
 
 ==== Emulate Key device:
@@ -527,21 +566,25 @@ image:../../Resource/EV_config_mouse_absusb_active.png[width=150]
 Key Mode::
 ** HID USB : use real keyboard (USB).
 ** HID VNC : use software keyboard (VNC protocol)
-** Serial: use software keyboard (serial protocol)
+
 Configure `Keyboard Mode`::
 . Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
-. Enable a Keyboard Mode and active the mode. For example: Enable `HID USB Mode` and active the mode  +
-image:../../Resource/EV_config_kv_hidusb_active.png[width=150]
+. Enable a Keyboard Mode and active the mode. For example: Enable `HID USB Mode` and active the mode
++
+.Select HID USB Keyboard
+image::../../Resource/EV_config_kv_hidusb_active.png[width=150]
 . Click `OK` to apply the new `Keyboard mode`
 
 ==== Emulate Virtual USB media :
-Configure to mount an iamge as a `virtual USB media`::
+Configure to mount an image as a `virtual USB media`::
 . Click `ELink Configuration` icon in toolbar for open `ELink Configuration` dialog
 . Click button `Browser` to browse file in ELink-KVM remotely.
-. Select an image file (format iso/hdd/hdd2) and click button `<<` to specific the image should be mount
+. Select an image file (format .iso/.hdd/.hdd2) and click button
+image:../../Resource/icons/media_select_button.png[20,20] to specific the image
+should be mounted
 . Click `OK` to apply the mount image
 
-.Emulate ELinkKVM as a virutal USB media
+.Emulate ELinkKVM as a virtual USB media
 image::../../Resource/EV_conf_virutal_usb.png[]
 
 === Advance Remote Control
@@ -561,10 +604,10 @@ the right is the directory tree of the eLinkKVM device.
 * Browse the local directory tree and select a file or directory to
 upload to an eLinkKVM device. Next, on the directory tree of the
 eLinkKVM device, select a path to store the file or directory.
-* Finally, click the button *`>>`* to transfer the selected
-file/directory. A confirm dialog appears. Click *`Yes`* to confirm or
+* Finally, click the button image:../../Resource/icons/upload_button.png[20,20]
+to transfer the selected file/directory. A confirm dialog appears. Click *`Yes`* to confirm or
 click *`No`* cancel the action. After confirming the transfer, the
-transfer starts and a progress bar that displays the transfering process
+transfer starts and a progress bar that displays the transferring process
 starts running.
 
 
@@ -572,7 +615,7 @@ starts running.
 
 ===== Device Status
 
-The default screen when successfully connected to an ElinkKVM device.
+The default screen when successfully connected to an eLinkKVM device.
 
 .Device status UI
 image::../../Resource/elinkviewer_dummy_screen_deviceinfo.png[Dummy screen]
@@ -733,7 +776,7 @@ To capture the current eLinkViewer screen or a part of it:
 * After the screen is paused, hold the `Ctrl` button. +
 * While holding the `Ctrl` button, drag the mouse to select a capture
 region. +
-* Elinkviewer stored the capture screen as file `tmp<count>.png` like this: +
+* eLinkViewer stored the capture screen as file `tmp<count>.png` like this: +
 image:../../Resource/elinkviewer_capture_tmpfile.png[width=80%] in folder run `elinkviewer.exe`
 
 .Capture screen
@@ -741,19 +784,11 @@ image::../../Resource/elinkviewer_capture_screen.png[]
 
 === Utility
 
-==== Event Log UI
-
-Event log displays events and performance metrics related to eLinkKVM.
-
-.Event Log UI
-image::../../Resource/EventLog.png[image]
-
-
 ==== eLinkKVM Toolbar
 
 Connection user interface:
 
-.eLinkViewer Toolbar 
+.eLinkViewer Toolbar
 image::../../Resource/elinkviewer_toolbar.jpg[eLinkKVMToolBar]
 
 .  Create a new connect to an eLinkKVM device
@@ -1072,7 +1107,7 @@ The command produces the following output:
 
 ----
 Initializing environment...Done.
-Start Analyzing image...Found a x86_64 Windows 2012 ISO. Done. 
+Start Analyzing image...Found a x86_64 Windows 2012 ISO. Done.
 Format HDD image to FAT32...Done formatting.
 Generate elinkme_dummy.dat...
 - Start sector: 18136, end sector: 19164.
@@ -1118,4 +1153,3 @@ To show the current setuptool version, run the following command:
 vfimg /version
 
 <<<
-
