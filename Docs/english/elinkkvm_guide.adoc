@@ -1,7 +1,7 @@
-== About eLinkGate
+== About ELINKGATE
 '''
-eLinkGate is a company whose aim is to help people learn
-about IT. eLinkGate has patented a technology called eLinkMe – a USB
+ELINKGATE is a company whose aim is to help people learn
+about IT. ELINKGATE has patented a technology called eLinkMe – a USB
 device that allows an IT expert to remotely access a computer, smart
 phone or tablet to fix any problem the user may have. Our eLinkMe
 technology has the following advantages
@@ -10,7 +10,7 @@ technology has the following advantages
 - *Smart*: Ability to work when there is no OS (works at BIOS level)
 - *Safe*: Protects user data and service provider data
 
-It is our belief that the eLinkMe technology, as well as our future
+It is our belief that the elinkMe technology, as well as our future
 technologies will enable users to easily request online
 service. Inexperienced users who lack sufficient knowledge about
 computers such as farmers, housewives and the elderly can also begin
@@ -70,21 +70,21 @@ solutions take advantage
 image:../../Resource/icons/green_shape.png[40,40]  Show the area where
 the software solutions take advantage
 ****
-eLinkKVM is one of such KVM-over-IP devices. However, unlike other
-KVM-over-IP solutions that are solely hardware solutions, eLinkKVM
+elinkKVM is one of such KVM-over-IP devices. However, unlike other
+KVM-over-IP solutions that are solely hardware solutions, elinkKVM
 takes on a unique hybrid approach that combines both hardware and
 software.  While being a hardware solution similar to other
-KVM-over-IP switches, but unlike other KVM-over-IP switches, eLinkKVM
+KVM-over-IP switches, but unlike other KVM-over-IP switches, elinkKVM
 takes a step further with its patented technology called
 `*Booster*`. `*Booster*` is a software solution that works together
-with eLinkKVM hardware to uplift processing performance by utilizing
+with elinkKVM hardware to uplift processing performance by utilizing
 computing resources of the remote hosts.  `*Booster*` is not limited
 to an operating system environment, but also in BIOS and UEFI
 environments.
 
 === Booster technology
 
-`*Booster*` is a patented technology that allows eLinkKVM to utilize
+`*Booster*` is a patented technology that allows elinkKVM to utilize
 computing resources from remote hosts to improve remote
 performance. To quickly summarize, `*Booster*` includes software agents
 that work on major OS platforms (Windows, Linux and Mac OS)
@@ -97,8 +97,8 @@ computing power on the remote hosts to accelerate screen data processing
 without affecting performance. This enables higher quality remote screen
 and more responsive interactions with the remotely remote hosts.
 
-`*Booster*` also helps reducing the loads on eLinkKVM devices, making
-eLinkKVM devices run cooler and extend the longevity of eLinkKVM
+`*Booster*` also helps reducing the loads on elinkKVM devices, making
+elinkKVM devices run cooler and extend the longevity of elinkKVM
 devices, while delivering higher performance.
 
 The following diagram shows the scope covered by Booster:
@@ -108,7 +108,7 @@ image::../../Resource/BoosterModeDiagramFlow.svg[image]
 
 === Features
 
-The eLinkKVM is designed to help the IT person remotely operate the
+The elinkKVM is designed to help the IT person remotely operate the
 Server in most responsive and efficient way. The device is not only
 allowing remotely access at Bios Level which is similar traditional KVM
 over IP but also adding more features:
@@ -126,7 +126,7 @@ resolution with just a USB connection for almost any situation. See the
 
 Featureful native client software::
 Client software is bundled with many unique features: scripting and
-image recognition, to automate manual operations. See the eLinkViewer
+image recognition, to automate manual operations. See the elinkViewer
 chapter for more information.
 
 Virtual Media support with 8GB Internal Flash or 64GB with SD Card::
@@ -146,13 +146,13 @@ For Serial Console, Remote Dial In or control external PDU.
 
 Built-in IPMI (Intelligent Platform Management Interface) utility::
 
-eLinkKVM understands IPMI and allows control the server that support
+elinkKVM understands IPMI and allows control the server that support
 IPMI interface. The user may power on/off/reset server without using an
 external PDU.
 
 Support USB Host Interface::
 
-The USB Host port allow eLinkKVM control the USB 3G/4G, external USB
+The USB Host port allow elinkKVM control the USB 3G/4G, external USB
 storage or USB security device to add more functionality.
 
 Flexible Two Ethernet Ports::
@@ -167,12 +167,12 @@ one USB cables
 
 Scalability::
 
-eLinkKVM can scale to control more than one computers by connecting the
-computers to eLinkSwitch.
+elinkKVM can scale to control more than one computers by connecting the
+computers to elinkSwitch.
 
 Compact form factor::
 
-Small footprint of eLinkKVM making it easy to attach to existing servers
+Small footprint of elinkKVM making it easy to attach to existing servers
 
 Low cost::
 
@@ -184,43 +184,44 @@ Firmware can be easily upgraded remotely with GUI or scripting for batch upgrade
 
 === eLinkKVM Physical Connections
 
-eLinkKVM can be flexibly setup to connect between a remote terminal and a
+elinkKVM can be flexibly setup to connect between a remote terminal and a
 remote host with many options.
 
 To connect a remote terminal over IP, the following methods can be used:
 
-* Connect eLinkKVM directly to a router. A remote terminal then can
-access eLinkKVM over the Internet.
+* Connect elinkKVM directly to a router. A remote terminal then can
+access elinkKVM over the Internet.
 
-* Connect eLinkKVM directly to a USB 3G/4G. A remote terminal then can
-access eLinkKVM over the Internet.
+* Connect elinkKVM directly to a USB 3G/4G. A remote terminal then can
+access elinkKVM over the Internet.
 
-* Direct connect eLinkKVM to the remote terminal. A remote terminal then
-can access eLinkKVM with a direct connection, Internet is not required.
+* Direct connect elinkKVM to the remote terminal. A remote terminal then
+can access elinkKVM with a direct connection, Internet is not required.
 
-After setting up, eLinkKVM is ready to be accessed by a remote terminal.
+After setting up, elinkKVM is ready to be accessed by a remote terminal.
 
-To connect a remote host to an already connected eLinkKVM device, the
+To connect a remote host to an already connected elinkKVM device, the
 following methods can be used:
 
-* Connect a VGA cable between the remote host and eLinkKVM to capture
+* Connect a VGA cable between the remote host and elinkKVM to capture
 the host screen.
 
 * Using a RS232 cable to capture its serial output.
 
-* Connect the remote host to the Slave port on eLinkKVM to manage
+* Connect the remote host to the Slave port on elinkKVM to manage
 through IPMI interface.
 
 After physical connections on both ends are done, a remote connection is
 up and running.
 
-.Complete system eLinkKVM connect to Router, connect to IPMI server, USB, RS232, external PDU, USB 3G, etc.
+.Complete system elinkKVM connect to Router, connect to IPMI server, USB, RS232,
+external PDU, USB 3G, etc.
 image::../../Resource/ElinkGate_full_connection.jpg[image]
 
-.ELinkKVM Lite A minimal connection just USB (to run Booster), eLinkKVM connect to Router, eLinkKVM connect to IPMI_
+.elinkKVM Lite A minimal connection just USB (to run Booster), elinkKVM connect to Router, elinkKVM connect to IPMI_
 image::../../Resource/Elinkkvm_lite.jpg[image]
 
-.Using feature network bridge to save network connection (network cable to eLinkKVM to Master Connector & from Slave Connector to Server), eLinkKVM connect USB to server
+.Using feature network bridge to save network connection (network cable to elinkKVM to Master Connector & from Slave Connector to Server), elinkKVM connect USB to server
 image::../../Resource/elinkkvm_bridge_network.jpg[image]
 
 .Separate network layer
@@ -229,7 +230,7 @@ image::../../Resource/elinkkvm_multiple_network_layer.jpg[image]
 .Extend function with USB device
 image::../../Resource/elinkkvm_multiple_usb_device.jpg[image]
 
-.ELinkKVM configure network through multiple network
+.elinkKVM configure network through multiple network
 image::../../Resource/elinkkvm_configure_router.jpg[image]
 
 === Technical Specifications

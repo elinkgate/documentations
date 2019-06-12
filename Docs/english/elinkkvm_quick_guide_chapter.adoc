@@ -22,6 +22,7 @@ items:
 * `1` Micro USB cable
 * `1` USB Power Adapter (5V - 2A)
 * `1` elinkKVM Quick Start Guide
+* `1` Server Rack Mount
 
 === Power On elinkKVM
 
@@ -46,8 +47,8 @@ image::../../Resource/eLinkKVM_back_led.png[Dummy Screen, width=600]
 |LED ID |Color |Description
 
 |1 |Green |The system is initialized successfully
-|2 |Green |The network slave port is ready
-|3 |Green |The network master port is ready
+|2 |Green |The network master port is ready
+|3 |Green |The network slave port is ready
 
 |===
 
